@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  .nav-overlay-container {
+    position: relative; /* Set position to relative to contain absolute positioned child */
+    width: 100%;
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    border: 0; /* Reset border */
+  }
+
+  /* Style for the second (top) div */
+  .nav-overlay-nav {
+    width: 100%;
+    position: absolute; /* Position div absolutely within the container */
+    z-index: 2;
+  }
+
+  /* Style for the first (bottom) div */
+  .nav-overlay-carousel {
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    /* background-color: pink; */
+  }
+
+  .item {
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }

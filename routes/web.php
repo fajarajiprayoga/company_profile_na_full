@@ -1,0 +1,25 @@
+<?php
+
+use App\Livewire\Home;
+use App\Livewire\Login;
+use App\Livewire\Otp;
+use App\Mail\OtpMail;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', Home::class)->name('home');
+
+Route::prefix('maj')->group(function() {
+    Route::get('/login', Login::class)->name('login');
+    Route::get('/{email}/otp', Otp::class)->name('otp');
+})->name('maj');
