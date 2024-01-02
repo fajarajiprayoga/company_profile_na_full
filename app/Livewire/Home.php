@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Product;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -21,8 +22,13 @@ class Home extends Component
             }
         }
 
+        $show_in_home_products = Product::where('show_in_home', 1)->get();
+        $show_in_home_product_count = Product::where('show_in_home', 1)->count();
+
         return view('livewire.home', [
-            'sliders' => $arr_sliders
+            'sliders' => $arr_sliders,
+            'show_in_home_products' => $show_in_home_products,
+            'show_in_home_product_count' => $show_in_home_product_count
         ]);
     }
 }

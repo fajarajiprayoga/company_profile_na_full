@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('exterior_images')->nullable();
             $table->string('driver_station_images')->nullable();
             $table->string('wallpaper')->nullable();
+            $table->boolean('show_in_home')->default(0);
         });
     }
 
@@ -27,7 +28,13 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            //
+            $table->dropColumn('lighting_images');
+            $table->dropColumn('couches_images');
+            $table->dropColumn('interior_images');
+            $table->dropColumn('exterior_images');
+            $table->dropColumn('driver_station_images');
+            $table->dropColumn('wallpaper');
+            $table->dropColumn('show_in_home');
         });
     }
 };

@@ -8,10 +8,12 @@ use App\Models\Product;
 use App\Models\Type;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -49,8 +51,9 @@ class ProductResource extends Resource
                         ->maxLength(50),
                     Forms\Components\TextInput::make('length')
                         ->maxLength(50),
-                    FileUpload::make('images')->label('Main Photo (16:9)')->required()->directory('product_images')->image()->columnSpan(2),
-                    FileUpload::make('wallpaper')->label('Wallpaper (16:9)')->required()->directory('wallpapers')->image()->columnSpan(2),
+                    Toggle::make('show_in_home')->inline(false),
+                    FileUpload::make('images')->label('Main Photo (16:9)')->directory('product_images')->image()->columnSpan(2),
+                    FileUpload::make('wallpaper')->label('Wallpaper (16:9)')->directory('wallpapers')->image()->columnSpan(2),
                     RichEditor::make('description')
                         ->toolbarButtons([
                             'attachFiles',
@@ -70,7 +73,7 @@ class ProductResource extends Resource
                 ])->columns(4),
 
                 Section::make('Detail Specification')->collapsible()->schema([
-                    FileUpload::make('lighting_image')->label('Lighting Photo (4:3)')->required()->directory('lighting_images')->image()->imageEditor()
+                    FileUpload::make('lighting_image')->label('Lighting Photo (4:3)')->directory('lighting_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
@@ -90,7 +93,7 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('lightings'),
-                    FileUpload::make('coaches_image')->label('Coaches Photo (4:3)')->required()->directory('coaches_images')->image()->imageEditor()
+                    FileUpload::make('coaches_image')->label('Coaches Photo (4:3)')->directory('coaches_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
@@ -110,7 +113,7 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('couchess'),
-                    FileUpload::make('interior_image')->label('Interior Photo (4:3)')->required()->directory('interior_images')->image()->imageEditor()
+                    FileUpload::make('interior_image')->label('Interior Photo (4:3)')->directory('interior_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
@@ -130,7 +133,7 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('interiors'),
-                    FileUpload::make('exterior_image')->label('Exterior Photo (4:3)')->required()->directory('exterior_images')->image()->imageEditor()
+                    FileUpload::make('exterior_image')->label('Exterior Photo (4:3)')->directory('exterior_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
@@ -150,7 +153,7 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('exteriors'),
-                    FileUpload::make('driver_station_image')->label('Driver Station Photo (4:3)')->required()->directory('driver_station_images')->image()->imageEditor()
+                    FileUpload::make('driver_station_image')->label('Driver Station Photo (4:3)')->directory('driver_station_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
@@ -175,10 +178,10 @@ class ProductResource extends Resource
                     Forms\Components\TextInput::make('video')
                         ->label('Video (Url Youtube)')
                         ->maxLength(255),
-                    FileUpload::make('gallery')->label('File Photo (4:3) (Multiple)')->directory('galleries')->image()->multiple()->imageEditor()
-                    ->imageEditorAspectRatios([
-                        '4:3',
-                    ]),
+                    // FileUpload::make('gallery')->label('File Photo (4:3) (Multiple)')->directory('galleries')->image()->multiple()->imageEditor()
+                    // ->imageEditorAspectRatios([
+                    //     '4:3',
+                    // ]),
                 ])->columns(2),
             ])->columns(3);
     }
@@ -187,10 +190,10 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('type.name')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('name')
                     ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('type.name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->sortable()

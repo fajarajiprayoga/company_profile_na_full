@@ -1,5 +1,11 @@
 <div class="nav-overlay-nav">
-    <nav class="bg-transparent border-gray-200 pt-5" style="border-bottom: 1px solid white">
+    <nav style="width: 100%; height: 30px;">
+        <div class="d-flex" style="position: absolute; margin-top: 10px; margin-right:10px; right: 0; font-size: 13px; color: white;">
+            <a href=""><i class="fa fa-download" aria-hidden="true"></i> Download Center</a>
+            <a style="margin-left: 8px;" href=""><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+        </div>
+    </nav>
+    <nav class="bg-transparent border-gray-200" style="border-bottom: 1px solid white">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://newarmada.co.id" class="flex items-center space-x-3 md:order-3">
                 <img src="{{asset('assets/logo/logona2.png')}}" class="h-8" alt="Flowbite Logo" />
@@ -15,9 +21,9 @@
                         </svg>
                         <span class="sr-only">Search icon</span>
                     </div>
-                    <input style="background-color: transparent;" type="text" id="search-navbar"
+                    <input style="background-color: transparent; font-size: 12px;" type="text" id="search-navbar"
                         class="block w-full p-2 ps-10 text-sm text-white border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500"
-                        placeholder="Cari...">
+                        placeholder="Cari produk">
                 </div>
                 <!-- Search saat dekstop -->
                 <!-- Hamburger menu saat mobile -->
@@ -45,11 +51,11 @@
                     </div>
                     <input style="background-color: transparent;" type="text" id="search-navbar"
                         class="block w-full p-2 ps-10 text-sm text-white border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500"
-                        placeholder="Cari...">
+                        placeholder="Cari produk">
                 </div>
                 <!-- Search saat mobile -->
                 <!-- nav Menu -->
-                <ul style="background-color: transparent;"
+                <ul id="ul-nav" style="font-size: 14px;"
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
                     <li>
                         <a href="#"

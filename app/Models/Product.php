@@ -32,9 +32,10 @@ class Product extends Model
         'exterior_images',
         'driver_station_images',
         'wallpaper',
+        'show_in_home'
     ];
     protected $casts = [
-        'attachments' => 'gallery',
+        // 'attachments' => 'gallery',
     ];
 
     public function type(): BelongsTo
