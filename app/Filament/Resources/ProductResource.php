@@ -178,10 +178,12 @@ class ProductResource extends Resource
                     Forms\Components\TextInput::make('video')
                         ->label('Video (Url Youtube)')
                         ->maxLength(255),
+                // Ini jangan di galleries
                     // FileUpload::make('gallery')->label('File Photo (4:3) (Multiple)')->directory('galleries')->image()->multiple()->imageEditor()
                     // ->imageEditorAspectRatios([
                     //     '4:3',
                     // ]),
+                // Ini jangan di galleries
                 ])->columns(2),
             ])->columns(3);
     }

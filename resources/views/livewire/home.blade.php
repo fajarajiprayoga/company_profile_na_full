@@ -34,11 +34,12 @@
             @foreach($show_in_home_products as $show_in_home_product)
             <div class="item" style="width: 100%; height: auto;">
                 <div class="product_carousel_wrapper">
-                    <img class="img-product-carousel" style="" src="{{asset('storage/'.$show_in_home_product['images'])}}" alt="https://newarmada.co.id"
+                    <img class="img-product-carousel" style=""
+                        src="{{asset('storage/'.$show_in_home_product['images'])}}" alt="https://newarmada.co.id"
                         srcset="">
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 text-white">
-                    <div style="font-size: 36px; font-weight: 600;">{{$show_in_home_product->name}}</div>
+                    <div style="font-size: 36px; font-weight: 600;" class="text-center">{{$show_in_home_product->name}}</div>
                     <div class="product_carousel_descriptions" style="font-size: 12px; font-weight: 400;">{!!
                         $show_in_home_product->description !!}</div>
                     <div class="common-button-wrap">
@@ -56,15 +57,23 @@
                         </a>
                     </div>
                 </div>
-                <div style="margin-top: 12px; width: 100%; height: 2px; background-color: white;"></div>
+                <div class="line-trough" style="margin-top: 12px; width: 100%; height: 2px; background-color: white;"></div>
             </div>
             @endforeach
         </div>
     </div>
     <div id="home-gallery-wrapper">
-        <div class="flex justify-between" style="margin-bottom: 1rem;">
+        <div class="lg:flex justify-between" style="margin-bottom: 1rem;">
             <div style="font-weight: 600; font-size: 22px;">Gallery</div>
             <div style="font-size: 22px;"><span>Follow IG : </span>@newarmada</div>
         </div>
+        <div id="gallery-carousel-wrapper" class="owl-carousel" style="width: 100%">
+                @foreach($galleries as $gallery)
+                    <div class="item" style="height: auto">
+                        <img src="{{asset('storage/'.$gallery['file'])}}" alt="https//:newarmada.co.id" style="width: 300px; height: 300px;">
+                    </div>
+                @endforeach
+            </div>
     </div>
+    <livewire:footer />
 </div>

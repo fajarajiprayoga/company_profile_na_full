@@ -85,6 +85,23 @@ use Illuminate\Support\Facades\Route;
                     }
                 }
             });
+            $('#gallery-carousel-wrapper').owlCarousel({
+                center: true,
+                margin: 0,
+                stagePadding: 20,
+                loop:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:4
+                    }
+                }
+            });
         })
     </script>
     </body>

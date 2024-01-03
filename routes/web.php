@@ -3,6 +3,7 @@
 use App\Livewire\Home;
 use App\Livewire\Login;
 use App\Livewire\Otp;
+use App\Livewire\Product;
 use App\Mail\OtpMail;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Home::class)->name('home');
+Route::get('/product', Product::class)->name('product');
 
 Route::prefix('maj')->group(function() {
     Route::get('/login', Login::class)->name('login');
