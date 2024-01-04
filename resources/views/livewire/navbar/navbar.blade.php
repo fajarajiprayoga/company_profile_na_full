@@ -1,11 +1,11 @@
-<div class="nav-overlay-nav">
-    <nav style="width: 100%; height: 30px;">
-        <div class="d-flex" style="position: absolute; margin-top: 10px; margin-right:10px; right: 0; font-size: 13px; color: white;">
+<div class="nav-overlay-nav" style="{{ $transparent == false ? 'position:relative;' : ''}}">
+    <nav style="width: 100%; height: 30px;" class="{{ $transparent == true ? 'bg-transparent' : 'bg-slate-100'}}">
+        <div class="d-flex" style="position: absolute; margin-top: 10px; margin-right:10px; right: 0; font-size: 13px; {{ $transparent == true ? 'color: white;' : 'color: black;'}}">
             <a href=""><i class="fa fa-download" aria-hidden="true"></i> Download Center</a>
             <a style="margin-left: 8px;" href=""><i class="fa fa-user" aria-hidden="true"></i> Login</a>
         </div>
     </nav>
-    <nav class="bg-transparent border-gray-200" style="border-bottom: 1px solid white">
+    <nav class="{{ $transparent == true ? 'bg-transparent' : ''}} border-gray-200" style="border-bottom: 1px solid white; {{ $transparent == false ? 'background-color: #031843' : ''}}">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://newarmada.co.id" class="flex items-center space-x-3 md:order-3">
                 <img src="{{asset('assets/logo/logona2.png')}}" class="h-8" alt="Flowbite Logo" />
@@ -28,7 +28,7 @@
                 <!-- Search saat dekstop -->
                 <!-- Hamburger menu saat mobile -->
                 <button data-collapse-toggle="navbar-search" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-200"
                     aria-controls="navbar-search" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -56,18 +56,18 @@
                 <!-- Search saat mobile -->
                 <!-- nav Menu -->
                 <ul id="ul-nav" style="font-size: 14px;"
-                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0">
                     <li>
-                        <a href="{{}}"
+                        <a href="{{route('home')}}"
                             class="block py-2 px-3 text-white bg-grey-700 rounded md:bg-transparent md:text-white md:p-0"
                             aria-current="page">Beranda</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{route('product')}}"
                             class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">Produk</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{route('contact')}}"
                             class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">Kontak</a>
                     </li>
                 </ul>

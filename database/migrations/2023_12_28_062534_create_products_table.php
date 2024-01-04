@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('type_id')->constrained()->onDelete('cascade');
             $table->string('name', 255);
-            $table->string('slug', 100);
+            $table->string('slug', 100)->unique();
             $table->longText('description')->nullable();
             $table->string('brand');
             $table->string('images')->nullable();

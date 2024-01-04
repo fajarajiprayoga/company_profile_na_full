@@ -1,11 +1,57 @@
 <div>
-    <x-navigation.navbar />
-    <div class="background-product" background="1" style="background-image: url('{{asset('assets/background/background-product.jpg')}}')">
+    <div class="nav-overlay-container">
+        <livewire:navbar.navbar :transparent="true"/>
+        @if(!empty($footer->background_product))
+            <div class="background-menu" background="1" style="background-image: url('{{asset('storage/'.$footer->background_product)}}')">
+                <div class="page-carousel-text text-center">
+                    Produk
+                </div>
+            </div>
+        @endif
+    </div>
+    <div class="tabs-wrapper">
+        <div class="tabs-header shadow-md text-center">
+            @foreach($types as $type)
+            <button class="{{ $type->id == $type_id ? 'tabs-item-active' : 'tabs-item text-gray-500' }}"
+                wire:click="type({{$type->id}})">{{$type->name}}</button>
+            @endforeach
         </div>
-    <div class="breadcrumb-menu" style="width: 200px; height: 45px; background-color: yellow;">
+        <div class="my-4 lg:my-14">
+            <div class="flex justify-center">
+                <span class="font-semibold text-lg">{{$type_name}}</span>
+            </div>
+            <div class="flex justify-center mt-12">
+                @if(count($products) != 0)
+                <span class="text-sm font-medium uppercase text-center" style="letter-spacing: 0.5rem;">Saksikan model
+                    terbaik kami</span>
+                @else
+                <span class="text-sm font-medium uppercase text-center" style="letter-spacing: 0.5rem;">Akan segera
+                    hadir</span>
+                @endif
+            </div>
+        </div>
+        <div class="px-4 lg:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-14">
+            @foreach($products as $product)
+            <a href="{{route('product-detail', $product->slug)}}" class="p-4 item-product-list">
+                <div class="flex w-full items-center justify-center mb-4">
+                    <img src="{{asset('storage/'.$product['images'])}}" alt="" srcset="" class=""
+                        style="height: 250px; width: 250px;">
+                </div>
+                <div class="px-7 mb-4">
+                    <span class="font-semibold text-base leading-5 mb-2 block"
+                        style="font-family: 'Poppins', sans-serif;">{{$product->name}}</span>
+                    <span class="block font-medium text-xs text-gray-400"
+                        style="font-family: 'Poppins', sans-serif;">{{$product->type->name}}</span>
+                </div>
+                <button type="button"
+                    class="common-link inline-block relative py-2 bg-transparent cursor-pointer px-7 mb-4">
+                    <span class="font-medium text-sm">Detail Model</span>
+                </button>
+            </a>
+            @endforeach
+        </div>
+    </div>
 
-    </div>
-    <div style="width: 100%; height: 400px; background-color: purple;">
-        
-    </div>
+    <livewire:gallery />
+    <livewire:footer.footer />
 </div>

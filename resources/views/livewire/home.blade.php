@@ -1,6 +1,6 @@
 <div>
     <div class="nav-overlay-container">
-        <x-navigation.navbar />
+        <livewire:navbar.navbar :transparent="true"/>
         <div class="nav-overlay-carousel owl-carousel" id="carousel">
             @foreach($sliders as $slider)
             @if($slider['ext'] == 'mp4')
@@ -35,7 +35,7 @@
             <div class="item" style="width: 100%; height: auto;">
                 <div class="product_carousel_wrapper">
                     <img class="img-product-carousel" style=""
-                        src="{{asset('storage/'.$show_in_home_product['images'])}}" alt="https://newarmada.co.id"
+                        src="{{asset('storage/'.$show_in_home_product['wallpaper'])}}" alt="https://newarmada.co.id"
                         srcset="">
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 text-white">
@@ -62,18 +62,6 @@
             @endforeach
         </div>
     </div>
-    <div id="home-gallery-wrapper">
-        <div class="lg:flex justify-between" style="margin-bottom: 1rem;">
-            <div style="font-weight: 600; font-size: 22px;">Gallery</div>
-            <div style="font-size: 22px;"><span>Follow IG : </span>@newarmada</div>
-        </div>
-        <div id="gallery-carousel-wrapper" class="owl-carousel" style="width: 100%">
-                @foreach($galleries as $gallery)
-                    <div class="item" style="height: auto">
-                        <img src="{{asset('storage/'.$gallery['file'])}}" alt="https//:newarmada.co.id" style="width: 300px; height: 300px;">
-                    </div>
-                @endforeach
-            </div>
-    </div>
-    <livewire:footer />
+    <livewire:gallery />
+    <livewire:footer.footer />
 </div>

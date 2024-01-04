@@ -19,5 +19,7 @@ class Footer extends Model
         'shopee_url',
         'tokopedia_url',
         'email',
+        'background_product',
+        'background_contact'
     ];
 }

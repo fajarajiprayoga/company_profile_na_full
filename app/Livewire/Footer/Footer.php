@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Footer;
 
 use Livewire\Component;
 
@@ -10,7 +10,7 @@ class Footer extends Component
     {
         $footer = \App\Models\Footer::get()->first();
 
-        return view('livewire.footer', [
+        return view('livewire.footer.footer', [
             'footer' => $footer
         ]);
     }

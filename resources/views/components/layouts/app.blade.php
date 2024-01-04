@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
         @vite('resources/css/app.css')
         @livewireStyles
+        @filamentStyles
 
         <!-- Sweet Alert -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -40,6 +41,8 @@ use Illuminate\Support\Facades\Route;
         {{ $slot }}
 
         @livewireScripts
+        @filamentScripts
+        @vite('resources/js/app.js')
         <!-- Flowbite Tailwind Plugins -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
         <!-- Jquery -->

@@ -52,7 +52,9 @@ class ProductResource extends Resource
                     Forms\Components\TextInput::make('length')
                         ->maxLength(50),
                     Toggle::make('show_in_home')->inline(false),
-                    FileUpload::make('images')->label('Main Photo (16:9)')->directory('product_images')->image()->columnSpan(2),
+                    FileUpload::make('images')->label('Main Photo (1:1)')->directory('product_images')->image()->imageEditor()->imageEditorAspectRatios([
+                        '1:1',
+                    ])->helperText('Image akan di tampilkan di list produk dengan ukuran 250px x 250px')->columnSpan(2),
                     FileUpload::make('wallpaper')->label('Wallpaper (16:9)')->directory('wallpapers')->image()->columnSpan(2),
                     RichEditor::make('description')
                         ->toolbarButtons([

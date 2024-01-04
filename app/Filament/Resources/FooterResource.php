@@ -6,6 +6,7 @@ use App\Filament\Resources\FooterResource\Pages;
 use App\Filament\Resources\FooterResource\RelationManagers;
 use App\Models\Footer;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
@@ -58,6 +59,14 @@ class FooterResource extends Resource
                 ])->columns(2),
                 Section::make('Contact')->schema([
                     TextInput::make('email'),
+                ])->columns(2),
+                Section::make('Background Page')->schema([
+                    FileUpload::make('background_product')->label('Background page product (16:9)')->directory('background_product')->image()->imageEditor()->imageEditorAspectRatios([
+                        '16:9',
+                    ])->helperText('Image akan di tampilkan di page produk dengan ukuran height 500px'),
+                    FileUpload::make('background_contact')->label('Background page contact (16:9)')->directory('background_contact')->image()->imageEditor()->imageEditorAspectRatios([
+                        '16:9',
+                    ])->helperText('Image akan di tampilkan di page produk dengan ukuran height 500px'),
                 ])->columns(2)
             ]);
     }
