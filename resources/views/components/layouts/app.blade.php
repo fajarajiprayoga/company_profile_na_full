@@ -105,6 +105,25 @@ use Illuminate\Support\Facades\Route;
                     }
                 }
             });
+            $('.gallery-product-wrapper').owlCarousel({
+                margin: 50,
+                stagePadding: 20,
+                loop:true,
+                mouseDrag:true,
+                autoplay:true,
+                autoplayTimeout: 10000,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:4
+                    }
+                }
+            });
         })
     </script>
     </body>

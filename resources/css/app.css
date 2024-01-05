@@ -1,4 +1,16 @@
 @tailwind base;
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+h4 {
+  @apply text-lg;
+}
 @tailwind components;
 @tailwind utilities;
 
@@ -85,8 +97,8 @@
     justify-content: center;
     margin: 0 auto;
     padding: 0 3rem;
-    width: 70%;
-    height: 70%;
+    width: auto;
+    height: auto;
   }
 
   .common-button-wrap {
@@ -172,6 +184,34 @@
   border-bottom: #005BA9 solid 2px;
   transition: all 0.1s ease;
 }
+.tabs-header-specification {
+  overflow: auto;
+  white-space: nowrap;
+  min-width: 100%;
+}
+
+.tabs-header-specification .tabs-item-specification{
+  padding: 1.5rem 1rem;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.tabs-header-specification .tabs-item-specification-active{
+  padding: 1.5rem 1rem;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: white solid 2px;
+}
+.tabs-header-specification .tabs-item-specification:hover{
+  padding: 1.5rem 1rem;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  border-bottom: white solid 2px;
+  transition: all 0.1s ease;
+}
 
 .item-product-list {
   background-color: #f1f1f1;
@@ -191,6 +231,15 @@
   font-weight: 700;
   color: #FFF;
   opacity: 0.4;
+}
+
+#detail-specification-wrapper {
+  background-color: rgb(54, 54, 56);
+}
+
+.text-manipulation p {
+  font-weight: 200;
+  color: rgb(209 213 219);
 }
 
   @media only screen and (max-width: 767px) {

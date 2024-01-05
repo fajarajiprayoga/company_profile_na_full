@@ -5,7 +5,7 @@
             @foreach($sliders as $slider)
             @if($slider['ext'] == 'mp4')
             <div class="item">
-                <video class="carousel-video" autoplay muted loop>
+                <video class="carousel-video" autoplay muted loop style="object-fit: cover;">
                     <source src="{{asset('storage/'.$slider['file_name'])}}" type="video/mp4">
                 </video>
                 @if(!empty($slider['title']))
@@ -33,17 +33,17 @@
         <div id="product-carousel" class="owl-carousel">
             @foreach($show_in_home_products as $show_in_home_product)
             <div class="item" style="width: 100%; height: auto;">
-                <div class="product_carousel_wrapper">
-                    <img class="img-product-carousel" style=""
-                        src="{{asset('storage/'.$show_in_home_product['wallpaper'])}}" alt="https://newarmada.co.id"
+                <div class="product_carousel_wrapper" style="width: 100%;">
+                    <img class="img-product-carousel" style="width: 80%;"
+                        src="{{asset('storage/'.$show_in_home_product['home_photo'])}}" alt="https://newarmada.co.id"
                         srcset="">
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 text-white">
-                    <div style="font-size: 36px; font-weight: 600;" class="text-center">{{$show_in_home_product->name}}</div>
-                    <div class="product_carousel_descriptions" style="font-size: 12px; font-weight: 400;">{!!
+                    <div style="" class="text-2xl lg:text-4xl font-semibold text-center">{{$show_in_home_product->name}}</div>
+                    <div class="product_carousel_descriptions" style="font-size: 14px; font-weight: 400;">{!!
                         $show_in_home_product->description !!}</div>
-                    <div class="common-button-wrap">
-                        <a href="" class="common-button">
+                    <div class="common-button-wrap text-xs lg:text-md">
+                        <a href="{{route('product-detail', $show_in_home_product->slug)}}" class="common-button">
                             <span>
                                 Detail
                             </span>
