@@ -18,6 +18,7 @@ class Login extends Component
 {
     use WireToast;
     public LoginForm $loginForm;
+    public $isLoading = false;
 
     public function login(Request $request)
     {
@@ -45,6 +46,11 @@ class Login extends Component
         }else {
             return redirect()->route('login')->with('failed', 'Login failed, pleas try again');
         }
+    }
+
+    public function handleClick()
+    {
+        $this->isLoading = true;
     }
 
     public function render()

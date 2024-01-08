@@ -7,6 +7,9 @@ use Livewire\Component;
 
 class Contact extends Component
 {
+    public function checkout(){
+        sleep(2);
+    }
     public function render()
     {
         $footer = Footer::first();

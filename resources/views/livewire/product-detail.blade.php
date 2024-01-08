@@ -21,7 +21,7 @@
                     {!! $product->description !!}
                 </div>
                 <button
-                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center text-xs mt-12">
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center text-xs mt-12" wire:click="catalog('{{$product->slug}}')">
                     <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
                     </svg>
@@ -61,14 +61,25 @@
 
     <div class="bg-zinc-700">
         <div class="tabs-header-specification text-white shadow-md shadow-white text-center">
-            <button class="tabs-item-specification-active" wire:click="">Interior</button>
-            <button class="tabs-item-specification" wire:click="">Exterior</button>
-            <button class="tabs-item-specification" wire:click="">Bangku</button>
-            <button class="tabs-item-specification" wire:click="">Lampu</button>
-            <button class="tabs-item-specification" wire:click="">Bangku Pengemudi</button>
+            @if($product->interior)
+            <button class="{{ $tabDetail == 'interior' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('interior')">Interior</button>
+            @endif
+            @if($product->exterior)
+            <button class="{{ $tabDetail == 'exterior' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('exterior')">Exterior</button>
+            @endif
+            @if($product->couches)
+            <button class="{{ $tabDetail == 'couches' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('couches')">Bangku</button>
+            @endif
+            @if($product->lighting)
+            <button class="{{ $tabDetail == 'lighting' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('lighting')">Lampu</button>
+            @endif
+            @if($product->driver_station)
+            <button class="{{ $tabDetail == 'driver_station' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('driver_station')">Bangku Pengemudi</button>
+            @endif
         </div>
         <div class="bg-zinc-800">
-            <div class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            @if($product->interior)
+            <div class="{{ $tabDetail == 'interior' ? '' : 'hidden' }} transition-opacity grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->interior !!}
@@ -78,7 +89,9 @@
                     <img src="{{asset('storage/'.$product->interior_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
                 </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            @endif
+            @if($product->exterior)
+            <div class="{{ $tabDetail == 'exterior' ? '' : 'hidden' }} grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->exterior !!}
@@ -88,7 +101,9 @@
                     <img src="{{asset('storage/'.$product->exterior_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
                 </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            @endif
+            @if($product->couches)
+            <div class="{{ $tabDetail == 'couches' ? '' : 'hidden' }} grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->couches !!}
@@ -98,7 +113,9 @@
                     <img src="{{asset('storage/'.$product->couches_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
                 </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            @endif
+            @if($product->lighting)
+            <div class="{{ $tabDetail == 'lighting' ? '' : 'hidden' }} grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->lighting !!}
@@ -108,7 +125,9 @@
                     <img src="{{asset('storage/'.$product->lighting_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
                 </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            @endif
+            @if($product->driver_station)
+            <div class="{{ $tabDetail == 'driver_station' ? '' : 'hidden' }} grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->driver_station !!}
@@ -118,6 +137,7 @@
                     <img src="{{asset('storage/'.$product->driver_station_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
                 </div>
             </div>
+            @endif
         </div>
     </div>
 
@@ -147,5 +167,7 @@
         </div>
     </div>
     @endif
+    <div>
+    </div>
     <livewire:footer.footer />
 </div>

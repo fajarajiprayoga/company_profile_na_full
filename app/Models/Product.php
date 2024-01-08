@@ -33,7 +33,8 @@ class Product extends Model
         'driver_station_images',
         'wallpaper',
         'show_in_home',
-        'home_photo'
+        'home_photo',
+        'catalog'
     ];
     protected $casts = [
         'gallery' => 'array',

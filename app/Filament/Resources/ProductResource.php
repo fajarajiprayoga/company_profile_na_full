@@ -59,6 +59,7 @@ class ProductResource extends Resource
                         '16:9',
                     ])->helperText('Image akan di tampilkan di halaman beranda dengan ukuran 1080px x 720px (Show in Home dalam keadaan aktif)')->columnSpan(2),
                     FileUpload::make('wallpaper')->label('Wallpaper (16:9)')->directory('wallpapers')->image()->helperText('Image akan di tampilkan ketika ke product detail, Ukuran akan height akan diubah ke 500px')->columnSpan(2),
+                    FileUpload::make('catalog')->label('Catalog (PDF)')->acceptedFileTypes(['application/pdf'])->directory('catalogs')->columnSpan(2),
                     RichEditor::make('description')
                         ->toolbarButtons([
                             'attachFiles',

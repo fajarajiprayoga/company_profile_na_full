@@ -9,6 +9,41 @@
             </div>
         @endif
     </div>
+    @if($searched != '')
+        <div class="tabs-wrapper">
+            <div class="my-4 lg:my-14">
+                <div class="flex justify-center mt-12">
+                    <span>Hasil pencarian : {{$keywoard}}</span>
+                </div>
+                @if(!empty($searched))
+                <div class="mt-5 px-4 lg:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-14">
+                    @foreach($searched as $data)
+                    <a href="{{route('product-detail', $data->slug)}}" class="p-4 item-product-list">
+                        <div class="flex w-full items-center justify-center mb-4">
+                            <img src="{{asset('storage/'.$data['images'])}}" alt="" srcset="" class=""
+                                style="height: 250px; width: 250px;">
+                        </div>
+                        <div class="px-7 mb-4">
+                            <span class="font-semibold text-base leading-5 mb-2 block"
+                                style="font-family: 'Poppins', sans-serif;">{{$data->name}}</span>
+                            <span class="block font-medium text-xs text-gray-400"
+                                style="font-family: 'Poppins', sans-serif;">{{$data->type->name}}</span>
+                        </div>
+                        <button type="button"
+                            class="common-link inline-block relative py-2 bg-transparent cursor-pointer px-7 mb-4">
+                            <span class="font-medium text-sm">Detail Model</span>
+                        </button>
+                    </a>
+                    @endforeach
+                </div>
+                @else
+                <div class="flex justify-center mt-5">
+                    <span>Produk yang anda cari tidak tersedia</span>
+                </div>
+                @endif
+            </div>
+        </div>
+    @endif
     <div class="tabs-wrapper">
         <div class="tabs-header shadow-md text-center">
             @foreach($types as $type)

@@ -242,6 +242,15 @@ h4 {
   color: rgb(209 213 219);
 }
 
+.global-search::placeholder {
+  color: white;
+}
+
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+
   @media only screen and (max-width: 767px) {
     .owl-next {
       display: none;

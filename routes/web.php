@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Contact;
+use App\Livewire\DownloadCenter;
 use App\Livewire\Home;
 use App\Livewire\Login;
 use App\Livewire\Otp;
@@ -24,8 +25,9 @@ Route::get('/', Home::class)->name('home');
 Route::get('/product', Product::class)->name('product');
 Route::get('/product/{slug}', ProductDetail::class)->name('product-detail');
 Route::get('/contact', Contact::class)->name('contact');
+Route::get('/download-center', DownloadCenter::class)->name('download-center');
 
 Route::prefix('maj')->group(function() {
     Route::get('/login', Login::class)->name('login');
     Route::get('/{email}/otp', Otp::class)->name('otp');
-})->name('maj');
+});

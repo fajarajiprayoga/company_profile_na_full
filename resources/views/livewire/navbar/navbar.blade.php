@@ -1,11 +1,15 @@
 <div class="nav-overlay-nav" style="{{ $transparent == false ? 'position:relative;' : ''}}">
     <nav style="width: 100%; height: 30px;" class="{{ $transparent == true ? 'bg-transparent' : 'bg-slate-100'}}">
-        <div class="d-flex" style="position: absolute; margin-top: 10px; margin-right:10px; right: 0; font-size: 13px; {{ $transparent == true ? 'color: white;' : 'color: black;'}}">
-            <a href=""><i class="fa fa-download" aria-hidden="true"></i> Download Center</a>
-            <a style="margin-left: 8px;" href=""><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+        <div class="d-flex"
+            style="position: absolute; margin-top: 10px; margin-right:10px; right: 0; font-size: 13px; {{ $transparent == true ? 'color: white;' : 'color: black;'}}">
+            <a href="{{route('download-center')}}"><i class="fa fa-download" aria-hidden="true"></i> Download Center</a>
+            @guest
+                <a style="margin-left: 8px;" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+            @endauth
         </div>
     </nav>
-    <nav class="{{ $transparent == true ? 'bg-transparent' : ''}} border-gray-200" style="border-bottom: 1px solid white; {{ $transparent == false ? 'background-color: #031843' : ''}}">
+    <nav class="{{ $transparent == true ? 'bg-transparent' : ''}} border-gray-200"
+        style="border-bottom: 1px solid white; {{ $transparent == false ? 'background-color: #031843' : ''}}">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://newarmada.co.id" class="flex items-center space-x-3 md:order-3">
                 <img src="{{asset('assets/logo/logona2.png')}}" class="h-8" alt="Flowbite Logo" />
@@ -14,16 +18,19 @@
                 <!-- Search saat dekstop -->
                 <div class="relative hidden md:block">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                         <span class="sr-only">Search icon</span>
                     </div>
-                    <input style="background-color: transparent; font-size: 12px;" type="text" id="search-navbar"
-                        class="block w-full p-2 ps-10 text-sm text-white border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500"
-                        placeholder="Cari produk">
+                    <form action="{{route('product')}}" method="get">
+                        @csrf
+                        <input style="background-color: transparent; font-size: 12px;" type="text" id="search-navbar"
+                        class="global-search block w-full p-2 ps-10 text-sm text-white border border-white rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500"
+                        placeholder="Cari produk" name="keywoard">
+                    </form>
                 </div>
                 <!-- Search saat dekstop -->
                 <!-- Hamburger menu saat mobile -->
@@ -43,15 +50,18 @@
                 <!-- Search saat mobile -->
                 <div class="relative mt-3 md:hidden">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                     </div>
-                    <input style="background-color: transparent;" type="text" id="search-navbar"
-                        class="block w-full p-2 ps-10 text-sm text-white border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500"
-                        placeholder="Cari produk">
+                    <form action="{{route('product')}}" method="get">
+                        @csrf
+                        <input style="background-color: transparent;" type="text" id="search-navbar"
+                            class="global-search block w-full p-2 ps-10 text-sm text-white border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500"
+                            placeholder="Cari produk" name="keywoard">
+                    </form>
                 </div>
                 <!-- Search saat mobile -->
                 <!-- nav Menu -->
