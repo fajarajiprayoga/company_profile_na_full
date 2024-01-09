@@ -5,6 +5,8 @@
             <a href="{{route('download-center')}}"><i class="fa fa-download" aria-hidden="true"></i> Download Center</a>
             @guest
                 <a style="margin-left: 8px;" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+            @else
+                <a style="margin-left: 8px;" href="{{route('filament.admin.pages.dashboard')}}"><i class="fa fa-lock" aria-hidden="true"></i> Dashboard</a>
             @endauth
         </div>
     </nav>

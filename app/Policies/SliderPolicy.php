@@ -13,7 +13,7 @@ class SliderPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-slider');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-slider');
     }
 
     /**
@@ -21,7 +21,7 @@ class SliderPolicy
      */
     public function view(User $user, Slider $slider): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-slider');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-slider');
     }
 
     /**
@@ -29,7 +29,7 @@ class SliderPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('create-slider');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('create-slider');
     }
 
     /**
@@ -37,7 +37,7 @@ class SliderPolicy
      */
     public function update(User $user, Slider $slider): bool
     {
-        return $user->hasRole('super-admin') && $user->can('update-slider');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('update-slider');
     }
 
     /**
@@ -45,7 +45,7 @@ class SliderPolicy
      */
     public function delete(User $user, Slider $slider): bool
     {
-        return $user->hasRole('super-admin') && $user->can('delete-slider');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('delete-slider');
     }
 
     /**

@@ -147,7 +147,7 @@
             <span class="text-sm font-medium uppercase text-center" style="letter-spacing: 0.5rem;">Gallery</span>
         </div>
         <div>
-            <div class="gallery-product-wrapper owl-carousel owl-theme" style="width: 100%">
+            <div id="gallery-product-wrapper-id" class="gallery-product-wrapper owl-carousel owl-theme cursor-pointer" style="width: 100%">
                 @foreach($product->gallery as $data)
                     <div class="item" style="width: 100%; height: 300px;">
                         <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="" style="object-fit: cover; height: 100%;">

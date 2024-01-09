@@ -8,6 +8,7 @@ use App\Livewire\Otp;
 use App\Livewire\Product;
 use App\Livewire\ProductDetail;
 use App\Mail\OtpMail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*

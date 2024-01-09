@@ -13,7 +13,7 @@ class TypePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-type');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-type');
     }
 
     /**
@@ -21,7 +21,7 @@ class TypePolicy
      */
     public function view(User $user, Type $type): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-type');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-type');
     }
 
     /**
@@ -29,7 +29,7 @@ class TypePolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('create-type');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('create-type');
     }
 
     /**
@@ -37,7 +37,7 @@ class TypePolicy
      */
     public function update(User $user, Type $type): bool
     {
-        return $user->hasRole('super-admin') && $user->can('update-type');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('update-type');
     }
 
     /**
@@ -45,7 +45,7 @@ class TypePolicy
      */
     public function delete(User $user, Type $type): bool
     {
-        return $user->hasRole('super-admin') && $user->can('delete-type');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('delete-type');
     }
 
     /**

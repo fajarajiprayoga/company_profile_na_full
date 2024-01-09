@@ -13,7 +13,7 @@ class ContactPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-contact');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-contact');
     }
 
     /**
@@ -21,7 +21,7 @@ class ContactPolicy
      */
     public function view(User $user, Contact $contact): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-contact');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-contact');
     }
 
     /**
@@ -29,7 +29,7 @@ class ContactPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('create-contact');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('create-contact');
     }
 
     /**
@@ -37,7 +37,7 @@ class ContactPolicy
      */
     public function update(User $user, Contact $contact): bool
     {
-        return $user->hasRole('super-admin') && $user->can('update-contact');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('update-contact');
     }
 
     /**
@@ -45,7 +45,7 @@ class ContactPolicy
      */
     public function delete(User $user, Contact $contact): bool
     {
-        return $user->hasRole('super-admin') && $user->can('delete-contact');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('delete-contact');
     }
 
     /**

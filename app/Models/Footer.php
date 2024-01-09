@@ -20,6 +20,7 @@ class Footer extends Model
         'tokopedia_url',
         'email',
         'background_product',
-        'background_contact'
+        'background_contact',
+        'background_download_center'
     ];
 }

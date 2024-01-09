@@ -1,7 +1,7 @@
 <div>
 <div class="nav-overlay-container">
         <livewire:navbar.navbar :transparent="true"/>
-        @if(!empty($footer->background_contact))
+        @if(!empty($footer->background_download_center))
             <div class="background-menu" background="1" style="background-image: url('{{asset('storage/'.$footer->background_contact)}}')">
                 <div class="page-carousel-text text-center">
                     Download Center

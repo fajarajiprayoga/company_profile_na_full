@@ -13,7 +13,7 @@ class GalleryPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-gallery');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-gallery');
     }
 
     /**
@@ -21,7 +21,7 @@ class GalleryPolicy
      */
     public function view(User $user, Gallery $gallery): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-gallery');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-gallery');
     }
 
     /**
@@ -29,7 +29,7 @@ class GalleryPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('create-gallery');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('create-gallery');
     }
 
     /**
@@ -37,7 +37,7 @@ class GalleryPolicy
      */
     public function update(User $user, Gallery $gallery): bool
     {
-        return $user->hasRole('super-admin') && $user->can('update-gallery');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('update-gallery');
     }
 
     /**
@@ -45,7 +45,7 @@ class GalleryPolicy
      */
     public function delete(User $user, Gallery $gallery): bool
     {
-        return $user->hasRole('super-admin') && $user->can('delete-gallery');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('delete-gallery');
     }
 
     /**

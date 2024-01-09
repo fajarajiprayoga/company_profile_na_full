@@ -15,7 +15,7 @@
                             <div class="flex justify-center items-center">
                                 <input type="password" wire:model="otpForm.otp" id="otp"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-primary-600 focus:border-primary-600 p-2.5 w-32"
-                                    placeholder="Verification Code" required="">
+                                    placeholder="Kote OTP" required="">
                                 <button type="submit" wire:click="handleClick" wire:loading.attr="disabled" 
                                     class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium text-sm px-5 py-2.5 text-center">
                                     <span><div wire:loading class="border-y-2 border-white border-solid rounded-full h-3 w-3 animate-spin mr-2"></div>Process</span>

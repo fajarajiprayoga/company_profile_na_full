@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Footer;
+use App\Models\Gallery;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -19,7 +20,8 @@ class DownloadCenter extends Component
     {
         return view('livewire.download-center', [
             'footer' => Footer::first(),
-            'catalogs' => Product::whereNotNull('catalog')->get()
+            'catalogs' => Product::whereNotNull('catalog')->get(),
+            'galleries' => Gallery::all()
         ]);
     }
 }

@@ -13,7 +13,7 @@ class ProductPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-product');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-product');
     }
 
     /**
@@ -21,7 +21,7 @@ class ProductPolicy
      */
     public function view(User $user, Product $product): bool
     {
-        return $user->hasRole('super-admin') && $user->can('view-product');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-product');
     }
 
     /**
@@ -29,7 +29,7 @@ class ProductPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole('super-admin') && $user->can('create-product');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('create-product');
     }
 
     /**
@@ -37,7 +37,7 @@ class ProductPolicy
      */
     public function update(User $user, Product $product): bool
     {
-        return $user->hasRole('super-admin') && $user->can('update-product');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('update-product');
     }
 
     /**
@@ -45,7 +45,7 @@ class ProductPolicy
      */
     public function delete(User $user, Product $product): bool
     {
-        return $user->hasRole('super-admin') && $user->can('delete-product');
+        return $user->hasRole(['super-admin', 'marketing']) && $user->can('delete-product');
     }
 
     /**

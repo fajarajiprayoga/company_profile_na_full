@@ -67,6 +67,9 @@ class FooterResource extends Resource
                     FileUpload::make('background_contact')->label('Background page contact (16:9)')->directory('background_contact')->image()->imageEditor()->imageEditorAspectRatios([
                         '16:9',
                     ])->helperText('Image akan di tampilkan di page produk dengan ukuran height 500px'),
+                    FileUpload::make('background_download_center')->label('Background page download center (16:9)')->directory('background_download_center')->image()->imageEditor()->imageEditorAspectRatios([
+                        '16:9',
+                    ])->helperText('Image akan di tampilkan di page produk dengan ukuran height 500px'),
                 ])->columns(2)
             ]);
     }
