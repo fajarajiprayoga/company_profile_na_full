@@ -25,19 +25,12 @@
                         @foreach($contacts as $contact)
                             <tr class="bg-white border-b">
                                 <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{$contact->name}}</th>
-                                <td class="px-6 py-4">{{$contact->telephone}}</td>
+                                <td class="px-6 py-4"><a target="_blank" href="{{'https://wa.me/62'.substr($contact->telephone, 1)}}">{{$contact->telephone}}</a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div>
-            <button wire:click="checkout">
-                <span wire:loading>Processing Payment...</span>
-                <span wire:loading.remove>Checkout</span>
-            </button>
-    
         </div>
     </div>
 

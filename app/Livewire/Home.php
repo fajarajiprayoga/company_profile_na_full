@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Footer;
 use App\Models\Gallery;
+use App\Models\Maps;
 use App\Models\Product;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Storage;
@@ -28,10 +29,13 @@ class Home extends Component
 
         $galleries = Gallery::where('show', 1)->get();
 
+        $maps = Maps::all();
+
         return view('livewire.home', [
             'sliders' => $arr_sliders,
             'show_in_home_products' => $show_in_home_products,
             'galleries' => $galleries,
+            'maps' => $maps
         ]);
     }
 }

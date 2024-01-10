@@ -63,5 +63,36 @@
         </div>
     </div>
     <livewire:gallery />
+    <div>
+        <div class="section-title mb-12" style="color: black;">
+            Plant
+        </div>
+        <div id="map" style="height: 500px"></div>
+    </div>
     <livewire:footer.footer />
+
+    @push('scripts')
+        <script>
+            var map = L.map('map').setView([-7.2682762396014455, 109.80371518530026], 7);
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            //Marker
+            var marker = []
+            @foreach($maps as $map)
+                // marker.push([{{$map->longitude}}, {{$map->latitude}}])
+                var arr_temp = [{{$map->longitude}}, {{$map->latitude}} , '{{$map->title}}', '{{$map->gmaps_url}}']
+                marker.push(arr_temp);
+            @endforeach
+                
+            marker.forEach(function(e) {
+                L.marker([e[0], e[1]]).addTo(map).bindPopup(
+                    "<div><strong>"+e[2]+"</strong></div>"+
+                    "<div style='text-align: center'><a target='_blank' href='"+e[3]+"'>Visit</a></div>"
+                    );
+            });
+        </script>
+    @endpush
 </div>

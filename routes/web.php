@@ -26,7 +26,7 @@ Route::get('/', Home::class)->name('home');
 Route::get('/product', Product::class)->name('product');
 Route::get('/product/{slug}', ProductDetail::class)->name('product-detail');
 Route::get('/contact', Contact::class)->name('contact');
-Route::get('/download-center', DownloadCenter::class)->name('download-center');
+// Route::get('/download-center', DownloadCenter::class)->name('download-center');
 
 Route::prefix('maj')->group(function() {
     Route::get('/login', Login::class)->name('login');

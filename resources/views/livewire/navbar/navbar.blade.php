@@ -2,7 +2,6 @@
     <nav style="width: 100%; height: 30px;" class="{{ $transparent == true ? 'bg-transparent' : 'bg-slate-100'}}">
         <div class="d-flex"
             style="position: absolute; margin-top: 10px; margin-right:10px; right: 0; font-size: 13px; {{ $transparent == true ? 'color: white;' : 'color: black;'}}">
-            <a href="{{route('download-center')}}"><i class="fa fa-download" aria-hidden="true"></i> Download Center</a>
             @guest
                 <a style="margin-left: 8px;" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
             @else
