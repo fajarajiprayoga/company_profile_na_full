@@ -27,7 +27,7 @@ return new class extends Migration
             $table->text('interior')->nullable();
             $table->text('exterior')->nullable();
             $table->text('driver_station')->nullable();
-            $table->string('gallery', 255)->nullable();
+            $table->longText('gallery')->nullable();
             $table->string('video', 255)->nullable();
             $table->timestamps();
         });

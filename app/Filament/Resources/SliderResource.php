@@ -62,11 +62,6 @@ class SliderResource extends Resource
                         Storage::disk('public')->delete($record->file_name);
                     }
                 }),
-                Action::make('download')
-                ->label('Download')
-                ->url(fn (Slider $record): string => route('home', $record))
-                ->icon('heroicon-s-arrow-down-tray')
-                ->color('secondary')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -82,9 +82,10 @@
             //Marker
             var marker = []
             @foreach($maps as $map)
-                // marker.push([{{$map->longitude}}, {{$map->latitude}}])
+
                 var arr_temp = [{{$map->longitude}}, {{$map->latitude}} , '{{$map->title}}', '{{$map->gmaps_url}}']
                 marker.push(arr_temp);
+
             @endforeach
                 
             marker.forEach(function(e) {

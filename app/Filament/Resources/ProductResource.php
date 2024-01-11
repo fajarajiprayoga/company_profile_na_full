@@ -40,6 +40,7 @@ class ProductResource extends Resource
                         ->required()
                         ->maxLength(255),
                     Forms\Components\TextInput::make('slug')
+                        ->helperText('Digunakan untuk ke url detail produk. Harus huruf kecil dan tidak boleh ada spasi. Contoh: skylander-r22')
                         ->required()
                         ->maxLength(100),
                     Forms\Components\TextInput::make('brand')
@@ -51,18 +52,17 @@ class ProductResource extends Resource
                         ->maxLength(50),
                     Forms\Components\TextInput::make('length')
                         ->maxLength(50),
-                    Toggle::make('show_in_home')->inline(false),
-                    FileUpload::make('images')->label('Main Photo (1:1)')->directory('product_images')->image()->imageEditor()->imageEditorAspectRatios([
+                    Toggle::make('show_in_home')->inline(false)->helperText('Jika ON maka produk akan tertampil di Home page'),
+                    FileUpload::make('images')->label('Main Photo (1:1)')->directory('product/product_images')->image()->imageEditor()->imageEditorAspectRatios([
                         '1:1',
                     ])->helperText('Image akan di tampilkan di list produk dengan ukuran 250px x 250px')->columnSpan(2),
-                    FileUpload::make('home_photo')->label('Home Photo (16:9)')->directory('home_photos')->image()->imageEditor()->imageEditorAspectRatios([
+                    FileUpload::make('home_photo')->label('Home Photo (16:9)')->directory('product/home_photos')->image()->imageEditor()->imageEditorAspectRatios([
                         '16:9',
                     ])->helperText('Image akan di tampilkan di halaman beranda dengan ukuran 1080px x 720px (Show in Home dalam keadaan aktif)')->columnSpan(2),
-                    FileUpload::make('wallpaper')->label('Wallpaper (16:9)')->directory('wallpapers')->image()->helperText('Image akan di tampilkan ketika ke product detail, Ukuran akan height akan diubah ke 500px')->columnSpan(2),
-                    FileUpload::make('catalog')->label('Catalog (PDF)')->acceptedFileTypes(['application/pdf'])->directory('catalogs')->columnSpan(2),
+                    FileUpload::make('wallpaper')->label('Wallpaper (16:9)')->directory('product/wallpapers')->image()->helperText('Image akan di tampilkan ketika ke product detail, Ukuran akan height akan diubah ke 500px')->columnSpan(2),
+                    FileUpload::make('catalog')->label('Catalog (PDF)')->acceptedFileTypes(['application/pdf'])->directory('product/catalogs')->columnSpan(2),
                     RichEditor::make('description')
                         ->toolbarButtons([
-                            'attachFiles',
                             'blockquote',
                             'bold',
                             'bulletList',
@@ -79,13 +79,12 @@ class ProductResource extends Resource
                 ])->columns(4),
 
                 Section::make('Detail Specification')->collapsible()->schema([
-                    FileUpload::make('lighting_images')->label('Lighting Photo (4:3)')->directory('lighting_images')->image()->imageEditor()
+                    FileUpload::make('lighting_images')->label('Lighting Photo (4:3)')->directory('product/lighting_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
                     RichEditor::make('lighting')
-                        ->toolbarButtons([
-                            'attachFiles',
+                        ->toolbarButtons([                            
                             'blockquote',
                             'bold',
                             'bulletList',
@@ -99,13 +98,12 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('lightings'),
-                    FileUpload::make('couches_images')->label('Coaches Photo (4:3)')->directory('coaches_images')->image()->imageEditor()
+                    FileUpload::make('couches_images')->label('Coaches Photo (4:3)')->directory('product/coaches_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
                     RichEditor::make('couches')
                         ->toolbarButtons([
-                            'attachFiles',
                             'blockquote',
                             'bold',
                             'bulletList',
@@ -119,13 +117,12 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('couchess'),
-                    FileUpload::make('interior_images')->label('Interior Photo (4:3)')->directory('interior_images')->image()->imageEditor()
+                    FileUpload::make('interior_images')->label('Interior Photo (4:3)')->directory('product/interior_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
                     RichEditor::make('interior')
                         ->toolbarButtons([
-                            'attachFiles',
                             'blockquote',
                             'bold',
                             'bulletList',
@@ -139,13 +136,12 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('interiors'),
-                    FileUpload::make('exterior_images')->label('Exterior Photo (4:3)')->directory('exterior_images')->image()->imageEditor()
+                    FileUpload::make('exterior_images')->label('Exterior Photo (4:3)')->directory('product/exterior_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
                     RichEditor::make('exterior')
                         ->toolbarButtons([
-                            'attachFiles',
                             'blockquote',
                             'bold',
                             'bulletList',
@@ -159,13 +155,12 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('exteriors'),
-                    FileUpload::make('driver_station_images')->label('Driver Station Photo (4:3)')->directory('driver_station_images')->image()->imageEditor()
+                    FileUpload::make('driver_station_images')->label('Driver Station Photo (4:3)')->directory('product/driver_station_images')->image()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
                     RichEditor::make('driver_station')
                         ->toolbarButtons([
-                            'attachFiles',
                             'blockquote',
                             'bold',
                             'bulletList',
@@ -181,9 +176,10 @@ class ProductResource extends Resource
                         ])->fileAttachmentsDirectory('driver_stations'),
                 ])->columns(2),
                 Section::make('Gallery and Video')->collapsible()->schema([
-                    FileUpload::make('gallery')->label('File Photo (Minimal 4 image)')->directory('galleries')->image()->multiple()->imageEditor(),
+                    FileUpload::make('gallery')->label('File Photo (Minimal 4 image)')->directory('product/product_detail_galleries')->image()->multiple()->imageEditor(),
                     Forms\Components\TextInput::make('video')
                         ->label('Video (Url Youtube)')
+                        ->helperText('Tidak perlu https://www.youtube.com/watch?v=. Hanya key nya saja. Contoh: l7UHBTUewKw?si=uqApPUA_LCV1-qhJ')
                         ->maxLength(255),
                 ])->columns(2),
             ])->columns(3);

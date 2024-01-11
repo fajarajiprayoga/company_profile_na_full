@@ -6,6 +6,9 @@ use App\Models\Footer;
 use App\Models\Gallery;
 use Livewire\Component;
 use App\Models\Type;
+use Illuminate\Support\Facades\Request;
+use App\Models\Visit;
+use Illuminate\Support\Carbon;
 
 class Product extends Component
 {
@@ -26,6 +29,14 @@ class Product extends Component
 
         if(!empty($this->keywoard)){
             $this->searched = \App\Models\Product::where('name', 'LIKE', '%'.$this->keywoard.'%')->orWhere('slug', 'LIKE', '%'.$this->keywoard.'%')->orWhere('description', 'LIKE', '%'.$this->keywoard.'%')->orWhere('height', 'LIKE', '%'.$this->keywoard.'%')->orWhere('width', 'LIKE', '%'.$this->keywoard.'%')->orWhere('length', 'LIKE', '%'.$this->keywoard.'%')->orWhere('lighting', 'LIKE', '%'.$this->keywoard.'%')->orWhere('couches', 'LIKE', '%'.$this->keywoard.'%')->orWhere('interior', 'LIKE', '%'.$this->keywoard.'%')->orWhere('exterior', 'LIKE', '%'.$this->keywoard.'%')->orWhere('driver_station', 'LIKE', '%'.$this->keywoard.'%')->get();
+        }
+
+        $ip = Request::getClientIp();
+        if(Visit::whereDate('created_at', Carbon::now()->toDateString())->where('ip', $ip)->where('url', 'product')->count() == Null){
+            $visit = new Visit;
+            $visit->url = 'product';
+            $visit->ip = $ip;
+            $visit->save();
         }
     }
 

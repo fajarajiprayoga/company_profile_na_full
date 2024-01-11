@@ -6,6 +6,9 @@ use App\Models\Footer;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Illuminate\Support\Facades\Request;
+use App\Models\Visit;
+use Illuminate\Support\Carbon;
 
 class ProductDetail extends Component
 {
@@ -16,6 +19,16 @@ class ProductDetail extends Component
         $this->product = $product;
 
         $this->tabDetail = 'interior';
+
+        $ip = Request::getClientIp();
+        
+        if(Visit::whereDate('created_at', Carbon::now()->toDateString())->where('ip', $ip)->where('url', 'product_detail')->where('params', $slug)->count() == Null){
+            $visit = new Visit;
+            $visit->url = 'product_detail';
+            $visit->params = $slug;
+            $visit->ip = $ip;
+            $visit->save();
+        }
     }
     public function tab($name){
         $this->tabDetail = $name;
