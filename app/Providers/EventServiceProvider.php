@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Footer;
 use App\Models\Gallery;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Observers\FooterObserver;
 use App\Observers\GalleryObserver;
 use App\Observers\ProductObserver;
 use App\Observers\SliderObserver;
@@ -34,6 +36,7 @@ class EventServiceProvider extends ServiceProvider
         Slider::observe(SliderObserver::class);
         Gallery::observe(GalleryObserver::class);
         Product::observe(ProductObserver::class);
+        Footer::observe(FooterObserver::class);
     }
 
     /**
