@@ -25,6 +25,41 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name' => 'super-admin']);
         $user->assignRole($role);
 
+        Permission::create(['name' => 'view-contact']);
+        Permission::create(['name' => 'create-contact']);
+        Permission::create(['name' => 'update-contact']);
+        Permission::create(['name' => 'delete-contact']);
+        
+        Permission::create(['name' => 'view-footer']);
+        Permission::create(['name' => 'create-footer']);
+        Permission::create(['name' => 'update-footer']);
+        Permission::create(['name' => 'delete-footer']);
+        
+        Permission::create(['name' => 'view-gallery']);
+        Permission::create(['name' => 'create-gallery']);
+        Permission::create(['name' => 'update-gallery']);
+        Permission::create(['name' => 'delete-gallery']);
+        
+        Permission::create(['name' => 'view-product']);
+        Permission::create(['name' => 'create-product']);
+        Permission::create(['name' => 'update-product']);
+        Permission::create(['name' => 'delete-product']);
+        
+        Permission::create(['name' => 'view-slider']);
+        Permission::create(['name' => 'create-slider']);
+        Permission::create(['name' => 'update-slider']);
+        Permission::create(['name' => 'delete-slider']);
+        
+        Permission::create(['name' => 'view-type']);
+        Permission::create(['name' => 'create-type']);
+        Permission::create(['name' => 'update-type']);
+        Permission::create(['name' => 'delete-type']);
+        
+        Permission::create(['name' => 'view-user']);
+        Permission::create(['name' => 'create-user']);
+        Permission::create(['name' => 'update-user']);
+        Permission::create(['name' => 'delete-user']);
+
         $footer = new Footer;
         $footer->name = "Global Setting";
         $footer->address = "Address";
