@@ -26,7 +26,7 @@ class Visit extends Page implements HasTable
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()->can('view-visits');
+        return auth()->user()->can('view-visit');
     }
 
     public function table(Table $table): Table
