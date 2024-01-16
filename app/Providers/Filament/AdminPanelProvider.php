@@ -52,12 +52,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ])
-            ->navigationItems([
-                NavigationItem::make('Analytics')
-                ->url('google.com')
-                ->icon('heroicon-o-presentation-chart-line')
-                ->group('Reports')
             ]);
     }
 }
