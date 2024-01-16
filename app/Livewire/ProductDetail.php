@@ -22,13 +22,13 @@ class ProductDetail extends Component
 
         $ip = Request::getClientIp();
         
-        if(Visit::whereDate('created_at', Carbon::now()->toDateString())->where('ip', $ip)->where('url', 'product_detail')->where('params', $slug)->count() == Null){
-            $visit = new Visit;
-            $visit->url = 'product_detail';
-            $visit->params = $slug;
-            $visit->ip = $ip;
-            $visit->save();
-        }
+        // if(Visit::whereDate('created_at', Carbon::now()->toDateString())->where('ip', $ip)->where('url', 'product_detail')->where('params', $slug)->count() == Null){
+        //     $visit = new Visit;
+        //     $visit->url = 'product_detail';
+        //     $visit->params = $slug;
+        //     $visit->ip = $ip;
+        //     $visit->save();
+        // }
     }
     public function tab($name){
         $this->tabDetail = $name;

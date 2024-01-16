@@ -32,12 +32,12 @@ class Product extends Component
         }
 
         $ip = Request::getClientIp();
-        if(Visit::whereDate('created_at', Carbon::now()->toDateString())->where('ip', $ip)->where('url', 'product')->count() == Null){
-            $visit = new Visit;
-            $visit->url = 'product';
-            $visit->ip = $ip;
-            $visit->save();
-        }
+        // if(Visit::whereDate('created_at', Carbon::now()->toDateString())->where('ip', $ip)->where('url', 'product')->count() == Null){
+        //     $visit = new Visit;
+        //     $visit->url = 'product';
+        //     $visit->ip = $ip;
+        //     $visit->save();
+        // }
     }
 
     public function type($id){
