@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name' => 'super-admin']);
         $user->assignRole($role);
 
+        Role::create(['name' => 'marketing']);
+
         Permission::create(['name' => 'view-contact']);
         Permission::create(['name' => 'create-contact']);
         Permission::create(['name' => 'update-contact']);
@@ -59,6 +61,16 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name' => 'create-user']);
         Permission::create(['name' => 'update-user']);
         Permission::create(['name' => 'delete-user']);
+        
+        Permission::create(['name' => 'view-maps']);
+        Permission::create(['name' => 'create-maps']);
+        Permission::create(['name' => 'update-maps']);
+        Permission::create(['name' => 'delete-maps']);
+        
+        Permission::create(['name' => 'view-visit']);
+        Permission::create(['name' => 'create-visit']);
+        Permission::create(['name' => 'update-visit']);
+        Permission::create(['name' => 'delete-visit']);
 
         $footer = new Footer;
         $footer->name = "Global Setting";
