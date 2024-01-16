@@ -24,6 +24,11 @@ class Visit extends Page implements HasTable
 
     protected static string $view = 'filament.pages.visit';
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()->can('view-visits');
+    }
+
     public function table(Table $table): Table
     {
         return $table
