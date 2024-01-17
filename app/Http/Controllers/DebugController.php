@@ -30,7 +30,7 @@ class DebugController extends Controller
         $mail->SMTPAutoTLS = false;
         $mail->Port = 465;
         $mail->Username = 'official1_admin@mekararmadajaya.com';
-        $mail->Password = 'adm@RM4D4';
+        $mail->Password = "adm@RM4D4";
 
         //Recipients
         $senderEmail = 'official1_admin@mekararmadajaya.com';
