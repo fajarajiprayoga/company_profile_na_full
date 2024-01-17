@@ -36,7 +36,7 @@ class DebugController extends Controller
         $mail->Password = "adm@RM4D4";
 
         //Recipients
-        $senderEmail = 'official1_admin@mekararmadajaya.com';
+        $senderEmail = 'official1_admin@newarmada.co.id';
         $senderName = 'Debug SMTP Mail';
         $mail->setFrom($senderEmail, $senderName);
         $mail->addAddress('fajar.prayoga@students.amikom.ac.id', 'Faja Aji Prayoga');
