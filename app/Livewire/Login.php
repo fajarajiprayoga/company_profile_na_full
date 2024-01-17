@@ -46,14 +46,8 @@ class Login extends Component
 
             // Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
 
-            $mail = new PHPMailer();
+            	$mail = new PHPMailer();
 				// $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-				// $mail->isSMTP();
-				// $mail->Host = 'sandbox.smtp.mailtrap.io';
-				// $mail->SMTPAuth = true;
-				// $mail->Port = 2525;
-				// $mail->Username = '897bc8d1cb3468';
-				// $mail->Password = '1cf6e3a2fd59b7';
 
 				$mail->IsSMTP();
 				$mail->SMTPOptions = array(
