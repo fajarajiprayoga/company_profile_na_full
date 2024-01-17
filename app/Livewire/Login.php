@@ -101,10 +101,10 @@ class Login extends Component
 					<span>Terimakasih.</span>
 				";
 				$mail->AltBody = 'OTP Company Profile New Armada = ' . $otp_code;
-                if(!$mail->send()){
-                    return redirect()->route('login')->with('failed', 'Login failed, pleas try again');        
+                if($mail->send()){
+					$this->redirectRoute('otp', ['email' => $this->loginForm->email]);
                 }else{
-                    $this->redirectRoute('otp', ['email' => $this->loginForm->email]);
+                    return redirect()->route('login')->with('failed', 'Login failed, pleas try again');        
                 }            
 			    // $this->redirectRoute('otp', ['email' => $this->loginForm->email]);
 
