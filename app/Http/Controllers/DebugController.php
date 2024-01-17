@@ -27,11 +27,11 @@ class DebugController extends Controller
                 'allow_self_signed' => true
             )
         );
-        $mail->Host = 'mail.newarmada.co.id';
+        $mail->Host = 'ssl://mail.newarmada.co.id';
         $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'tls';
-        $mail->SMTPAutoTLS = true;
-        $mail->Port = 587;
+        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPAutoTLS = false;
+        $mail->Port = 465;
         $mail->Username = 'official1_admin@newarmada.co.id';
         $mail->Password = "adm@RM4D4";
 
