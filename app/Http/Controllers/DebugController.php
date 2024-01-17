@@ -11,5 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class DebugController extends Controller
 {
-    
+    public function underconstruction(){
+        return view('under_construction');
+    }
 }

@@ -23,18 +23,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Home::class)->name('home');
-Route::get('/product', Product::class)->name('product');
-Route::get('/product/{slug}', ProductDetail::class)->name('product-detail');
-Route::get('/contact', Contact::class)->name('contact');
+Route::get('/', [DebugController::class, 'underconstruction']);
+Route::get('/construction', Home::class)->name('home');
+Route::get('/construction/product', Product::class)->name('product');
+Route::get('/construction/product/{slug}', ProductDetail::class)->name('product-detail');
+Route::get('/construction/contact', Contact::class)->name('contact');
 // Route::get('/download-center', DownloadCenter::class)->name('download-center');
 
 Route::prefix('maj')->group(function() {
     Route::get('/login', Login::class)->name('login');
     Route::get('/{email}/otp', Otp::class)->name('otp');
 });
-
-
-//Debug
-Route::get('/debug/tesmail', [DebugController::class, 'tesmail']);
-Route::get('/debug/tesmaillaravel', [DebugController::class, 'tesmaillaravel']);
