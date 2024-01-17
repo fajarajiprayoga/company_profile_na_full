@@ -29,7 +29,7 @@ class DebugController extends Controller
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAutoTLS = false;
-        $mail->Port = 587;
+        $mail->Port = 465;
         $mail->Username = 'official1_admin@newarmada.co.id';
         $mail->Password = "adm@RM4D4";
 
