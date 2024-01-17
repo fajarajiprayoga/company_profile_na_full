@@ -13,10 +13,10 @@ class DebugController extends Controller
     {
         require base_path("vendor/autoload.php");
 
-        $mail = new PHPMailer();
+        $mail = new PHPMailer(true);
+        $mail->IsSMTP();
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
-        $mail->IsSMTP();
         $mail->SMTPOptions = array(
             'ssl' => array(
                 'verify_peer' => false,
