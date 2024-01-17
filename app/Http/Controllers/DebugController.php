@@ -26,8 +26,7 @@ class DebugController extends Controller
             )
         );
         $mail->Host = 'ssl://mail.mekararmadajaya.com';
-        // $mail->SMTPAuth = true;
-        $mail->SMTPAuth = false;
+        $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAutoTLS = false;
         $mail->Port = 465;
