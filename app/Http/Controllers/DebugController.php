@@ -15,7 +15,8 @@ class DebugController extends Controller
 
         $mail = new PHPMailer();
         $mail->IsSMTP();
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->SMTPDebug = SMTP::DEBUG_CONNECTION;
 
         $mail->SMTPOptions = array(
             'ssl' => array(
