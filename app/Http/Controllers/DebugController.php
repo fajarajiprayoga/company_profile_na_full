@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
+use App\Mail\OtpMail;
+use Illuminate\Support\Facades\Mail;
 
 class DebugController extends Controller
 {
@@ -49,5 +51,9 @@ class DebugController extends Controller
             $msg = 'Mailer Error: ' . $mail->ErrorInfo;
             echo $msg;
         }   
+    }
+
+    public function tesmaillaravel(){
+        Mail::to('fajar.prayoga@students.amikom.ac.id')->send(new OtpMail('1234', 'Fajar Aji Prayoga'));
     }
 }
