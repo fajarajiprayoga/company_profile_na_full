@@ -104,7 +104,9 @@ class Login extends Component
                 if($mail->send()){
 					$this->redirectRoute('otp', ['email' => $this->loginForm->email]);
                 }else{
-                    return redirect()->route('login')->with('failed', 'Login failed, pleas try again');        
+					$msg = 'Mailer Error: ' . $mail->ErrorInfo;
+                    // return redirect()->route('login')->with('failed', 'Login failed, pleas try again');        
+                    return redirect()->route('login')->with('failed', $msg);        
                 }            
 			    // $this->redirectRoute('otp', ['email' => $this->loginForm->email]);
 
