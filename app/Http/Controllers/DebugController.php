@@ -13,7 +13,7 @@ class DebugController extends Controller
     {
         require base_path("vendor/autoload.php");
 
-        $mail = new PHPMailer(true);
+        $mail = new PHPMailer();
         $mail->IsSMTP();
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
