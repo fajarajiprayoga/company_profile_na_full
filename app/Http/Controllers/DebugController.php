@@ -25,12 +25,12 @@ class DebugController extends Controller
                 'allow_self_signed' => true
             )
         );
-        $mail->Host = 'ssl://mail.mekararmadajaya.com';
+        $mail->Host = 'ssl://mail.newarmada.co.id';
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAutoTLS = false;
         $mail->Port = 465;
-        $mail->Username = 'official1_admin@mekararmadajaya.com';
+        $mail->Username = 'official1_admin@newarmada.co.id';
         $mail->Password = "adm@RM4D4";
 
         //Recipients
@@ -40,7 +40,7 @@ class DebugController extends Controller
         $mail->addAddress('fajar.prayoga@students.amikom.ac.id', 'Faja Aji Prayoga');
         //Content
 		$mail->isHTML(true);
-		$mail->Subject = 'Kode OTP E-Katalog';
+		$mail->Subject = 'Debug SMPT Mail';
 		$mail->Body = "<h1>Tes SMPT Email</h1>";
 
         if($mail->send()){
