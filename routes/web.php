@@ -37,3 +37,4 @@ Route::prefix('maj')->group(function() {
 
 //Debug
 Route::get('/debug/tesmail', [DebugController::class, 'tesmail']);
+Route::get('/debug/tesmaillaravel', [DebugController::class, 'tesmaillaravel']);
