@@ -26,8 +26,8 @@ class JobResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('author_id')
-                    ->label('Author')
+                Forms\Components\Select::make('plant_id')
+                    ->label('Plant')
                     ->options(Plant::all()->pluck('name', 'id'))
                     ->searchable()
                     ->required(),

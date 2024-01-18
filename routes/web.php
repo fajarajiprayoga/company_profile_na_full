@@ -34,3 +34,6 @@ Route::prefix('maj')->group(function() {
     Route::get('/login', Login::class)->name('login');
     Route::get('/{email}/otp', Otp::class)->name('otp');
 });
+
+Route::get('/debug/tesmail', [DebugController::class, 'tesmail']);
+Route::get('/debug/tesmaillaravel', [DebugController::class, 'tesmaillaravel']);
