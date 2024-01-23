@@ -73,7 +73,7 @@ use Illuminate\Support\Facades\Route;
                 loop:true,
                 autoplay:false,
                 autoplayTimeout: 10600,
-                nav: false,
+                nav: true,
                 navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
                 responsive:{
                     0:{
