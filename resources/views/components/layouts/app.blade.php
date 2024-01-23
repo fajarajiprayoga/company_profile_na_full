@@ -72,7 +72,7 @@ use Illuminate\Support\Facades\Route;
             $('#carousel').owlCarousel({
                 loop:true,
                 autoplay:true,
-                autoplayTimeout: 10500,
+                autoplayTimeout: 10550,
                 nav: false,
                 navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
                 responsive:{
