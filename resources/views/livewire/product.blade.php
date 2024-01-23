@@ -52,17 +52,19 @@
             @endforeach
         </div>
         <div class="my-4 lg:my-14">
-            <div class="flex justify-center">
-                <span class="font-semibold text-lg">{{$type_name}}</span>
-            </div>
-            <div class="flex justify-center mt-12">
-                @if(count($products) != 0)
-                <span class="text-sm font-medium uppercase text-center" style="letter-spacing: 0.5rem;">Saksikan model
-                    terbaik kami</span>
-                @else
-                <span class="text-sm font-medium uppercase text-center" style="letter-spacing: 0.5rem;">Akan segera
-                    hadir</span>
-                @endif
+            <div class="flex justify-center text-center">
+                <div>
+                    <span class="font-semibold text-lg">{{$type_name}}</span>
+                    <div class="mt-12 mx-auto">
+                        @if(count($products) != 0)
+                        <span class="text-sm font-medium uppercase" style="letter-spacing: 0.5rem; margin-left: 0.5rem;">Saksikan model
+                            terbaik kami</span>
+                        @else
+                        <span class="text-sm font-medium uppercase" style="letter-spacing: 0.5rem; margin-left: 0.5rem;">Akan segera
+                            hadir</span>
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
         <div class="px-4 lg:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-14">
