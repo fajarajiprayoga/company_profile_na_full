@@ -65,10 +65,14 @@ use Illuminate\Support\Facades\Route;
 
         <script>
         $(document).ready(function(){
+
+            $('ul').addClass('list-inside');
+            $('ol').addClass('list-inside');
+
             $('#carousel').owlCarousel({
                 loop:true,
                 autoplay:true,
-                autoplayTimeout: 10000,
+                autoplayTimeout: 11000,
                 nav: false,
                 navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
                 responsive:{
