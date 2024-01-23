@@ -6,8 +6,8 @@
         </div>
         <div id="gallery-carousel-wrapper" class="owl-carousel cursor-pointer" style="width: 100%">
                 @foreach($galleries as $gallery)
-                    <div class="item" style="height: auto">
-                        <img src="{{asset('storage/'.$gallery['file'])}}" alt="https//:newarmada.co.id" style="width: 300px; height: 300px;">
+                    <div class="item" style="width: 100%; height: 240px;">
+                        <img src="{{asset('storage/'.$gallery['file'])}}" alt="https//:newarmada.co.id" style="object-fit: cover; height: 100%;">
                     </div>
                 @endforeach
             </div>
