@@ -4,9 +4,6 @@
         @if(!empty($product->wallpaper))
         <div class="background-menu" background="1"
             style="background-image: url('{{asset('storage/'.$product->wallpaper)}}')">
-            <div class="page-carousel-text text-center">
-                {{$product->name}}
-            </div>
         </div>
         @endif
     </div>
