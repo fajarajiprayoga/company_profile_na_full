@@ -34,12 +34,14 @@
             @foreach($show_in_home_products as $show_in_home_product)
             <div class="item" style="width: 100%; height: auto;">
                 <div class="product_carousel_wrapper" style="width: 100%;">
-                    <img class="img-product-carousel" style="width: 80%;"
+                    <img class="img-product-carousel my-5 lg:my-12" style="width: 80%;"
                         src="{{asset('storage/'.$show_in_home_product['home_photo'])}}" alt="https://newarmada.co.id"
                         srcset="">
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 text-white">
-                    <div style="" class="text-2xl lg:text-4xl font-semibold text-center">{{$show_in_home_product->name}}</div>
+                    <div style="" class="text-2xl lg:text-3xl font-semibold text-center common-button-wrap">
+                        {{$show_in_home_product->name}}
+                    </div>
                     <div class="product_carousel_descriptions" style="font-size: 14px; font-weight: 400;">{!!
                         $show_in_home_product->description !!}</div>
                     <div class="common-button-wrap text-xs lg:text-md">
