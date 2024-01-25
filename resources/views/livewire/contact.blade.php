@@ -3,9 +3,7 @@
         <livewire:navbar.navbar :transparent="true"/>
         @if(!empty($footer->background_contact))
             <div class="background-menu" background="1" style="background-image: url('{{asset('storage/'.$footer->background_contact)}}')">
-                <div class="page-carousel-text text-center">
-                    Kontak
-                </div>
+
             </div>
         @endif
     </div>
@@ -19,7 +17,7 @@
             </div>
         </div>
         <div class="flex justify-center item-center">
-            <div class="relative overflow-x-auto">
+            <div class="relative overflow-x-auto w-full lg:w-1/2 mx-3">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <tbody>
                         @foreach($contacts as $contact)

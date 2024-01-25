@@ -3,9 +3,6 @@
         <livewire:navbar.navbar :transparent="true"/>
         @if(!empty($footer->background_product))
             <div class="background-menu" background="1" style="background-image: url('{{asset('storage/'.$footer->background_product)}}')">
-                <div class="page-carousel-text text-center">
-                    Produk
-                </div>
             </div>
         @endif
     </div>
