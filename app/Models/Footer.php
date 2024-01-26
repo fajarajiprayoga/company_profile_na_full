@@ -21,6 +21,7 @@ class Footer extends Model
         'email',
         'background_product',
         'background_contact',
-        'background_download_center'
+        'background_download_center',
+        'background_career'
     ];
 }

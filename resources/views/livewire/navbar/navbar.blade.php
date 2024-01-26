@@ -12,8 +12,8 @@
     <nav class="{{ $transparent == true ? 'bg-transparent' : ''}} border-gray-200"
         style="border-bottom: 1px solid white; {{ $transparent == false ? 'background-color: #031843' : ''}}">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://newarmada.co.id" class="flex items-center space-x-3 md:order-3">
-                <img src="{{asset('assets/logo/logona2.png')}}" class="h-8" alt="Flowbite Logo" />
+            <a href="https://newarmada.co.id" class="flex items-center space-x-3 md:order-3 lg:pr-36">
+                <img src="{{asset('assets/logo/logona2.png')}}" class="h-8" alt="New Armada Logo" />
             </a>
             <div class="flex md:order-last">
                 <!-- Search saat dekstop -->
@@ -67,19 +67,39 @@
                 <!-- Search saat mobile -->
                 <!-- nav Menu -->
                 <ul id="ul-nav" style="font-size: 14px;"
-                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0">
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0 list-none">
                     <li>
                         <a href="{{route('home')}}"
                             class="block py-2 px-3 text-white bg-grey-700 rounded md:bg-transparent md:text-white md:p-0"
-                            aria-current="page">Beranda</a>
+                            aria-current="page" style="text-shadow: #6b6969 1px 0 10px;">Home</a>
                     </li>
                     <li>
                         <a href="{{route('product')}}"
-                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">Produk</a>
+                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="text-shadow: #6b6969 1px 0 10px;">Product</a>
+                    </li>
+                    <li>
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white block px-3 py-2 md:p-0" type="button" style="text-shadow: #6b6969 1px 0 10px;">About
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                            <ul class="py-2 text-sm text-gray-700 list-none" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">News & Stories</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Why New Armada?</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="{{route('career')}}"
+                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="text-shadow: #6b6969 1px 0 10px;">Career</a>
                     </li>
                     <li>
                         <a href="{{route('contact')}}"
-                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">Kontak</a>
+                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="text-shadow: #6b6969 1px 0 10px;">Contact</a>
                     </li>
                 </ul>
                 <!-- nav Menu -->

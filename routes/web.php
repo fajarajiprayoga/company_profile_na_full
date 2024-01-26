@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DebugController;
+use App\Livewire\CareerDetail;
 use App\Livewire\Contact;
 use App\Livewire\DownloadCenter;
 use App\Livewire\Home;
@@ -8,6 +9,7 @@ use App\Livewire\Login;
 use App\Livewire\Otp;
 use App\Livewire\Product;
 use App\Livewire\ProductDetail;
+use App\Livewire\Career;
 use App\Mail\OtpMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +30,8 @@ Route::get('/construction', Home::class)->name('home');
 Route::get('/construction/product', Product::class)->name('product');
 Route::get('/construction/product/{slug}', ProductDetail::class)->name('product-detail');
 Route::get('/construction/contact', Contact::class)->name('contact');
+Route::get('/construction/career', Career::class)->name('career');
+Route::get('/construction/career/{id}', CareerDetail::class)->name('career_detail');
 // Route::get('/download-center', DownloadCenter::class)->name('download-center');
 
 Route::prefix('maj')->group(function() {

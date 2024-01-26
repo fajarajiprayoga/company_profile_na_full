@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Job extends Model
 {
@@ -13,9 +14,15 @@ class Job extends Model
         'title',
         'description',
         'qualification',
+        'other_info',
         'type',
         'plant_id',
         'available',
         'link'
     ];
+
+    public function plant(): BelongsTo
+    {
+        return $this->belongsTo(Plant::class);
+    }
 }

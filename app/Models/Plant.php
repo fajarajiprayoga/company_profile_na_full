@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Plant extends Model
 {
@@ -12,4 +13,9 @@ class Plant extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function job(): HasMany
+    {
+        return $this->hasMany(Job::class);
+    }
 }

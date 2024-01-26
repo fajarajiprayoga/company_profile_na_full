@@ -66,6 +66,22 @@ class JobResource extends Resource
                     ])
                     ->required()
                     ->columnSpanFull(),
+                Forms\Components\RichEditor::make('other_info')
+                    ->toolbarButtons([
+                        'bold',
+                        'bulletList',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ])
+                    ->required()
+                    ->columnSpanFull(),
                     Forms\Components\Select::make('type')
                     ->options([
                         'fulltime' => 'Fulltime',
@@ -85,8 +101,7 @@ class JobResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('plant_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('plant.name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
