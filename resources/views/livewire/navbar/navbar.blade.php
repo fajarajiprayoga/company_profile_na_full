@@ -1,5 +1,5 @@
 <div class="nav-overlay-nav" style="{{ $transparent == false ? 'position:relative;' : ''}}">
-    <nav style="width: 100%; height: 30px;" class="{{ $transparent == true ? 'bg-transparent' : 'bg-slate-100'}}">
+    <nav style="width: 100%; height: 30px; background-color: rgba(0, 0, 0, 0.15);" class="{{ $transparent == true ? 'bg-transparent' : 'bg-slate-100'}}">
         <div class="d-flex"
             style="position: absolute; margin-top: 10px; margin-right:10px; right: 0; font-size: 13px; {{ $transparent == true ? 'color: white;' : 'color: black;'}}">
             @guest
@@ -10,7 +10,7 @@
         </div>
     </nav>
     <nav class="{{ $transparent == true ? 'bg-transparent' : ''}} border-gray-200"
-        style="border-bottom: 1px solid white; {{ $transparent == false ? 'background-color: #031843' : ''}}">
+        style="border-bottom: 1px solid white; {{ $transparent == false ? 'background-color: #031843' : 'background-color: rgba(0, 0, 0, 0.15)'}}">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://newarmada.co.id" class="flex items-center space-x-3 md:order-3 lg:pr-36">
                 <img src="{{asset('assets/logo/logona2.png')}}" class="h-8" alt="New Armada Logo" />
@@ -71,14 +71,14 @@
                     <li>
                         <a href="{{route('home')}}"
                             class="block py-2 px-3 text-white bg-grey-700 rounded md:bg-transparent md:text-white md:p-0"
-                            aria-current="page" style="text-shadow: #6b6969 1px 0 10px;">Home</a>
+                            aria-current="page" style="">Home</a>
                     </li>
                     <li>
                         <a href="{{route('product')}}"
-                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="text-shadow: #6b6969 1px 0 10px;">Product</a>
+                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="">Product</a>
                     </li>
                     <li>
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white block px-3 py-2 md:p-0" type="button" style="text-shadow: #6b6969 1px 0 10px;">About
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white block px-3 py-2 md:p-0" type="button" style="">About
                         </button>
 
                         <!-- Dropdown menu -->
@@ -94,12 +94,24 @@
                         </div>
                     </li>
                     <li>
-                        <a href="{{route('career')}}"
-                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="text-shadow: #6b6969 1px 0 10px;">Career</a>
+                        <button id="dropdownCareer" data-dropdown-toggle="dropdown-career" class="text-white block px-3 py-2 md:p-0" type="button" style="">Career
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdown-career" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28">
+                            <ul class="py-2 text-sm text-gray-700 list-none" aria-labelledby="dropdownCareer">
+                                <li>
+                                    <a href="{{route('career')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Job Portal</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Internship</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <a href="{{route('contact')}}"
-                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="text-shadow: #6b6969 1px 0 10px;">Contact</a>
+                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="">Contact</a>
                     </li>
                 </ul>
                 <!-- nav Menu -->

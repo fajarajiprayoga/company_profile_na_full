@@ -41,28 +41,38 @@ class ProductObserver
             }
         }
         if ($product->isDirty('lighting_images')) {
-            if(Storage::disk('public')->exists($product->getOriginal('lighting_images'))){
-                Storage::disk('public')->delete($product->getOriginal('lighting_images'));
+            foreach($product->getOriginal('gallery') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if ($product->isDirty('couches_images')) {
-            if(Storage::disk('public')->exists($product->getOriginal('couches_images'))){
-                Storage::disk('public')->delete($product->getOriginal('couches_images'));
+            foreach($product->getOriginal('couches_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if ($product->isDirty('interior_images')) {
-            if(Storage::disk('public')->exists($product->getOriginal('interior_images'))){
-                Storage::disk('public')->delete($product->getOriginal('interior_images'));
+            foreach($product->getOriginal('interior_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if ($product->isDirty('exterior_images')) {
-            if(Storage::disk('public')->exists($product->getOriginal('exterior_images'))){
-                Storage::disk('public')->delete($product->getOriginal('exterior_images'));
+            foreach($product->getOriginal('exterior_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if ($product->isDirty('driver_station_images')) {
-            if(Storage::disk('public')->exists($product->getOriginal('driver_station_images'))){
-                Storage::disk('public')->delete($product->getOriginal('driver_station_images'));
+            foreach($product->getOriginal('driver_station_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if ($product->isDirty('gallery')) {
@@ -100,28 +110,38 @@ class ProductObserver
             }
         }
         if (! is_null($product->lighting_images)) {
-            if(Storage::disk('public')->exists($product->getOriginal('lighting_images'))){
-                Storage::disk('public')->delete($product->getOriginal('lighting_images'));
+            foreach($product->getOriginal('lighting_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if (! is_null($product->couches_images)) {
-            if(Storage::disk('public')->exists($product->getOriginal('couches_images'))){
-                Storage::disk('public')->delete($product->getOriginal('couches_images'));
+            foreach($product->getOriginal('couches_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if (! is_null($product->interior_images)) {
-            if(Storage::disk('public')->exists($product->getOriginal('interior_images'))){
-                Storage::disk('public')->delete($product->getOriginal('interior_images'));
+            foreach($product->getOriginal('interior_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if (! is_null($product->exterior_images)) {
-            if(Storage::disk('public')->exists($product->getOriginal('exterior_images'))){
-                Storage::disk('public')->delete($product->getOriginal('exterior_images'));
+            foreach($product->getOriginal('exterior_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if (! is_null($product->driver_station_images)) {
-            if(Storage::disk('public')->exists($product->getOriginal('driver_station_images'))){
-                Storage::disk('public')->delete($product->getOriginal('driver_station_images'));
+            foreach($product->getOriginal('driver_station_images') as $data){
+                if(Storage::disk('public')->exists($data)){
+                    Storage::disk('public')->delete($data);
+                }
             }
         }
         if (! is_null($product->gallery)) {

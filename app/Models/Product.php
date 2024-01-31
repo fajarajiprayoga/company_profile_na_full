@@ -38,6 +38,11 @@ class Product extends Model
     ];
     protected $casts = [
         'gallery' => 'array',
+        'lighting_images' => 'array',
+        'couches_images' => 'array',
+        'interior_images' => 'array',
+        'exterior_images' => 'array',
+        'driver_station_images' => 'array',
     ];
 
     public function type(): BelongsTo

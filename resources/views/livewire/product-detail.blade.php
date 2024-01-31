@@ -59,79 +59,112 @@
     <div class="bg-zinc-700">
         <div class="tabs-header-specification text-white shadow-md shadow-white text-center">
             @if($product->interior)
-            <button class="{{ $tabDetail == 'interior' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('interior')">Interior</button>
+            <button id="btn-interior" class="tabs-item-specification tabs-item-specification-active">Interior</button>
             @endif
             @if($product->exterior)
-            <button class="{{ $tabDetail == 'exterior' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('exterior')">Exterior</button>
+            <button id="btn-exterior" class="tabs-item-specification">Exterior</button>
             @endif
             @if($product->couches)
-            <button class="{{ $tabDetail == 'couches' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('couches')">Bangku</button>
+            <button id="btn-couches" class="tabs-item-specification">Bangku</button>
             @endif
             @if($product->lighting)
-            <button class="{{ $tabDetail == 'lighting' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('lighting')">Lampu</button>
+            <button id="btn-lighting" class="tabs-item-specification">Lampu</button>
             @endif
             @if($product->driver_station)
-            <button class="{{ $tabDetail == 'driver_station' ? 'tabs-item-specification-active' : 'tabs-item-specification' }}" wire:click="tab('driver_station')">Bangku Pengemudi</button>
+            <button id="btn-driver_station" class="tabs-item-specification">Bangku Pengemudi</button>
             @endif
         </div>
         <div class="bg-zinc-800">
             @if($product->interior)
-            <div class="{{ $tabDetail == 'interior' ? '' : 'hidden' }} transition-opacity grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-interior" class="transition-opacity grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->interior !!}
                     </div>
                 </div>
                 <div style="max-height: 400px; min-width: 100%">
-                    <img src="{{asset('storage/'.$product->interior_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
+                    <div id="" class="interior_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
+                        @foreach($product->interior_images as $data)
+                            <div class="item" style="width: 100%; height: 100%;">
+                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             @endif
             @if($product->exterior)
-            <div class="{{ $tabDetail == 'exterior' ? '' : 'hidden' }} grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-exterior" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->exterior !!}
                     </div>
                 </div>
                 <div style="max-height: 400px; min-width: 100%">
-                    <img src="{{asset('storage/'.$product->exterior_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
+                    <div id="" class="exterior_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
+                        @foreach($product->exterior_images as $data)
+                            <div class="item" style="width: 100%; height: 100%;">
+                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             @endif
             @if($product->couches)
-            <div class="{{ $tabDetail == 'couches' ? '' : 'hidden' }} grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-couches" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->couches !!}
                     </div>
                 </div>
                 <div style="max-height: 400px; min-width: 100%">
-                    <img src="{{asset('storage/'.$product->couches_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
+                    <!-- <img src="{{asset('storage/'.$product->couches_images[0])}}" alt="" srcset="" style="height: 100%; width: 100%"> -->
+                    <div id="" class="couches_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
+                        @foreach($product->couches_images as $data)
+                            <div class="item" style="width: 100%; height: 100%;">
+                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             @endif
             @if($product->lighting)
-            <div class="{{ $tabDetail == 'lighting' ? '' : 'hidden' }} grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-lighting" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->lighting !!}
                     </div>
                 </div>
                 <div style="max-height: 400px; min-width: 100%">
-                    <img src="{{asset('storage/'.$product->lighting_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
+                    <!-- <img src="{{asset('storage/'.$product->lighting_images[0])}}" alt="" srcset="" style="height: 100%; width: 100%"> -->
+                    <div id="" class="lighting_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
+                        @foreach($product->lighting_images as $data)
+                            <div class="item" style="width: 100%; height: 100%;">
+                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             @endif
             @if($product->driver_station)
-            <div class="{{ $tabDetail == 'driver_station' ? '' : 'hidden' }} grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-driver_station" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->driver_station !!}
                     </div>
                 </div>
                 <div style="max-height: 400px; min-width: 100%">
-                    <img src="{{asset('storage/'.$product->driver_station_images)}}" alt="" srcset="" style="height: 100%; width: 100%">
+                    <!-- <img src="{{asset('storage/'.$product->driver_station_images[0])}}" alt="" srcset="" style="height: 100%; width: 100%"> -->
+                    <div id="" class="driver_station_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
+                        @foreach($product->driver_station_images as $data)
+                            <div class="item" style="width: 100%; height: 100%;">
+                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             @endif
@@ -168,3 +201,188 @@
     </div>
     <livewire:footer.footer />
 </div>
+
+@script
+<script>
+    $(document).ready(function() {
+        $('.interior_slider').owlCarousel({
+                loop:true,
+                mouseDrag:true,
+                autoplay:false,
+                nav: true,
+                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                },
+                onInitialized: function() {
+                
+                }
+            });
+
+            $('.exterior_slider').owlCarousel({
+                loop:true,
+                mouseDrag:true,
+                autoplay:false,
+                nav: true,
+                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                },
+                onInitialized: function() {
+                    $('#tab-exterior').addClass('hidden');
+                }
+            });
+            $('.couches_slider').owlCarousel({
+                loop:true,
+                mouseDrag:true,
+                autoplay:false,
+                nav: true,
+                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                },
+                onInitialized: function() {
+                    $('#tab-couches').addClass('hidden');
+                }
+            });
+            $('.lighting_slider').owlCarousel({
+                loop:true,
+                mouseDrag:true,
+                autoplay:false,
+                nav: true,
+                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                },
+                onInitialized: function() {
+                    $('#tab-lighting').addClass('hidden');
+                }
+            });
+            $('.driver_station_slider').owlCarousel({
+                loop:true,
+                mouseDrag:true,
+                autoplay:false,
+                nav: true,
+                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                },
+                onInitialized: function() {
+                    $('#tab-driver_station').addClass('hidden');
+                }
+            });
+        $(window).on('load', function() {
+            $('#btn-interior').on('click', function(){
+                $('#tab-interior').removeClass('hidden');
+                $('#tab-exterior').addClass('hidden');
+                $('#tab-couches').addClass('hidden');
+                $('#tab-lighting').addClass('hidden');
+                $('#tab-driver_station').addClass('hidden');
+
+                $(this).addClass('tabs-item-specification-active');
+
+                $('#btn-exterior').removeClass('tabs-item-specification-active');
+                $('#btn-couches').removeClass('tabs-item-specification-active');
+                $('#btn-lighting').removeClass('tabs-item-specification-active');
+                $('#btn-driver_station').removeClass('tabs-item-specification-active');
+            });
+            $('#btn-exterior').on('click', function(){
+                $('#tab-exterior').removeClass('hidden');
+                $('#tab-interior').addClass('hidden');
+                $('#tab-couches').addClass('hidden');
+                $('#tab-lighting').addClass('hidden');
+                $('#tab-driver_station').addClass('hidden');
+
+                $(this).addClass('tabs-item-specification-active');
+
+                $('#btn-interior').removeClass('tabs-item-specification-active');
+                $('#btn-couches').removeClass('tabs-item-specification-active');
+                $('#btn-lighting').removeClass('tabs-item-specification-active');
+                $('#btn-driver_station').removeClass('tabs-item-specification-active');
+            });
+            $('#btn-couches').on('click', function(){
+                $('#tab-couches').removeClass('hidden');
+                $('#tab-exterior').addClass('hidden');
+                $('#tab-interior').addClass('hidden');
+                $('#tab-lighting').addClass('hidden');
+                $('#tab-driver_station').addClass('hidden');
+
+                $(this).addClass('tabs-item-specification-active');
+
+                $('#btn-exterior').removeClass('tabs-item-specification-active');
+                $('#btn-interior').removeClass('tabs-item-specification-active');
+                $('#btn-lighting').removeClass('tabs-item-specification-active');
+                $('#btn-driver_station').removeClass('tabs-item-specification-active');
+            });
+            $('#btn-lighting').on('click', function(){
+                $('#tab-lighting').removeClass('hidden');
+                $('#tab-couches').addClass('hidden');
+                $('#tab-exterior').addClass('hidden');
+                $('#tab-interior').addClass('hidden');
+                $('#tab-driver_station').addClass('hidden');
+
+                $(this).addClass('tabs-item-specification-active');
+
+                $('#btn-couches').removeClass('tabs-item-specification-active');
+                $('#btn-exterior').removeClass('tabs-item-specification-active');
+                $('#btn-interior').removeClass('tabs-item-specification-active');
+                $('#btn-driver_station').removeClass('tabs-item-specification-active');
+            });
+            $('#btn-driver_station').on('click', function(){
+                $('#tab-driver_station').removeClass('hidden');
+                $('#tab-lighting').addClass('hidden');
+                $('#tab-couches').addClass('hidden');
+                $('#tab-exterior').addClass('hidden');
+                $('#tab-interior').addClass('hidden');
+
+                $(this).addClass('tabs-item-specification-active');
+
+                $('#btn-lighting').removeClass('tabs-item-specification-active');
+                $('#btn-couches').removeClass('tabs-item-specification-active');
+                $('#btn-exterior').removeClass('tabs-item-specification-active');
+                $('#btn-interior').removeClass('tabs-item-specification-active');
+            });
+        })
+    })
+</script>
+@endscript

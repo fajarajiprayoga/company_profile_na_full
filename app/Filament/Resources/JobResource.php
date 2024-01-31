@@ -84,9 +84,11 @@ class JobResource extends Resource
                     ->columnSpanFull(),
                     Forms\Components\Select::make('type')
                     ->options([
-                        'fulltime' => 'Fulltime',
-                        'contract' => 'Contract',
-                        'internship' => 'Internship',
+                        'support' => 'Support',
+                        'staff' => 'Staff',
+                        'leader' => 'Leader',
+                        'supervisor' => 'Supervisor',
+                        'manager' => 'Manager',
                     ])
                     ->required(),
                 Forms\Components\Toggle::make('available')

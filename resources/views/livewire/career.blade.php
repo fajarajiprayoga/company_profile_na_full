@@ -33,9 +33,11 @@
                     <div class="w-full lg:w-80">
                         <select wire:model.live="search_type" id="default" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5">
                             <option value="">Pilih Tipe</option>
-                            <option value="fulltime">Full Time</option>
-                            <option value="contract">Contract</option>
-                            <option value="internship">Internship</option>
+                            <option value="support">Support</option>
+                            <option value="staff">Staff</option>
+                            <option value="leader">Leader</option>
+                            <option value="supervisor">Supervisor</option>
+                            <option value="manager">Manager</option>
                         </select>
                     </div>
                 </div>
@@ -53,12 +55,16 @@
                                 </div>
                                 <div>
                                     <i class="fa fa-clock text-xs" aria-hidden="true"></i>
-                                    @if($job->type == 'fulltime')
-                                    Full Time
-                                    @elseif($job->type == 'contract')
-                                    Contract
-                                    @elseif($job->type == 'internship')
-                                    Internship
+                                    @if($job->type == 'support')
+                                    Support
+                                    @elseif($job->type == 'staff')
+                                    Staff
+                                    @elseif($job->type == 'leader')
+                                    Leader
+                                    @elseif($job->type == 'supervisor')
+                                    Supervisor
+                                    @elseif($job->type == 'manager')
+                                    Manager
                                     @else
                                     @endif
                                 </div>

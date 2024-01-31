@@ -55,11 +55,11 @@ class ProductResource extends Resource
                     Toggle::make('show_in_home')->inline(false)->helperText('Jika ON maka produk akan tertampil di Home page'),
                     FileUpload::make('images')->label('Main Photo (1:1)')->directory('product/product_images')->image()->imageEditor()->imageEditorAspectRatios([
                         '1:1',
-                    ])->helperText('Image akan di tampilkan di list produk dengan ukuran 250px x 250px')->columnSpan(2),
+                    ])->helperText('Image akan di tampilkan di list produk dengan ukuran 250px x 250px')->required()->columnSpan(2),
                     FileUpload::make('home_photo')->label('Home Photo (16:9)')->directory('product/home_photos')->image()->imageEditor()->imageEditorAspectRatios([
                         '16:9',
-                    ])->helperText('Image akan di tampilkan di halaman beranda dengan ukuran 1080px x 720px (Show in Home dalam keadaan aktif)')->columnSpan(2),
-                    FileUpload::make('wallpaper')->label('Wallpaper (16:9)')->directory('product/wallpapers')->image()->helperText('Image akan di tampilkan ketika ke product detail, Ukuran akan height akan diubah ke 500px')->columnSpan(2),
+                    ])->helperText('Image akan di tampilkan di halaman beranda dengan ukuran 1080px x 720px (Show in Home dalam keadaan aktif)')->required()->columnSpan(2),
+                    FileUpload::make('wallpaper')->label('Wallpaper (16:9)')->directory('product/wallpapers')->image()->helperText('Image akan di tampilkan ketika ke product detail, Ukuran akan height akan diubah ke 500px')->required()->columnSpan(2),
                     FileUpload::make('catalog')->label('Catalog (PDF)')->acceptedFileTypes(['application/pdf'])->directory('product/catalogs')->columnSpan(2),
                     RichEditor::make('description')
                         ->toolbarButtons([
@@ -79,10 +79,10 @@ class ProductResource extends Resource
                 ])->columns(4),
 
                 Section::make('Detail Specification')->collapsible()->schema([
-                    FileUpload::make('lighting_images')->label('Lighting Photo (4:3)')->directory('product/lighting_images')->image()->imageEditor()
+                    FileUpload::make('lighting_images')->label('Lighting Photo Max 3 file (4:3)')->directory('product/lighting_images')->image()->multiple()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
-                    ]),
+                    ])->required(),
                     RichEditor::make('lighting')
                         ->toolbarButtons([                            
                             'blockquote',
@@ -98,10 +98,10 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('lightings'),
-                    FileUpload::make('couches_images')->label('Coaches Photo (4:3)')->directory('product/coaches_images')->image()->imageEditor()
+                    FileUpload::make('couches_images')->label('Coaches Photo Max 3 file (4:3)')->directory('product/coaches_images')->image()->multiple()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
-                    ]),
+                    ])->required(),
                     RichEditor::make('couches')
                         ->toolbarButtons([
                             'blockquote',
@@ -117,10 +117,10 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('couchess'),
-                    FileUpload::make('interior_images')->label('Interior Photo (4:3)')->directory('product/interior_images')->image()->imageEditor()
+                    FileUpload::make('interior_images')->label('Interior Photo Max 3 file (4:3)')->directory('product/interior_images')->image()->multiple()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
-                    ]),
+                    ])->required(),
                     RichEditor::make('interior')
                         ->toolbarButtons([
                             'blockquote',
@@ -136,10 +136,10 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('interiors'),
-                    FileUpload::make('exterior_images')->label('Exterior Photo (4:3)')->directory('product/exterior_images')->image()->imageEditor()
+                    FileUpload::make('exterior_images')->label('Exterior Photo Max 3 file (4:3)')->directory('product/exterior_images')->image()->multiple()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
-                    ]),
+                    ])->required(),
                     RichEditor::make('exterior')
                         ->toolbarButtons([
                             'blockquote',
@@ -155,10 +155,10 @@ class ProductResource extends Resource
                             'underline',
                             'undo',
                         ])->fileAttachmentsDirectory('exteriors'),
-                    FileUpload::make('driver_station_images')->label('Driver Station Photo (4:3)')->directory('product/driver_station_images')->image()->imageEditor()
+                    FileUpload::make('driver_station_images')->label('Driver Station Photo Max 3 file (4:3)')->directory('product/driver_station_images')->image()->multiple()->imageEditor()
                     ->imageEditorAspectRatios([
                         '4:3',
-                    ]),
+                    ])->required(),
                     RichEditor::make('driver_station')
                         ->toolbarButtons([
                             'blockquote',
@@ -176,7 +176,7 @@ class ProductResource extends Resource
                         ])->fileAttachmentsDirectory('driver_stations'),
                 ])->columns(2),
                 Section::make('Gallery and Video')->collapsible()->schema([
-                    FileUpload::make('gallery')->label('File Photo (Minimal 4 image)')->directory('product/product_detail_galleries')->image()->multiple()->imageEditor(),
+                    FileUpload::make('gallery')->label('File Photo (Mininal 4 image)')->directory('product/product_detail_galleries')->image()->multiple()->imageEditor()->required(),
                     Forms\Components\TextInput::make('video')
                         ->label('Video (Url Youtube)')
                         ->helperText('Tidak perlu https://www.youtube.com/watch?v=. Hanya key nya saja. Contoh: l7UHBTUewKw?si=uqApPUA_LCV1-qhJ')

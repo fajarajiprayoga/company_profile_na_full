@@ -139,7 +139,7 @@ use Illuminate\Support\Facades\Route;
                         items:4
                     }
                 }
-            });
+            });            
         })
     </script>
 
