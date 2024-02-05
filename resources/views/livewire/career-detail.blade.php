@@ -26,18 +26,20 @@
                         </div>
                     </div>
                     <div class="flex gap-3 my-2 text-sm">
-                        <div>
-                            <i class="fa fa-building text-xs" aria-hidden="true"></i>
+                            <div>
+                                <i class="fa fa-building text-xs" aria-hidden="true"></i>
                                 {{$job->plant->name}}
                             </div>
                             <div>
                                 <i class="fa fa-clock text-xs" aria-hidden="true"></i>
-                                @if($job->type == 'fulltime')
-                                    Full Time
-                                @elseif($job->type == 'contract')
-                                    Contract
-                                @elseif($job->type == 'internship')
-                                    Internship
+                                @if($job->type == 'support')
+                                    Support
+                                @elseif($job->type == 'staff')
+                                    Staff
+                                @elseif($job->type == 'leader')
+                                    Leader
+                                @elseif($job->type == 'Manager')
+                                    manager
                                 @else
                                 @endif
                             </div>

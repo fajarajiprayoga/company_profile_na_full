@@ -6,6 +6,8 @@ use App\Livewire\Contact;
 use App\Livewire\DownloadCenter;
 use App\Livewire\Home;
 use App\Livewire\Login;
+use App\Livewire\News;
+use App\Livewire\NewsDetail;
 use App\Livewire\Otp;
 use App\Livewire\Product;
 use App\Livewire\ProductDetail;
@@ -33,6 +35,8 @@ Route::get('/construction/contact', Contact::class)->name('contact');
 Route::get('/construction/career', Career::class)->name('career');
 Route::get('/construction/career/{id}', CareerDetail::class)->name('career_detail');
 // Route::get('/download-center', DownloadCenter::class)->name('download-center');
+Route::get('/construction/news', News::class)->name('news');
+Route::get('/construction/news/{slug}', NewsDetail::class)->name('news-detail');
 
 Route::prefix('maj')->group(function() {
     Route::get('/login', Login::class)->name('login');

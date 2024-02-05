@@ -85,7 +85,7 @@
                         <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700 list-none" aria-labelledby="dropdownDefaultButton">
                                 <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">News & Stories</a>
+                                    <a href="{{route('news')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">News & Stories</a>
                                 </li>
                                 <li>
                                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Why New Armada?</a>
@@ -104,7 +104,7 @@
                                     <a href="{{route('career')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Job Portal</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Internship</a>
+                                    <a href="prakerin.mekararmadajaya.com" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Internship</a>
                                 </li>
                             </ul>
                         </div>

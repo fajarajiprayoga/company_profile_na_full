@@ -73,6 +73,9 @@ class FooterResource extends Resource
                     FileUpload::make('background_career')->label('Background page career (16:9)')->directory('background/career')->image()->imageEditor()->imageEditorAspectRatios([
                         '16:9',
                     ])->helperText('Image akan di tampilkan di page karir dengan ukuran height 500px'),
+                    FileUpload::make('background_news')->label('Background page news (16:9)')->directory('background/news')->image()->imageEditor()->imageEditorAspectRatios([
+                        '16:9',
+                    ])->helperText('Image akan di tampilkan di page news and stories dengan ukuran height 500px'),
                 ])->columns(2)
             ]);
     }
