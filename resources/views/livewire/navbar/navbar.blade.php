@@ -104,7 +104,7 @@
                                     <a href="{{route('career')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Job Portal</a>
                                 </li>
                                 <li>
-                                    <a target="_blank" href="https://prakerin.mekararmadajaya.com" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Internship</a>
+                                    <a target="_blank" href="https://prakerin.mekararmadajaya.com" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Prakerin</a>
                                 </li>
                             </ul>
                         </div>
