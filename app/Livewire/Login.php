@@ -80,7 +80,6 @@ class Login extends Component
                         return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
                     }
                 } catch (\Throwable $th) {
-                    dd($th);
                     return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [01]');
                 }
             }
