@@ -52,7 +52,7 @@ class Login extends Component
                 try {
                     $ip = "36.91.11.21"
                     // $ip = "10.30.20.120";
-                    $url = "http://$ip/~wipapps/notifikasi_pembayaran_surat/frontend/web/index.php?r=otp/otp";
+                    $url = "http://36.91.11.21/~wipapps/notifikasi_pembayaran_surat/frontend/web/index.php?r=otp/otp";
 
                     $data = array(
                         'email' => $user->email,
