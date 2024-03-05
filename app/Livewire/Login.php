@@ -50,7 +50,9 @@ class Login extends Component
                 $this->redirectRoute('otp', ['email' => $this->loginForm->email]);                
             } catch (\Throwable $th) {
                 try {
-                    $url = 'http://10.30.20.120/~wipapps/notifikasi_pembayaran_surat/frontend/web/index.php?r=otp/otp';
+                    $ip = "36.91.11.21"
+                    // $ip = "10.30.20.120";
+                    $url = "http://$ip/~wipapps/notifikasi_pembayaran_surat/frontend/web/index.php?r=otp/otp";
 
                     $data = array(
                         'email' => $user->email,
