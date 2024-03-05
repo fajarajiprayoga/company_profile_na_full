@@ -42,12 +42,48 @@ class Login extends Component
             $user = User::where('email', $this->loginForm->email)->first();
             $user->otp = $otp_code;
             $user->otp_expired = $exp_otp_code;
-            $user->update();
+            $user->update();            
 
-            Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
-			
-			$this->redirectRoute('otp', ['email' => $this->loginForm->email]);
+            try {
+                Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
 
+                $this->redirectRoute('otp', ['email' => $this->loginForm->email]);                
+            } catch (\Throwable $th) {
+                try {
+                    $url = 'http://10.30.20.120/~wipapps/notifikasi_pembayaran_surat/frontend/web/index.php?r=otp/otp';
+
+                    $data = array(
+                        'email' => $user->email,
+                        'username' => $user->name,
+                        'otp' => $otp_code,
+                        'key' => 'madajaya',
+                        'app_name' => 'New Armada'
+                    );
+
+                    $ch = curl_init();
+
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, 1);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                    $response = curl_exec($ch);
+                    if(curl_errno($ch)){
+                        return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division. Err Code [02]');
+                    }
+
+                    curl_close($ch);
+                    $res = json_decode($response);
+                    if($res->status == 200){
+                        $this->redirectRoute('otp', ['email' => $this->loginForm->email]);
+                    }else {
+                        return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
+                    }
+                } catch (\Throwable $th) {
+                    dd($th);
+                    return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [01]');
+                }
+            }
         }else {
             return redirect()->route('login')->with('failed', 'Login failed, pleas try again');
         }
