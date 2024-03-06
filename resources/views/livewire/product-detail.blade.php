@@ -7,6 +7,9 @@
         </div>
         @endif
     </div>
+    <div id="specification">
+
+    </div>
     <div class="mx-5 my-14">
             <div class="flex justify-center my-12">
                 <span class="text-sm font-medium uppercase text-center" style="letter-spacing: 0.5rem;">Saksikan model
@@ -54,6 +57,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="detail">
+
     </div>
 
     <div class="bg-zinc-700">
@@ -119,7 +126,6 @@
                     </div>
                 </div>
                 <div style="max-height: 400px; min-width: 100%">
-                    <!-- <img src="{{asset('storage/'.$product->couches_images[0])}}" alt="" srcset="" style="height: 100%; width: 100%"> -->
                     <div id="" class="couches_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
                         @foreach($product->couches_images as $data)
                             <div class="item" style="width: 100%; height: 100%;">
@@ -157,7 +163,6 @@
                     </div>
                 </div>
                 <div style="max-height: 400px; min-width: 100%">
-                    <!-- <img src="{{asset('storage/'.$product->driver_station_images[0])}}" alt="" srcset="" style="height: 100%; width: 100%"> -->
                     <div id="" class="driver_station_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
                         @foreach($product->driver_station_images as $data)
                             <div class="item" style="width: 100%; height: 100%;">
@@ -169,6 +174,10 @@
             </div>
             @endif
         </div>
+    </div>
+
+    <div id="gallery">
+
     </div>
 
     @if(!empty($product->gallery))
@@ -187,6 +196,11 @@
         </div>
     </div>
     @endif
+
+    <div id="video">
+
+    </div>
+
     @if(!empty($product->video))
     <div class="my-12">
         <div class="flex justify-center my-12">
@@ -200,6 +214,38 @@
     <div>
     </div>
     <livewire:footer.footer />
+    
+    <!-- Bottom Navigation -->
+        <div class="fixed bottom-1/2 right-1 bg-transparent z-50">
+            <div class="font-medium text-sm">
+                <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="focus:ring-4 focus:ring-gray-700 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center" type="button">
+                    <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M6 8C6 6.89543 6.89543 6 8 6H14C15.1046 6 16 6.89543 16 8V14C16 15.1046 15.1046 16 14 16H8C6.89543 16 6 15.1046 6 14V8Z" fill="#333333"/> <path d="M6 21C6 19.8954 6.89543 19 8 19H14C15.1046 19 16 19.8954 16 21V27C16 28.1046 15.1046 29 14 29H8C6.89543 29 6 28.1046 6 27V21Z" fill="#333333"/> <path d="M6 34C6 32.8954 6.89543 32 8 32H14C15.1046 32 16 32.8954 16 34V40C16 41.1046 15.1046 42 14 42H8C6.89543 42 6 41.1046 6 40V34Z" fill="#333333"/> <path d="M19 8C19 6.89543 19.8954 6 21 6H27C28.1046 6 29 6.89543 29 8V14C29 15.1046 28.1046 16 27 16H21C19.8954 16 19 15.1046 19 14V8Z" fill="#333333"/> <path d="M19 21C19 19.8954 19.8954 19 21 19H27C28.1046 19 29 19.8954 29 21V27C29 28.1046 28.1046 29 27 29H21C19.8954 29 19 28.1046 19 27V21Z" fill="#333333"/> <path d="M19 34C19 32.8954 19.8954 32 21 32H27C28.1046 32 29 32.8954 29 34V40C29 41.1046 28.1046 42 27 42H21C19.8954 42 19 41.1046 19 40V34Z" fill="#333333"/> <path d="M32 8C32 6.89543 32.8954 6 34 6H40C41.1046 6 42 6.89543 42 8V14C42 15.1046 41.1046 16 40 16H34C32.8954 16 32 15.1046 32 14V8Z" fill="#333333"/> <path d="M32 21C32 19.8954 32.8954 19 34 19H40C41.1046 19 42 19.8954 42 21V27C42 28.1046 41.1046 29 40 29H34C32.8954 29 32 28.1046 32 27V21Z" fill="#333333"/> <path d="M32 34C32 32.8954 32.8954 32 34 32H40C41.1046 32 42 32.8954 42 34V40C42 41.1046 41.1046 42 40 42H34C32.8954 42 32 41.1046 32 40V34Z" fill="#333333"/> </svg>
+                </button>
+                <!-- Dropdown menu -->
+                <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                    <ul class="py-2 text-sm text-gray-700 list-none" aria-labelledby="dropdownHoverButton">
+                        <li>
+                            <a href="#specification" class="block px-4 py-2 hover:bg-gray-100">Specification</a>
+                        </li>
+                        <li>
+                            <a href="#detail" class="block px-4 py-2 hover:bg-gray-100">Detail</a>
+                        </li>
+                        @if(!empty($product->gallery))
+                        <li>
+                            <a href="#gallery" class="block px-4 py-2 hover:bg-gray-100">Gallery</a>
+                        </li>
+                        @endif
+                        @if(!empty($product->video))
+                        <li>
+                            <a href="#video" class="block px-4 py-2 hover:bg-gray-100">Video</a>
+                        </li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <!-- Bottom Navigation -->
+
 </div>
 
 @script

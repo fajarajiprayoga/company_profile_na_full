@@ -71,7 +71,7 @@
         </div>
         <div id="map" style="height: 500px"></div>
     </div>
-    <livewire:footer.footer />
+    <livewire:footer.footer />    
 
     @push('scripts')
         <script>
