@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Footer;
+use App\Models\Maps;
 use Livewire\Component;
 use Illuminate\Support\Facades\Request;
 use App\Models\Visit;
@@ -24,9 +25,11 @@ class Contact extends Component
     {
         $footer = Footer::first();
         $contacts = \App\Models\Contact::all();
+        $maps = Maps::all();
         return view('livewire.contact', [
             'footer' => $footer,
-            'contacts' => $contacts
+            'contacts' => $contacts,
+            'maps' => $maps
         ]);
     }
 }
