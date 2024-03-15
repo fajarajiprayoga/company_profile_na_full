@@ -38,7 +38,7 @@
                 <button data-collapse-toggle="navbar-search" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-200"
                     aria-controls="navbar-search" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
+                    <span class="sr-only">Buka Menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 17 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -71,37 +71,37 @@
                     <li>
                         <a href="{{route('home')}}"
                             class="block py-2 px-3 text-white bg-grey-700 rounded md:bg-transparent md:text-white md:p-0"
-                            aria-current="page" style="">Home</a>
+                            aria-current="page" style="">Beranda</a>
                     </li>
                     <li>
                         <a href="{{route('product')}}"
-                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="">Product</a>
+                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="">Produk</a>
                     </li>
                     <li>
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white block px-3 py-2 md:p-0" type="button" style="">About
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white block px-3 py-2 md:p-0" type="button" style="">Tentang Kami
                         </button>
 
                         <!-- Dropdown menu -->
                         <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700 list-none" aria-labelledby="dropdownDefaultButton">
                                 <li>
-                                    <a href="{{route('news')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">News & Stories</a>
+                                    <a href="{{route('news')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Berita</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Why New Armada?</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Kenapa New Armada?</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <button id="dropdownCareer" data-dropdown-toggle="dropdown-career" class="text-white block px-3 py-2 md:p-0" type="button" style="">Career
+                        <button id="dropdownCareer" data-dropdown-toggle="dropdown-career" class="text-white block px-3 py-2 md:p-0" type="button" style="">Karir
                         </button>
 
                         <!-- Dropdown menu -->
                         <div id="dropdown-career" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-28">
                             <ul class="py-2 text-sm text-gray-700 list-none" aria-labelledby="dropdownCareer">
                                 <li>
-                                    <a href="{{route('career')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Job Portal</a>
+                                    <a href="{{route('career')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Karir</a>
                                 </li>
                                 <li>
                                     <a target="_blank" href="https://prakerin.mekararmadajaya.com" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-400 dark:hover:text-white">Prakerin</a>
@@ -111,7 +111,7 @@
                     </li>
                     <li>
                         <a href="{{route('contact')}}"
-                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="">Contact</a>
+                            class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0" style="">Kontak</a>
                     </li>
                 </ul>
                 <!-- nav Menu -->

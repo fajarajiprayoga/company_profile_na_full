@@ -211,7 +211,12 @@
         </div>
     </div>
     @endif
-    <div>
+    <div class="my-12 mx-5">
+        <div class="lg:w-1/2 w-full text-sm">
+            <p>Jika Anda memiliki pertanyaan, memerlukan informasi lebih lanjut, atau menginginkan penawaran khusus untuk <b><i>{{$product->name}}</i></b>, silakan hubungi nomor yang terdapat pada laman berikut <a class="text-blue-700" href="{{route('contact')}}">Kontak</a></p>
+            <br>
+            <p>atau lihat produk lain kami di <a href="{{route('product')}}" class="text-blue-700">Produk</a></p>
+        </div>
     </div>
     <livewire:footer.footer />
     

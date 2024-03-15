@@ -42,8 +42,10 @@ class ProductDetail extends Component
     public function render()
     {
         $footer = Footer::first();
+        $contacts = \App\Models\Contact::all();
         return view('livewire.product-detail', [
-            'footer' => $footer
+            'footer' => $footer,
+            'contacts' => $contacts
         ]);
     }
 }
