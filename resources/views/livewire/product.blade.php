@@ -48,7 +48,7 @@
                 wire:click="type({{$type->id}})">{{$type->name}}</button>
             @endforeach
         </div>
-        <div class="my-4 lg:my-14">
+        <div class="my-4 lg:my-14" wire:loading.class.delay="opacity-75">
             <div class="flex justify-center text-center">
                 <div>
                     <span class="font-semibold text-lg">{{$type_name}}</span>
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="px-4 lg:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-14">
+        <div class="px-4 lg:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-14" wire:loading.class.delay="opacity-75">
             @foreach($products as $product)
             <a href="{{route('product-detail', $product->slug)}}" class="p-4 item-product-list">
                 <div class="flex w-full items-center justify-center mb-4">
