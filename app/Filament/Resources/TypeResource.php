@@ -7,6 +7,8 @@ use App\Filament\Resources\TypeResource\RelationManagers;
 use App\Models\Type;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,11 +29,12 @@ class TypeResource extends Resource
     {
         return $form
             ->schema([
-                Card::make()->schema([
+                Section::make('Type')->schema([
                     Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(100),
-                ])->columns(4)
+                    FileUpload::make('img')->label('File Image (16:9)')->required()->directory('type_img')->acceptedFileTypes(['image/*'])->preserveFilenames()
+                ])->columns(2)
             ])->columns(4);
     }
 

@@ -41,6 +41,9 @@
             </div>
         </div>
     @endif
+
+    <div id="tab-product"></div>
+    
     <div class="tabs-wrapper">
         <div class="tabs-header shadow-md text-center">
             @foreach($types as $type)
@@ -54,17 +57,15 @@
                     <span class="font-semibold text-lg">{{$type_name}}</span>
                     <div class="mt-12 mx-auto">
                         @if(count($products) != 0)
-                        <span class="text-sm font-medium uppercase" style="letter-spacing: 0.5rem; margin-left: 0.5rem;">Saksikan model
-                            terbaik kami</span>
+                        <span class="text-sm font-medium uppercase" style="letter-spacing: 0.5rem; margin-left: 0.5rem;">Our Best Models</span>
                         @else
-                        <span class="text-sm font-medium uppercase" style="letter-spacing: 0.5rem; margin-left: 0.5rem;">Akan segera
-                            hadir</span>
+                        <span class="text-sm font-medium uppercase" style="letter-spacing: 0.5rem; margin-left: 0.5rem;">Coming Soon</span>
                         @endif
                     </div>
                 </div>
             </div>
         </div>
-        <div class="px-4 lg:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-14" wire:loading.class.delay="opacity-75">
+        <div class="px-2 lg:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-16 mb-14" wire:loading.class.delay="opacity-75">
             @foreach($products as $product)
             <a href="{{route('product-detail', $product->slug)}}" class="p-4 item-product-list">
                 <div class="flex w-full items-center justify-center mb-4">

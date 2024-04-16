@@ -12,7 +12,7 @@
             <div class="w-full">
                 <div>
                     <div>
-                        <a href="{{route('news')}}" class="text-blue-800 text-sm"><< Kembali</a>
+                        <a href="{{route('news')}}" class="text-blue-800 text-sm"><< Back</a>
                     </div>
                     <div>
                         <span class="text-3xl">{{$news->title}}</span>
@@ -24,7 +24,7 @@
                             </span>
                         </div>
                         <div class="flex gap-1 align-center items-center">
-                            Bagikan : 
+                            Share : 
                             <!-- Whatsapp -->
                             <a target="_blank" href="https://api.whatsapp.com/send?text={{$news->title}}%0A%0A%20{{route('news-detail', $news->slug)}}">
                                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.953 13.2374C20.8588 9.99989 16.583 9.03739 13.2672 11.0499C10.0386 13.0624 8.99147 17.4374 11.0857 20.675L11.2602 20.9375L10.5621 23.5625L13.1799 22.8625L13.4417 23.0375C14.5761 23.65 15.7977 24 17.0193 24C18.3282 24 19.6371 23.65 20.7715 22.95C24.0001 20.85 24.96 16.5624 22.953 13.2374V13.2374ZM21.1205 19.975C20.7715 20.5 20.3352 20.85 19.7244 20.9375C19.3754 20.9375 18.9391 21.1125 17.1939 20.4125C15.7105 19.7125 14.4888 18.575 13.6162 17.2624C13.0927 16.6499 12.8309 15.8624 12.7436 15.0749C12.7436 14.3749 13.0054 13.7624 13.4417 13.3249C13.6162 13.1499 13.7907 13.0624 13.9653 13.0624H14.4016C14.5761 13.0624 14.7506 13.0624 14.8379 13.4124C15.0124 13.8499 15.4487 14.8999 15.4487 14.9874C15.5359 15.0749 15.5359 15.2499 15.4487 15.3374C15.5359 15.5124 15.4487 15.6874 15.3614 15.7749C15.2742 15.8624 15.1869 16.0374 15.0996 16.1249C14.9251 16.2124 14.8379 16.3874 14.9251 16.5624C15.2742 17.0874 15.7105 17.6125 16.1467 18.05C16.6703 18.4875 17.1939 18.8375 17.8047 19.1C17.9792 19.1875 18.1537 19.1875 18.241 19.0125C18.3282 18.8375 18.7645 18.4 18.9391 18.225C19.1136 18.05 19.2008 18.05 19.3754 18.1375L20.7715 18.8375C20.946 18.925 21.1205 19.0125 21.2078 19.1C21.2951 19.3625 21.2951 19.7125 21.1205 19.975V19.975Z" fill="#31353B"></path><rect x="0.6" y="0.6" width="32.8" height="32.8" rx="16.4" stroke="#31353B" stroke-width="0.8"></rect></svg>
@@ -56,20 +56,21 @@
                     </div>
                 </div>
             </div>
-            <div class="lg:sticky lg:top-3" style="height: 800px;">
+            <div class="lg:sticky lg:top-3 {{count($news_recomendations) > 1 ? '' : 'w-96'}}" style="height: 800px;">
                 <div class="block mb-3 p-6 bg-white border border-gray-200 rounded-lg">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Kategori</h5>
+                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Category</h5>
                     <a href="{{ route('news', ['category' => 'all'])  . '#news' }}">
-                        <p class="text-gray-700 font-normal text-base">Semua</p>
+                        <p class="text-gray-700 font-normal text-base">All</p>
                     </a>
                     @foreach($categories as $data)
                         <a href="{{ route('news', ['category' => $data->slug]) . '#news' }}">
                             <p class="{{ $data->slug == $news->category->slug ? 'text-blue-900 font-semibold' : 'text-gray-700 font-normal' }} text-base">{{$data->title}}</p>
                         </a>
                     @endforeach
-                </div>
+                </div>                
+                @if(count($news_recomendations) > 0)
                 <div class="block p-6 bg-white border border-gray-200 rounded-lg">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Berita Terbaru</h5>
+                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Latest News</h5>
                     @foreach($news_recomendations as $data)
                     <a href="{{route('news-detail', $data->slug)}}">
                         <figure class="relative max-w-sm mb-3 transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
@@ -81,6 +82,7 @@
                     </a>
                     @endforeach
                 </div>
+                @endif
             </div>
         </div>
     </div>

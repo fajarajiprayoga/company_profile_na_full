@@ -10,10 +10,10 @@
     <div class="tabs-wrapper">
         <div class="my-4 lg:my-14">
             <div class="flex justify-center">
-                <span class="font-semibold text-lg">Hubungi Kami</span>
+                <span class="font-semibold text-lg">Contact Us</span>
             </div>
             <div class="flex justify-center mt-12 text-center">
-            Jika Anda memiliki pertanyaan atau membutuhkan informasi, silakan hubungi nomor berikut :
+                If you have any questions or need information, please contact the following number.
             </div>
         </div>
         <div class="flex justify-center item-center">

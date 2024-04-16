@@ -38,6 +38,10 @@ use Illuminate\Support\Facades\Route;
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin=""/>
 
+        {{-- Glide JS --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+
         <style>
             body {
                 font-family: 'Poppins', sans-serif;
@@ -62,6 +66,8 @@ use Illuminate\Support\Facades\Route;
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
+        {{-- Glide JS --}}
+        <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 
         <script>
         $(document).ready(function(){

@@ -85,6 +85,8 @@ class DatabaseSeeder extends Seeder
         $footer->background_product = "https://media.istockphoto.com/id/1149329096/id/foto/balon-udara-panas-di-atas-matahari-terbenam-gunung-moses-sinai.jpg?s=2048x2048&w=is&k=20&c=5TCuKMX-D_AgNPTCfYQMPpMD746wEJQ25AWWrqCc_kI=";
         $footer->background_contact = "https://media.istockphoto.com/id/1149329096/id/foto/balon-udara-panas-di-atas-matahari-terbenam-gunung-moses-sinai.jpg?s=2048x2048&w=is&k=20&c=5TCuKMX-D_AgNPTCfYQMPpMD746wEJQ25AWWrqCc_kI=";
         $footer->background_download_center = "https://media.istockphoto.com/id/1149329096/id/foto/balon-udara-panas-di-atas-matahari-terbenam-gunung-moses-sinai.jpg?s=2048x2048&w=is&k=20&c=5TCuKMX-D_AgNPTCfYQMPpMD746wEJQ25AWWrqCc_kI=";
+        $footer->background_career = "https://media.istockphoto.com/id/1149329096/id/foto/balon-udara-panas-di-atas-matahari-terbenam-gunung-moses-sinai.jpg?s=2048x2048&w=is&k=20&c=5TCuKMX-D_AgNPTCfYQMPpMD746wEJQ25AWWrqCc_kI=";
+        $footer->background_news = "https://media.istockphoto.com/id/1149329096/id/foto/balon-udara-panas-di-atas-matahari-terbenam-gunung-moses-sinai.jpg?s=2048x2048&w=is&k=20&c=5TCuKMX-D_AgNPTCfYQMPpMD746wEJQ25AWWrqCc_kI=";
         $footer->save();
     }
 }

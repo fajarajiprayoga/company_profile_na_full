@@ -5,8 +5,10 @@ namespace App\Livewire;
 use App\Models\Footer;
 use App\Models\Gallery;
 use App\Models\Maps;
+use App\Models\News;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\Type;
 use App\Models\Visit;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +27,14 @@ class Home extends Component
         //     $visit->save();
         // }
     }
+
+    public function type($id){
+        $type = Type::where('id', $id)->first();
+
+        $slug = str_replace(' ', '-', $type->name);
+        return redirect()->to(route('product', ['model' => $slug]) . "#tab-product");
+    }
+
     public function render()
     {
         $sliders = Slider::all();
@@ -44,11 +54,17 @@ class Home extends Component
 
         $maps = Maps::all();
 
+        $types = Type::all();
+
+        $latest_news = News::latest()->take(3)->get();
+
         return view('livewire.home', [
             'sliders' => $arr_sliders,
             'show_in_home_products' => $show_in_home_products,
+            'types' => $types,
             'galleries' => $galleries,
-            'maps' => $maps
+            'maps' => $maps,
+            'latest_news' => $latest_news
         ]);
     }
 }

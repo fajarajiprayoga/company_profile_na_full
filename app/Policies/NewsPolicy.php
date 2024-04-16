@@ -51,7 +51,7 @@ class NewsPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, News $news): bool
+    public function restore(User $user, News $news)
     {
         //
     }
@@ -59,7 +59,7 @@ class NewsPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, News $news): bool
+    public function forceDelete(User $user, News $news)
     {
         //
     }

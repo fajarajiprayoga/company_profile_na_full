@@ -14,15 +14,16 @@
         <div class="flex justify-center item-center ">
             <div class="relative overflow-x-auto w-full lg:w-1/2 mx-3">
                 <div>
-                    <a href="{{route('career')}}" class="text-blue-800 text-sm"><< Kembali</a>
+                    <a href="{{route('career')}}" class="text-blue-800 text-sm"><< Back</a>
                 </div>
+                @if(!empty($job))
                 <div id="job-detail-header" class="border-b">
                     <div class="flex justify-between">
                         <div>
                             <span class="text-3xl">{{$job->title}}</span>
                         </div>
-                        <div>
-                            <a target="_blank" href="{{$job->link}}" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 pointer">Lamar</a>
+                        <div class="hidden lg:block">
+                            <a target="_blank" href="{{$job->link}}" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 pointer">Apply</a>
                         </div>
                     </div>
                     <div class="flex gap-3 my-2 text-sm">
@@ -32,16 +33,7 @@
                             </div>
                             <div>
                                 <i class="fa fa-clock text-xs" aria-hidden="true"></i>
-                                @if($job->type == 'support')
-                                    Support
-                                @elseif($job->type == 'staff')
-                                    Staff
-                                @elseif($job->type == 'leader')
-                                    Leader
-                                @elseif($job->type == 'Manager')
-                                    manager
-                                @else
-                                @endif
+                                {{Str::ucfirst($job->type)}}
                             </div>
                     </div>
                 </div>
@@ -51,7 +43,7 @@
                     </div>
                     <div class="mt-5">
                         <div class="text-xl mb-2">
-                            Kualifikasi :
+                            Qualification :
                         </div>
                         <div>
                             {!! $job->qualification !!}
@@ -63,6 +55,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="my-5 flex lg:hidden">
+                    <a target="_blank" href="{{$job->link}}" class="w-full text-center text-white bg-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 ">Apply</a>
+                </div>
+                @else
+                <span>Vacancy not found, please search on the </span> <a href="{{route('career')}}" class="italic text-blue-800">career</a> <span> page.</span>
+                @endif
             </div>
         </div>
     </div>

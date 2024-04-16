@@ -27,46 +27,208 @@
         </div>
     </div>
     <div id="home-model-wrapper">
-        <div class="section-title">
+        <div class="section-title mb-12">
             Model
-        </div>
-        <div id="product-carousel" class="owl-carousel">
-            @foreach($show_in_home_products as $show_in_home_product)
-            <div class="item" style="width: 100%; height: auto;">
-                <div class="product_carousel_wrapper" style="width: 100%;">
-                    <img class="img-product-carousel my-5 lg:my-12" style="width: 80%;"
-                        src="{{asset('storage/'.$show_in_home_product['home_photo'])}}" alt="https://newarmada.co.id"
-                        srcset="">
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 text-white">
-                    <div style="" class="text-2xl lg:text-3xl font-semibold text-center common-button-wrap">
-                        {{$show_in_home_product->name}}
+        </div>       
+        <div class="glide_home_model bg-red-00">
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides">
+                        @foreach($show_in_home_products as $show_in_home_product)
+                            <div class="glide__slide">
+                                <div class="flex justify-center">
+                                    <img class="w-full lg:w-5/6" style=""
+                                        src="{{asset('storage/'.$show_in_home_product['home_photo'])}}" alt="https://newarmada.co.id"
+                                        srcset="">
+                                </div>
+                                <div class="hidden lg:block">
+                                    <div class="grid grid-cols-1 lg:grid-cols-3 text-white mt-5">
+                                        <div style="" class="text-2xl lg:text-3xl font-semibold text-center common-button-wrap">
+                                            {{$show_in_home_product->name}}
+                                        </div>
+                                        <div class="product_carousel_descriptions" style="font-size: 14px; font-weight: 400;">{!!
+                                            $show_in_home_product->description !!}</div>
+                                        <div class="common-button-wrap text-xs lg:text-md">
+                                            <a href="{{route('product-detail', $show_in_home_product->slug)}}" class="border border-none bg-white rounded-lg transition duration-200 ease-in-out cursor-pointer mx-auto flex items-center justify-center w-60  text-black text-sm border border-none  h-12 text-black text-base">
+                                                <span style="margin-top: 2px;">
+                                                    Detail
+                                                </span>
+                                                <svg width="18" height="17" viewBox="0 0 22 21" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.875 10.5H17.125" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                    <path d="M11 4.375L17.125 10.5L11 16.625" stroke="black" stroke-width="1.5"
+                                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block lg:hidden">
+                                    <div class="mt-3">
+                                        <div style="" class="text-xl font-semibold text-white text-center common-button-wrap">
+                                            {{$show_in_home_product->name}}
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="{{route('product-detail', $show_in_home_product->slug)}}" class="inline-flex items-center font-medium text-white hover:text-blue-800 text-xs">
+                                                Detail
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line-trough" style="margin-top: 12px; width: 100%; height: 2px; background-color: white;"></div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="product_carousel_descriptions" style="font-size: 14px; font-weight: 400;">{!!
-                        $show_in_home_product->description !!}</div>
-                    <div class="common-button-wrap text-xs lg:text-md">
-                        <a href="{{route('product-detail', $show_in_home_product->slug)}}" class="common-button">
-                            <span>
-                                Detail
-                            </span>
-                            <svg width="22" height="21" viewBox="0 0 22 21" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.875 10.5H17.125" stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path d="M11 4.375L17.125 10.5L11 16.625" stroke="black" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
+                    <div class="glide__arrows hidden lg:block" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="block lg:hidden" data-glide-el="controls">
+                            <button class="text-gray-900 bg-white border border-gray-300 font-medium  text-xs px-1 py-0" data-glide-dir="<"><</button>
+                            <button class="text-gray-900 bg-white border border-gray-300 font-medium  text-xs px-1 py-0" data-glide-dir=">">></button>
+                        </div>
                     </div>
                 </div>
-                <div class="line-trough" style="margin-top: 12px; width: 100%; height: 2px; background-color: white;"></div>
             </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="text-center mt-8 lg:my-12 mb-3 lg:mb-5">            
+            <span class="font-bold text-xl lg:text-3xl tracking-widest text-primary-800">Product</span>
+            <br>
+            <span class="text-base lg:text-lg">Customer satisfaction is our commitment.</span>
+        </div>
+        <div class="lg:grid lg:grid-cols-3 lg:gap-0">
+            @foreach($types as $data)
+            <button wire:click="type({{$data->id}})">
+                <figure class="produk_group relative max-w-xl transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ">
+                    <img class="rounded-none" src="{{!empty($data->img) ? asset('storage/'.$data->img) : 'http://newarmada.co.id/storage/product/home_photos/01HMTRQK6YGDZE26WW0ENZRW77.jpg'}}" alt="image description" styly="">
+                    <figcaption class="absolute px-3 py-1 text-white bottom-6 bg-slate-400 rounded-r-lg">
+                        <p class="text-base lg:text-xl font-bold">{{$data->name}}</p>
+                    </figcaption>
+                </figure>
+            </button>
             @endforeach
         </div>
     </div>
+
+    {{-- News --}}
+<div class="lg:mx-48 mx-3">
+    @if(!empty($latest_news))
+    <div class="text-center mt-8 mb-5 flex justify-between justify-center items-center">
+        <span class="font-bold text-xl lg:text-2xl tracking-widest text-primary-800">Latest News</span>
+        <br>
+        <a href="{{route('news')}}" class="bg-gray-800 text-sm text-white rounded-md border-r border-gray-100 py-1 hover:bg-red-700 hover:text-white px-2">
+            <div class="flex items-center py-1 px-3">
+                <span>See Other</span>
+            </div>
+        </a>
+    </div>
+    {{-- News Dekstop --}}
+    <div class="lg:grid lg:grid-cols-3 lg:gap-2 hidden lg:block">
+        @foreach ($latest_news as $data)
+        <div class="relative bg-white border border-gray-200 rounded-lg shadow mb-3 lg:mb-0"  style="min-height: 410px;">
+            <div class="relative overflow-hidden">
+                <a href="{{ route('news-detail', $data->slug) }}">
+                    <img class="rounded-t-lg transition-transform transform hover:scale-110" src="{{asset('storage/'.$data['thumbnail'])}}" alt="" />
+                </a>
+            </div>
+            <div class="p-5">
+                <div>
+                    <span class="text-sm text-gray-500">
+                        {{ strftime('%a, %e %b %Y', strtotime($data->created_at)) }}
+                    </span>
+                    <span class="text-sm text-gray-500">|</span>
+                    <span class="text-sm text-gray-500">{{$data->category->title}}</span>
+                </div>
+                <a href="{{ route('news-detail', $data->slug) }}">
+                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{ Str::limit($data->title, 63, "...") }}</h5>
+                </a>
+                <div class="absolute bottom-3 left-3">
+                    <a href="{{ route('news-detail', $data->slug) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-center text-blue-600 hover:underline">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    {{-- News Dekstop --}}
+
+    {{-- News Mobile --}}
+    <div class="glide_news">
+        <div class="glide block lg:hidden">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    @foreach($latest_news as $data)
+                        <li class="glide__slide">
+                            <div class="relative bg-white border border-gray-200 rounded-lg shadow mb-3 lg:mb-0"  style="min-height: 370px;">
+                                <div class="relative overflow-hidden">
+                                    <a href="{{ route('news-detail', $data->slug) }}">
+                                        <img class="rounded-t-lg transition-transform transform hover:scale-110" src="{{asset('storage/'.$data['thumbnail'])}}" alt="" />
+                                    </a>
+                                </div>
+                                <div class="p-5">
+                                    <div>
+                                        <span class="text-sm text-gray-500">
+                                            {{ strftime('%a, %e %b %Y', strtotime($data->created_at)) }}
+                                        </span>
+                                        <span class="text-sm text-gray-500">|</span>
+                                        <span class="text-sm text-gray-500">{{$data->category->title}}</span>
+                                    </div>
+                                    <a href="{{ route('news-detail', $data->slug) }}">
+                                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{ Str::limit($data->title, 63, "...") }}</h5>
+                                    </a>
+                                    <div class="absolute bottom-3 left-3">
+                                        <a href="{{ route('news-detail', $data->slug) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-center text-blue-600 hover:underline">
+                                            Read more
+                                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+                </div>
+                @if(count($latest_news) > 1)
+                <div class="flex justify-end">
+                    <div class="" data-glide-el="controls">
+                        <button type="button" data-glide-dir="<" class="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-red-700 hover:text-white px-3">
+                            <div class="flex flex-row align-middle">
+                            <svg class="w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                            </div>
+                        </button>
+                        <button type="button" data-glide-dir=">" class="bg-gray-800 text-white rounded-r-md py-2 border-l border-gray-200 hover:bg-red-700 hover:text-white px-3">
+                            <div class="flex flex-row align-middle">
+                            <svg class="w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                @endif
+            </div>
+            {{-- News Mobile --}}
+        </div>
+    </div>
+    {{-- News --}}
+    @endif
     <livewire:gallery />
+    
     <div>
-        <div class="section-title mb-12" style="color: black;">
+        <div class="section-title mb-12 text-2xl" style="color: black;">
             Plant
         </div>
         <div id="map" style="height: 500px"></div>
@@ -96,6 +258,15 @@
                     "<div style='text-align: center'><a target='_blank' href='"+e[3]+"'>Visit</a></div>"
                     );
             });
+
+            var glide_home_model = new Glide('.glide_home_model .glide', {
+                type: 'slider',
+                autoplay: 3000|true
+            }).mount()
+
+            var glide_news = new Glide('.glide_news .glide', {
+                type: 'slider',
+            }).mount()
         </script>
     @endpush
 </div>

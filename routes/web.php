@@ -33,7 +33,7 @@ Route::get('/construction/product', Product::class)->name('product');
 Route::get('/construction/product/{slug}', ProductDetail::class)->name('product-detail');
 Route::get('/construction/contact', Contact::class)->name('contact');
 Route::get('/construction/career', Career::class)->name('career');
-Route::get('/construction/career/{id}', CareerDetail::class)->name('career_detail');
+Route::get('/construction/career/{title}', CareerDetail::class)->name('career_detail');
 // Route::get('/download-center', DownloadCenter::class)->name('download-center');
 Route::get('/construction/news', News::class)->name('news');
 Route::get('/construction/news/{slug}', NewsDetail::class)->name('news-detail');

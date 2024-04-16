@@ -10,13 +10,13 @@
     <div id="specification">
 
     </div>
-    <div class="mx-5 my-14">
-            <div class="flex justify-center my-12">
+    <div class="mx-3 my-14">
+            {{-- <div class="flex justify-center my-6 lg:my-12">
                 <span class="text-sm font-medium uppercase text-center" style="letter-spacing: 0.5rem;">Saksikan model
                     terbaik kami</span>
-            </div>
+            </div> --}}
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:mx-16 gap-4">
-            <div class="p-5">
+            <div class="p-0">
                 <div class="text-sm">
                     {!! $product->description !!}
                 </div>
@@ -28,7 +28,7 @@
                     <span>Download Catalog</span>
                 </button>
             </div>
-            <div class="p-5 bg-yello flex justify-center">
+            <div class="p-0 bg-yello flex justify-center">
                 <div class="p-10 border-none shadow bg-zinc-800 max-w-sm" style="width: 100%">
                     <table class="w-full text-xs text-left rtl:text-right text-gray-500">
                         <tbody>
@@ -66,110 +66,154 @@
     <div class="bg-zinc-700">
         <div class="tabs-header-specification text-white shadow-md shadow-white text-center">
             @if($product->interior)
-            <button id="btn-interior" class="tabs-item-specification tabs-item-specification-active">Interior</button>
+            <button id="btn-interior" class="tabs-item-specification tabs-item-specification-active text-sm lg:text-base">Interior</button>
             @endif
             @if($product->exterior)
-            <button id="btn-exterior" class="tabs-item-specification">Exterior</button>
+            <button id="btn-exterior" class="tabs-item-specification text-sm lg:text-base">Exterior</button>
             @endif
             @if($product->couches)
-            <button id="btn-couches" class="tabs-item-specification">Bangku</button>
+            <button id="btn-couches" class="tabs-item-specification text-sm lg:text-base">Couches</button>
             @endif
             @if($product->lighting)
-            <button id="btn-lighting" class="tabs-item-specification">Lampu</button>
+            <button id="btn-lighting" class="tabs-item-specification text-sm lg:text-base">Lighting</button>
             @endif
             @if($product->driver_station)
-            <button id="btn-driver_station" class="tabs-item-specification">Bangku Pengemudi</button>
+            <button id="btn-driver_station" class="tabs-item-specification text-sm lg:text-base">Driver's Seat</button>
             @endif
         </div>
         <div class="bg-zinc-800">
             @if($product->interior)
-            <div id="tab-interior" class="transition-opacity grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-interior" class="transition-opacity grid grid-cols-1 lg:grid-cols-2 mx-1 p-3 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->interior !!}
                     </div>
                 </div>
-                <div style="max-height: 400px; min-width: 100%">
-                    <div id="" class="interior_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
-                        @foreach($product->interior_images as $data)
-                            <div class="item" style="width: 100%; height: 100%;">
-                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                <div class="glide_interior">
+                    <div class="overflow-hidden	glide">
+                        <div class="glide__track" data-glide-el="track">
+                            <div class="glide__slides">
+                                @foreach($product->interior_images as $data)
+                                <div class="glide__slide">
+                                    <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                        <div class="glide__bullets" data-glide-el="controls[nav]">
+                            @foreach($product->interior_images as $key => $data)
+                                <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
+                            @endforeach
+                        </div>
+                    </div>  
                 </div>
             </div>
             @endif
             @if($product->exterior)
-            <div id="tab-exterior" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-exterior" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-3 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->exterior !!}
                     </div>
                 </div>
-                <div style="max-height: 400px; min-width: 100%">
-                    <div id="" class="exterior_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
-                        @foreach($product->exterior_images as $data)
-                            <div class="item" style="width: 100%; height: 100%;">
-                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                <div class="glide_exterior">
+                    <div class="overflow-hidden	glide">
+                        <div class="glide__track" data-glide-el="track">
+                            <div class="glide__slides">
+                                @foreach($product->exterior_images as $data)
+                                <div class="glide__slide">
+                                    <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                        <div class="glide__bullets" data-glide-el="controls[nav]">
+                            @foreach($product->exterior_images as $key => $data)
+                                <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
+                            @endforeach
+                        </div>
+                    </div>  
                 </div>
             </div>
             @endif
             @if($product->couches)
-            <div id="tab-couches" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-couches" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-3 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->couches !!}
                     </div>
                 </div>
-                <div style="max-height: 400px; min-width: 100%">
-                    <div id="" class="couches_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
-                        @foreach($product->couches_images as $data)
-                            <div class="item" style="width: 100%; height: 100%;">
-                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                <div class="glide_couches">
+                    <div class="overflow-hidden	glide">
+                        <div class="glide__track" data-glide-el="track">
+                            <div class="glide__slides">
+                                @foreach($product->couches_images as $data)
+                                <div class="glide__slide">
+                                    <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                        <div class="glide__bullets" data-glide-el="controls[nav]">
+                            @foreach($product->couches_images as $key => $data)
+                                <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
+                            @endforeach
+                        </div>
+                    </div>  
                 </div>
             </div>
             @endif
             @if($product->lighting)
-            <div id="tab-lighting" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-lighting" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-3 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->lighting !!}
                     </div>
                 </div>
-                <div style="max-height: 400px; min-width: 100%">
-                    <!-- <img src="{{asset('storage/'.$product->lighting_images[0])}}" alt="" srcset="" style="height: 100%; width: 100%"> -->
-                    <div id="" class="lighting_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
-                        @foreach($product->lighting_images as $data)
-                            <div class="item" style="width: 100%; height: 100%;">
-                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                <div class="glide_lighting">
+                    <div class="overflow-hidden	glide">
+                        <div class="glide__track" data-glide-el="track">
+                            <div class="glide__slides">
+                                @foreach($product->lighting_images as $data)
+                                <div class="glide__slide">
+                                    <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                        <div class="glide__bullets" data-glide-el="controls[nav]">
+                            @foreach($product->lighting_images as $key => $data)
+                                <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
+                            @endforeach
+                        </div>
+                    </div>  
                 </div>
             </div>
             @endif
             @if($product->driver_station)
-            <div id="tab-driver_station" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-5 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-driver_station" class="grid grid-cols-1 lg:grid-cols-2 mx-1 p-3 lg:mx-20 lg:p-12 gap-4">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->driver_station !!}
                     </div>
                 </div>
-                <div style="max-height: 400px; min-width: 100%">
-                    <div id="" class="driver_station_slider owl-carousel owl-theme cursor-pointer" style="width: 100%">
-                        @foreach($product->driver_station_images as $data)
-                            <div class="item" style="width: 100%; height: 100%;">
-                                <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                <div class="glide_driver_station">
+                    <div class="overflow-hidden	glide">
+                        <div class="glide__track" data-glide-el="track">
+                            <div class="glide__slides">
+                                @foreach($product->driver_station_images as $data)
+                                <div class="glide__slide">
+                                    <img src="{{asset('storage/'.$data)}}" alt="https://newarmada.co.id" srcset="">
+                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                        <div class="glide__bullets" data-glide-el="controls[nav]">
+                            @foreach($product->driver_station_images as $key => $data)
+                                <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
+                            @endforeach
+                        </div>
+                    </div>  
                 </div>
             </div>
             @endif
@@ -211,13 +255,14 @@
         </div>
     </div>
     @endif
-    <div class="my-12 mx-5">
+    <div class="my-12 mx-2 lg:mx-20">
         <div class="lg:w-1/2 w-full text-sm">
-            <p>Jika Anda memiliki pertanyaan, memerlukan informasi lebih lanjut, atau menginginkan penawaran khusus untuk <b><i>{{$product->name}}</i></b>, silakan hubungi nomor yang terdapat pada laman berikut <a class="text-blue-700" href="{{route('contact')}}">Kontak</a></p>
+            <p>If you have any questions, need further information, or desire special offers for the <b><i>{{$product->name}}</i></b>, please contact the number provided on the following page under <a class="italic text-blue-700" href="{{route('contact')}}">Contact</a></p>
             <br>
-            <p>atau lihat produk lain kami di <a href="{{route('product')}}" class="text-blue-700">Produk</a></p>
+            <p>or view our other products at <a href="{{route('product')}}" class="italic text-blue-700">Produk</a></p>
         </div>
     </div>
+
     <livewire:footer.footer />
     
     <!-- Bottom Navigation -->
@@ -255,113 +300,18 @@
 
 @script
 <script>
-    $(document).ready(function() {
-        $('.interior_slider').owlCarousel({
-                loop:true,
-                mouseDrag:true,
-                autoplay:false,
-                nav: true,
-                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:1
-                    },
-                    1000:{
-                        items:1
-                    }
-                },
-                onInitialized: function() {
-                
-                }
-            });
+    $(document).ready(function() {     
+        /**
+         * 1. Tab pertama dimunculkan, tab lain di hide. Lalu ketika klik button baru tab muncul
+         * 2. .mount() slider glide_interior saat pertama kali load. Yang lain di mount setelah klik button
+         * */                           
+        $('#tab-interior').removeClass('hidden');
+        new Glide('.glide_interior .glide').mount();
+        $('#tab-exterior').addClass('hidden');
+        $('#tab-couches').addClass('hidden');
+        $('#tab-lighting').addClass('hidden');
+        $('#tab-driver_station').addClass('hidden');
 
-            $('.exterior_slider').owlCarousel({
-                loop:true,
-                mouseDrag:true,
-                autoplay:false,
-                nav: true,
-                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:1
-                    },
-                    1000:{
-                        items:1
-                    }
-                },
-                onInitialized: function() {
-                    $('#tab-exterior').addClass('hidden');
-                }
-            });
-            $('.couches_slider').owlCarousel({
-                loop:true,
-                mouseDrag:true,
-                autoplay:false,
-                nav: true,
-                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:1
-                    },
-                    1000:{
-                        items:1
-                    }
-                },
-                onInitialized: function() {
-                    $('#tab-couches').addClass('hidden');
-                }
-            });
-            $('.lighting_slider').owlCarousel({
-                loop:true,
-                mouseDrag:true,
-                autoplay:false,
-                nav: true,
-                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:1
-                    },
-                    1000:{
-                        items:1
-                    }
-                },
-                onInitialized: function() {
-                    $('#tab-lighting').addClass('hidden');
-                }
-            });
-            $('.driver_station_slider').owlCarousel({
-                loop:true,
-                mouseDrag:true,
-                autoplay:false,
-                nav: true,
-                navText : ["<span style='font-size: 36px;color: #FFF;opacity: 0.4;'><</span>","<span style='font-size: 36px;color: #FFF;opacity: 0.4;'>></span>"],
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:1
-                    },
-                    1000:{
-                        items:1
-                    }
-                },
-                onInitialized: function() {
-                    $('#tab-driver_station').addClass('hidden');
-                }
-            });
         $(window).on('load', function() {
             $('#btn-interior').on('click', function(){
                 $('#tab-interior').removeClass('hidden');
@@ -376,6 +326,8 @@
                 $('#btn-couches').removeClass('tabs-item-specification-active');
                 $('#btn-lighting').removeClass('tabs-item-specification-active');
                 $('#btn-driver_station').removeClass('tabs-item-specification-active');
+
+                new Glide('.glide_interior .glide').mount();
             });
             $('#btn-exterior').on('click', function(){
                 $('#tab-exterior').removeClass('hidden');
@@ -390,6 +342,8 @@
                 $('#btn-couches').removeClass('tabs-item-specification-active');
                 $('#btn-lighting').removeClass('tabs-item-specification-active');
                 $('#btn-driver_station').removeClass('tabs-item-specification-active');
+
+                new Glide('.glide_exterior .glide').mount();
             });
             $('#btn-couches').on('click', function(){
                 $('#tab-couches').removeClass('hidden');
@@ -404,6 +358,8 @@
                 $('#btn-interior').removeClass('tabs-item-specification-active');
                 $('#btn-lighting').removeClass('tabs-item-specification-active');
                 $('#btn-driver_station').removeClass('tabs-item-specification-active');
+
+                new Glide('.glide_couches .glide').mount();
             });
             $('#btn-lighting').on('click', function(){
                 $('#tab-lighting').removeClass('hidden');
@@ -418,6 +374,8 @@
                 $('#btn-exterior').removeClass('tabs-item-specification-active');
                 $('#btn-interior').removeClass('tabs-item-specification-active');
                 $('#btn-driver_station').removeClass('tabs-item-specification-active');
+
+                new Glide('.glide_lighting .glide').mount();
             });
             $('#btn-driver_station').on('click', function(){
                 $('#tab-driver_station').removeClass('hidden');
@@ -432,6 +390,8 @@
                 $('#btn-couches').removeClass('tabs-item-specification-active');
                 $('#btn-exterior').removeClass('tabs-item-specification-active');
                 $('#btn-interior').removeClass('tabs-item-specification-active');
+
+                new Glide('.glide_driver_station .glide').mount();
             });
         })
     })

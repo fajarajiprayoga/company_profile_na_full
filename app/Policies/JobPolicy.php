@@ -53,7 +53,7 @@ class JobPolicy
      */
     public function restore(User $user, Job $job): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -61,6 +61,6 @@ class JobPolicy
      */
     public function forceDelete(User $user, Job $job): bool
     {
-        //
+        return false;
     }
 }

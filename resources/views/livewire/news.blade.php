@@ -9,16 +9,16 @@
     </div>
     <div class="tabs-wrapper mb-5" id="news">
         <div id="news" class="lg:mx-32 my-5 mx-1 lg:flex lg:justify-between">
-            <div class="font-bold text-2xl text-blue-900 ">
-                {{ !empty($category_title) && $this->category != 'all' ? $category_title : 'Semua Berita' }}
+            <div class="font-bold text-xl lg:text-2xl text-blue-900 ">
+                {{ !empty($category_title) && $this->category != 'all' ? $category_title : 'All News' }}
             </div>
             <div class="lg:flex justify-between gap-3">
                     <div class="w-full">
-                        <input wire:model.live="search" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 mb-3 lg:mb-6" placeholder="Cari berita">
+                        <input wire:model.live="search" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 mb-3 lg:mb-6" placeholder="Search News">
                     </div>
                     <div class="w-full lg:w-56">
                         <select wire:model.live="search_year" class="bg-gray-50 border border-gray-300 text-gray-900 mb-3 lg:mb-6 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5">
-                            <option value="semua">Pilih Tahun</option>
+                            <option value="semua">All Year</option>
                             @foreach($years as $year)
                                 <option value="{{$year}}">{{$year}}</option>
                             @endforeach
@@ -26,8 +26,8 @@
                     </div>
                     <div class="w-full lg:w-56">
                         <select wire:model.live="search_time" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5">
-                            <option value="desc">Terbaru</option>
-                            <option value="asc">Terdahulu</option>
+                            <option value="desc">Latest</option>
+                            <option value="asc">Oldest</option>
                         </select>
                     </div>
                 </div>
@@ -35,9 +35,9 @@
         <div class="lg:mx-32 mx-1 lg:grid lg:grid-cols-3 lg:gap-4">
             <div class="mb-2 lg:mb-0">
                 <div class="block p-6 bg-white border border-gray-200 rounded-lg">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kategori</h5>
+                    <h5 class="mb-2 text-xl lg:text-2xl font-bold tracking-tight text-gray-900">Category</h5>
                     <a href="{{ route('news', ['category' => 'all'])  . '#news' }}">
-                        <p class="{{ $category == 'all' || $category == '' ? 'text-blue-900 font-semibold' : 'text-gray-700 font-normal' }} text-base">Semua</p>
+                        <p class="{{ $category == 'all' || $category == '' ? 'text-blue-900 font-semibold' : 'text-gray-700 font-normal' }} text-base">All</p>
                     </a>
                     @foreach($categories as $data)
                         <a href="{{ route('news', ['category' => $data->slug]) . '#news' }}">
@@ -71,7 +71,7 @@
                             </p>
                             <div class="absolute bottom-3 left-3">
                                 <a href="{{ route('news-detail', $data->slug) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-center text-blue-600 hover:underline">
-                                    Selengkapnya
+                                    Read more
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>

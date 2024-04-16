@@ -53,7 +53,7 @@ class PlantPolicy
      */
     public function restore(User $user, Plant $plant): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -61,6 +61,6 @@ class PlantPolicy
      */
     public function forceDelete(User $user, Plant $plant): bool
     {
-        //
+        return false;
     }
 }
