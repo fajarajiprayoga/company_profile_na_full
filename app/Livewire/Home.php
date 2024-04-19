@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Carbon;
+use Livewire\WithPagination;
 
 class Home extends Component
 {
+
+    use WithPagination;
+
     public function mount(){
         $ip = Request::getClientIp();
         

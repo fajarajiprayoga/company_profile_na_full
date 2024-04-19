@@ -95,25 +95,97 @@
         </div>
     </div>
 
-    <div class="">
-        <div class="text-center mt-8 lg:my-12 mb-3 lg:mb-5">            
+    <div class="mx-o lg:mx-12">
+        <div class="text-center mt-8 lg:my-12 mb-3 lg:mb-5">
             <span class="font-bold text-xl lg:text-3xl tracking-widest text-primary-800">Product</span>
             <br>
             <span class="text-base lg:text-lg">Customer satisfaction is our commitment.</span>
         </div>
-        <div class="lg:grid lg:grid-cols-3 lg:gap-0">
-            @foreach($types as $data)
-            <button wire:click="type({{$data->id}})">
-                <figure class="produk_group relative max-w-xl transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ">
-                    <img class="rounded-none" src="{{!empty($data->img) ? asset('storage/'.$data->img) : 'http://newarmada.co.id/storage/product/home_photos/01HMTRQK6YGDZE26WW0ENZRW77.jpg'}}" alt="image description" styly="">
-                    <figcaption class="absolute px-3 py-1 text-white bottom-6 bg-slate-400 rounded-r-lg">
-                        <p class="text-base lg:text-xl font-bold">{{$data->name}}</p>
-                    </figcaption>
-                </figure>
-            </button>
-            @endforeach
+        {{-- Product Dekstop --}}
+        <div class="glide_product_dekstop hidden lg:block">
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides" style="height: 80vh">
+                        @foreach ($types->chunk(3) as $key => $chunk)
+                            <div class="glide__slide">
+                                <div class="flex h-full justify-center">
+                                    @foreach ($chunk as $data)
+                                        <div wire:click="type({{$data->id}})" class="relative h-full w-96 hover:w-full transition-all duration-500 ease-in-out cursor-pointer">
+                                            <img class="absolute h-full object-cover duration-500 brightness-[0.65] hover:brightness-100" src="{{!empty($data->img) ? asset('storage/'.$data->img) : 'http://newarmada.co.id/storage/product/home_photos/01HMTRQK6YGDZE26WW0ENZRW77.jpg'}}" alt="" srcset="">
+                                            <span class="absolute px-3 py-1 text-white bottom-6 bg-slate-400 rounded-r-lg"><p class="text-base lg:text-xl font-bold">{{$data->name}}</p></span>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="flex justify-center mt-2">
+                    <div class="" data-glide-el="controls">
+                        <button type="button" data-glide-dir="<" class="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-red-700 hover:text-white px-3">
+                            <div class="flex flex-row align-middle">
+                            <svg class="w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                            </div>
+                        </button>
+                        <button type="button" data-glide-dir=">" class="bg-gray-800 text-white rounded-r-md py-2 border-l border-gray-200 hover:bg-red-700 hover:text-white px-3">
+                            <div class="flex flex-row align-middle">
+                            <svg class="w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+        {{-- Product Dekstop --}}
+        {{-- Product Mobile --}}
+        <div class="glide_product_mobile block lg:hidden">
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides" style="height: 80vh">
+                        @foreach ($types->chunk(2) as $key => $chunk)
+                            <div class="glide__slide">
+                                <div class="flex h-full justify-center">
+                                    @foreach ($chunk as $data)
+                                        <div wire:click="type({{$data->id}})" class="relative h-full w-96 hover:w-full transition-all duration-500 ease-in-out cursor-pointer">
+                                            <img class="absolute h-full object-cover duration-500 brightness-[0.65] hover:brightness-100" src="{{!empty($data->img) ? asset('storage/'.$data->img) : 'http://newarmada.co.id/storage/product/home_photos/01HMTRQK6YGDZE26WW0ENZRW77.jpg'}}" alt="" srcset="">
+                                            <span class="absolute px-3 py-1 text-white bottom-6 bg-slate-400 rounded-r-lg"><p class="text-base lg:text-xl font-bold">{{$data->name}}</p></span>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @if (count($types) > 2)                
+                <div class="flex justify-end mt-2 mr-2">
+                    <div class="" data-glide-el="controls">
+                        <button type="button" data-glide-dir="<" class="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-red-700 hover:text-white px-3">
+                            <div class="flex flex-row align-middle">
+                            <svg class="w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                            </div>
+                        </button>
+                        <button type="button" data-glide-dir=">" class="bg-gray-800 text-white rounded-r-md py-2 border-l border-gray-200 hover:bg-red-700 hover:text-white px-3">
+                            <div class="flex flex-row align-middle">
+                            <svg class="w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                @endif
+            </div>
+        </div>
+        {{-- Product Mobile --}}
     </div>
+
+    <livewire:gallery />
 
     {{-- News --}}
 <div class="lg:mx-48 mx-3">
@@ -225,7 +297,6 @@
     </div>
     {{-- News --}}
     @endif
-    <livewire:gallery />
     
     <div>
         <div class="section-title mb-12 text-2xl" style="color: black;">
@@ -267,6 +338,16 @@
             var glide_news = new Glide('.glide_news .glide', {
                 type: 'slider',
             }).mount()
+
+            var glide_news = new Glide('.glide_product_dekstop .glide', {
+                type: 'slider',
+            }).mount()
+
+            var glide_news = new Glide('.glide_product_mobile .glide', {
+                type: 'slider',
+            }).mount()
+
+
         </script>
     @endpush
 </div>
