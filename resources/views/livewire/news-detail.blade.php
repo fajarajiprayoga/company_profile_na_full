@@ -51,7 +51,7 @@
                     <figure class="mt-5 w-full">
                         <img class="w-full" src="{{ asset('storage/' . $news->thumbnail) }}" alt="">
                     </figure>
-                    <div class="my-2" style="font-size: 15px; line-height: 22px;">
+                    <div class="my-2" style="font-size: 15px; line-height: 1.5;">
                         {!! $news->content !!}
                     </div>
                 </div>
