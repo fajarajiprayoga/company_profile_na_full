@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Type;
+use App\Observers\TypeObserver;
 use Illuminate\Support\ServiceProvider;
 use Filament\Facades\Filament;
 use Filament\Navigation\UserMenuItem;
@@ -30,5 +32,10 @@ class AppServiceProvider extends ServiceProvider
                 // ...
             ]);
         });
+
+        /**
+         * Register observer when default laravel not work
+         */
+        Type::observe(TypeObserver::class);
     }
 }

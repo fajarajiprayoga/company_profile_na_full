@@ -111,7 +111,7 @@
                                 <div class="flex h-full justify-center">
                                     @foreach ($chunk as $data)
                                         <div wire:click="type({{$data->id}})" class="relative h-full w-96 hover:w-full transition-all duration-500 ease-in-out cursor-pointer">
-                                            <img class="absolute h-full object-cover duration-500 brightness-[0.65] hover:brightness-100" src="{{!empty($data->img) ? asset('storage/'.$data->img) : 'http://newarmada.co.id/storage/product/home_photos/01HMTRQK6YGDZE26WW0ENZRW77.jpg'}}" alt="" srcset="">
+                                            <img class="absolute h-full object-cover duration-500 brightness-[0.65] hover:brightness-100" src="{{!empty($data->img) ? asset('storage/'.$data->img) : asset('assets/product/product-1.jpg')}}" alt="" srcset="">
                                             <span class="absolute px-3 py-1 text-white bottom-6 bg-slate-400 rounded-r-lg"><p class="text-base lg:text-xl font-bold">{{$data->name}}</p></span>
                                         </div>
                                     @endforeach
@@ -151,7 +151,7 @@
                                 <div class="flex h-full justify-center">
                                     @foreach ($chunk as $data)
                                         <div wire:click="type({{$data->id}})" class="relative h-full w-96 hover:w-full transition-all duration-500 ease-in-out cursor-pointer">
-                                            <img class="absolute h-full object-cover duration-500 brightness-[0.65] hover:brightness-100" src="{{!empty($data->img) ? asset('storage/'.$data->img) : 'http://newarmada.co.id/storage/product/home_photos/01HMTRQK6YGDZE26WW0ENZRW77.jpg'}}" alt="" srcset="">
+                                            <img class="absolute h-full object-cover duration-500 brightness-[0.65] hover:brightness-100" src="{{!empty($data->img) ? asset('storage/'.$data->img) : asset('assets/product/product-1.jpg')}}" alt="" srcset="">
                                             <span class="absolute px-3 py-1 text-white bottom-6 bg-slate-400 rounded-r-lg"><p class="text-base lg:text-xl font-bold">{{$data->name}}</p></span>
                                         </div>
                                     @endforeach

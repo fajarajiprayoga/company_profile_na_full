@@ -12,7 +12,7 @@ class NewsObserver
      */
     public function created(News $news): void
     {
-        //
+        dd("Hello WOrld");
     }
 
     /**
