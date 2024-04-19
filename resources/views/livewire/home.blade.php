@@ -130,10 +130,10 @@
     {{-- News Dekstop --}}
     <div class="lg:grid lg:grid-cols-3 lg:gap-2 hidden lg:block">
         @foreach ($latest_news as $data)
-        <div class="relative bg-white border border-gray-200 rounded-lg shadow mb-3 lg:mb-0"  style="min-height: 410px;">
+        <div class="relative bg-white border border-gray-200 rounded-lg shadow mb-3 lg:mb-0"  style="min-height: 370px;">
             <div class="relative overflow-hidden">
                 <a href="{{ route('news-detail', $data->slug) }}">
-                    <img class="rounded-t-lg transition-transform transform hover:scale-110" src="{{asset('storage/'.$data['thumbnail'])}}" alt="" />
+                    <img class="rounded-t-lg transition-transform transform duration-500 hover:scale-110" src="{{asset('storage/'.$data['thumbnail'])}}" alt="" />
                 </a>
             </div>
             <div class="p-5">
@@ -145,7 +145,7 @@
                     <span class="text-sm text-gray-500">{{$data->category->title}}</span>
                 </div>
                 <a href="{{ route('news-detail', $data->slug) }}">
-                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{ Str::limit($data->title, 63, "...") }}</h5>
+                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{ Str::limit($data->title, 63, "...") }}</h5>
                 </a>
                 <div class="absolute bottom-3 left-3">
                     <a href="{{ route('news-detail', $data->slug) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-center text-blue-600 hover:underline">

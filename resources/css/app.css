@@ -287,3 +287,8 @@ h4 {
       padding: 2.3rem;
     }
   }
+
+  #news-content-list * {
+    font-size: 14px;
+    line-height: 1.5;
+  }

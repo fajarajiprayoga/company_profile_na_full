@@ -35,7 +35,7 @@
         <div class="lg:mx-32 mx-1 lg:grid lg:grid-cols-3 lg:gap-4">
             <div class="mb-2 lg:mb-0">
                 <div class="block p-6 bg-white border border-gray-200 rounded-lg">
-                    <h5 class="mb-2 text-xl lg:text-2xl font-bold tracking-tight text-gray-900">Category</h5>
+                    <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Category</h5>
                     <a href="{{ route('news', ['category' => 'all'])  . '#news' }}">
                         <p class="{{ $category == 'all' || $category == '' ? 'text-blue-900 font-semibold' : 'text-gray-700 font-normal' }} text-base">All</p>
                     </a>
@@ -49,10 +49,10 @@
             <div class="col-span-2">
                 <div wire:loading.class.delay="opacity-75" class="lg:grid lg:grid-cols-2 lg:gap-3 mb-0 sm:mb-5">
                     @forelse($news as $data)
-                    <div class="relative bg-white border border-gray-200 rounded-lg shadow"  style="min-height: 510px;">
+                    <div class="relative bg-white border border-gray-200 rounded-lg shadow"  style="min-height: 460px;">
                         <div class="relative overflow-hidden">
                             <a href="{{ route('news-detail', $data->slug) }}">
-                                <img class="rounded-t-lg transition-transform transform hover:scale-110" src="{{asset('storage/'.$data['thumbnail'])}}" alt="" />
+                                <img class="rounded-t-lg transition-transform transform hover:scale-110 duration-500" src="{{asset('storage/'.$data['thumbnail'])}}" alt="" />
                             </a>
                         </div>
                         <div class="p-5">
@@ -64,11 +64,11 @@
                                 <span class="text-sm text-gray-500">{{$data->category->title}}</span>
                             </div>
                             <a href="{{ route('news-detail', $data->slug) }}">
-                                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{ Str::limit($data->title, 63, "...") }}</h5>
+                                <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{ Str::limit($data->title, 63, "...") }}</h5>
                             </a>
-                            <p class="mb-3 font-normal text-gray-700">
-                                {!! Str::limit($data->content, 135, "...") !!}
-                            </p>
+                            <div id="news-content-list" class="mb-3 font-normal text-gray-700">
+                                {!! Str::limit("$data->content", 135, "...") !!}
+                            </div>
                             <div class="absolute bottom-3 left-3">
                                 <a href="{{ route('news-detail', $data->slug) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-center text-blue-600 hover:underline">
                                     Read more
