@@ -20,7 +20,7 @@ class TypeObserver
      */
     public function updated(Type $type): void
     {
-        if ($type->isDirty('img')) {
+        if ($type->isDirty('img') && !empty($type->img) && !empty($type->getOriginal('img'))) {
             if(Storage::disk('public')->exists($type->getOriginal('img'))){
                 Storage::disk('public')->delete($type->getOriginal('img'));
             }
