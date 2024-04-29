@@ -12,7 +12,7 @@
                 <div class="flex justify-center mt-12">
                     <span>Hasil pencarian : {{$keywoard}}</span>
                 </div>
-                @if(!empty($searched))
+                @if(count($searched) != 0)
                 <div class="mt-5 px-4 lg:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-14">
                     @foreach($searched as $data)
                     <a href="{{route('product-detail', $data->slug)}}" class="p-4 item-product-list">
@@ -35,7 +35,7 @@
                 </div>
                 @else
                 <div class="flex justify-center mt-5">
-                    <span>Produk yang anda cari tidak tersedia</span>
+                    <span class="text-red-500">Produk yang anda cari tidak tersedia</span>
                 </div>
                 @endif
             </div>

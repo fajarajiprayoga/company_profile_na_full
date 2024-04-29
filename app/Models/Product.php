@@ -34,7 +34,8 @@ class Product extends Model
         'wallpaper',
         'show_in_home',
         'home_photo',
-        'catalog'
+        'catalog',
+        'is_show'
     ];
     protected $casts = [
         'gallery' => 'array',

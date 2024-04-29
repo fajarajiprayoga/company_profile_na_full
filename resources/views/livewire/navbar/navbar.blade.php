@@ -103,7 +103,6 @@
                         <span class="sr-only">Search icon</span>
                     </div>
                     <form action="{{route('product')}}" method="get">
-                        @csrf
                         <input style="background-color: transparent; font-size: 12px;" type="text" id="search-navbar"
                         class="global-search block w-full p-2 ps-10 text-sm text-white border border-white rounded-lg bg-white focus:ring-white focus:border-white"
                         placeholder="Search product" name="keywoard">
@@ -126,7 +125,6 @@
                     </svg>
                 </div>
                 <form action="{{route('product')}}" method="get">
-                    @csrf
                     <input style="background-color: transparent;" type="text" id="search-navbar"
                         class="global-search block w-full p-2 ps-10 text-sm text-white border border-gray-300 rounded-lg bg-white focus:ring-white focus:border-white"
                         placeholder="Search product" name="keywoard">

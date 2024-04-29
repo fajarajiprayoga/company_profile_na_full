@@ -34,7 +34,8 @@ class Product extends Component
         }
 
         if(!empty($this->keywoard)){
-            $this->searched = \App\Models\Product::where('name', 'LIKE', '%'.$this->keywoard.'%')->orWhere('slug', 'LIKE', '%'.$this->keywoard.'%')->orWhere('description', 'LIKE', '%'.$this->keywoard.'%')->orWhere('height', 'LIKE', '%'.$this->keywoard.'%')->orWhere('width', 'LIKE', '%'.$this->keywoard.'%')->orWhere('length', 'LIKE', '%'.$this->keywoard.'%')->orWhere('lighting', 'LIKE', '%'.$this->keywoard.'%')->orWhere('couches', 'LIKE', '%'.$this->keywoard.'%')->orWhere('interior', 'LIKE', '%'.$this->keywoard.'%')->orWhere('exterior', 'LIKE', '%'.$this->keywoard.'%')->orWhere('driver_station', 'LIKE', '%'.$this->keywoard.'%')->get();
+            $this->searched = \App\Models\Product::where('name', 'LIKE', '%'.$this->keywoard.'%')->where('is_show', true)
+            ->get();
         }
 
         $ip = Request::getClientIp();
@@ -56,7 +57,7 @@ class Product extends Component
     public function render()
     {
         $types = Type::all();
-        $products = \App\Models\Product::where('type_id', $this->type_id)->get();
+        $products = \App\Models\Product::where('type_id', $this->type_id)->where('is_show', true)->get();
         $footer = Footer::first();
         return view('livewire.product', [
             'types' => $types,

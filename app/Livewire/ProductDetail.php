@@ -15,7 +15,10 @@ class ProductDetail extends Component
     public $product;
     public $tabDetail;
     public function mount($slug){
-        $product = Product::where('slug', $slug)->first();
+        $product = Product::where('slug', $slug)->where('is_show', true)->first();
+        if(empty($product)){
+            return redirect()->route('product');
+        }
         $this->product = $product;
 
         $this->tabDetail = 'interior';

@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -52,7 +53,10 @@ class ProductResource extends Resource
                         ->maxLength(50),
                     Forms\Components\TextInput::make('length')
                         ->maxLength(50),
-                    Toggle::make('show_in_home')->inline(false)->helperText('Jika ON maka produk akan tertampil di Home page'),
+                    Grid::make()->schema([
+                        Toggle::make('show_in_home')->inline(false)->helperText('Jika ON maka produk akan tertampil di Home page'),
+                        Toggle::make('is_show')->inline(false)->helperText('Jika OFF maka produk akan tidak tertampil di laman product'),
+                    ]),
                     FileUpload::make('images')->label('Main Photo (1:1)')->directory('product/product_images')->image()->imageEditor()->imageEditorAspectRatios([
                         '1:1',
                     ])->helperText('Image akan di tampilkan di list produk dengan ukuran 250px x 250px')->required()->columnSpan(2),
