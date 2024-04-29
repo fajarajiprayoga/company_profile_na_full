@@ -32,6 +32,12 @@ use Illuminate\Support\Facades\Mail;
 */
 
 Route::get('/', [DebugController::class, 'underconstruction']);
+Route::get('/privacy-policy', function(){
+    return view('privacy-policy');
+})->name('privacy-policy');
+Route::get('/terms-conditions', function(){
+    return view('terms-conditions');
+})->name('terms-conditions');
 Route::get('/construction', Home::class)->name('home');
 Route::get('/construction/product', Product::class)->name('product');
 Route::get('/construction/product/{slug}', ProductDetail::class)->name('product-detail');
