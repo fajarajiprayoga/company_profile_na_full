@@ -20,7 +20,7 @@
                 <div class="text-sm">
                     {!! $product->description !!}
                 </div>
-                @if (Auth::guest())
+                @if (Auth::user())
                     <button disabled
                     class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center text-xs mt-12">
                         <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
