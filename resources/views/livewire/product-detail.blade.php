@@ -20,13 +20,23 @@
                 <div class="text-sm">
                     {!! $product->description !!}
                 </div>
-                <button disabled
+                @if (Auth::guest())
+                    <button disabled
                     class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center text-xs mt-12">
+                        <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                        </svg>
+                        <span>Download Catalog</span>
+                    </button>
+                @else
+                <button id="download_must_be_login"
+                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center text-xs mt-12">
                     <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
                     </svg>
                     <span>Download Catalog</span>
                 </button>
+                @endif
             </div>
             <div class="p-0 bg-yello flex justify-center">
                 <div class="p-10 border-none shadow bg-zinc-800 max-w-sm" style="width: 100%">
@@ -300,7 +310,21 @@
 
 @script
 <script>
-    $(document).ready(function() {     
+    $(document).ready(function() {    
+        $('#download_must_be_login').on('click', function() {
+            Swal.fire({
+                text: "To download the catalog, you must log in first.",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Login"
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{route('login')}}"
+                }
+            });
+        })
+
         /**
          * 1. Tab pertama dimunculkan, tab lain di hide. Lalu ketika klik button baru tab muncul
          * 2. .mount() slider glide_interior saat pertama kali load. Yang lain di mount setelah klik button
