@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Navbar;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Navbar extends Component
@@ -12,5 +13,11 @@ class Navbar extends Component
         return view('livewire.navbar.navbar', [
             'transparent' => $this->transparent
         ]);
+    }
+
+    public function logout(){
+        Auth::logout();
+
+        return redirect()->route('home');
     }
 }

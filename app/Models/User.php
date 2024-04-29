@@ -29,6 +29,9 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'google_id',
+        'google_token',
+        'google_refresh_token'
     ];
 
     /**

@@ -16,7 +16,7 @@ class News extends Component
     public $search_time = 'desc';
     public $category = '';
     public $category_title = '';
-    public $category_data = [];
+    public $category_data;
 
     public function mount()
     {

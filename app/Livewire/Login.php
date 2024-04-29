@@ -47,7 +47,7 @@ class Login extends Component
             try {
                 Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
 
-                $this->redirectRoute('otp', ['email' => $this->loginForm->email]);                
+                $this->redirectRoute('otp', ['email' => $user->email]);                
             } catch (\Throwable $th) {
                 try {
                     $ip = "36.91.11.21";
