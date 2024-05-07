@@ -54,6 +54,8 @@ class Home extends Component
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+
         $response = curl_exec($ch);
 
         if(curl_errno($ch)){
