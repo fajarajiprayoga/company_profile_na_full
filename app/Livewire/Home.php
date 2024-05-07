@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Http;
 use Livewire\WithPagination;
 
 class Home extends Component
@@ -43,62 +44,42 @@ class Home extends Component
         $apiUrl = "https://stamping.newarmada.co.id/api/about";
         $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $apiUrl);
-
-        $headers = [
-            "x-api-key: $apiKey",
-            "Content-Type: application/json",
-        ];
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-
-        $response = curl_exec($ch);
-
-        if(curl_errno($ch)){
-            $responseData = [];
-        }else {
-            $responseData = json_decode($response, true);
+        $response = Http::accept('application/json')->withHeaders([
+            "x-api-key" => $apiKey
+        ])->get($apiUrl);
+        
+        if($response->ok()){
+            $data = $response->json();
+        }else{
+            $data = [];
         }
 
-        return $responseData;
+        return $data;
     }
 
     public function getProductTypeStamping(){
         $apiUrl = "https://stamping.newarmada.co.id/api/product-type";
         $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $apiUrl);
-
-        $headers = [
-            "x-api-key: $apiKey",
-            "Content-Type: application/json",
-        ];
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-
-        $response = curl_exec($ch);
-
-        if(curl_errno($ch)){
-            $responseData = [];
-        }else {
-            $responseData = json_decode($response, true);
+        $response = Http::accept('application/json')->withHeaders([
+            "x-api-key" => $apiKey
+        ])->get($apiUrl);
+        
+        if($response->ok()){
+            $data = $response->json();
+        }else{
+            $data = [];
         }
 
-        return $responseData;
+        return $data;
     }
 
     public function render()
     {
         $about_stamping = $this->getAboutStamping();
         $stampingProductTypes = $this->getProductTypeStamping();
+        $about_stamping = [];
+        $stampingProductTypes = [];
         $sliders = Slider::all();
         $arr_sliders = [];
         foreach ($sliders as $key => $slider){
