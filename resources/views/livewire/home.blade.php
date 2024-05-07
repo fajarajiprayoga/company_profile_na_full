@@ -211,7 +211,7 @@
             </div>
             <div class="flex items-center">
                 <video class="w-full h-auto" playsinline autoplay muted loop controls>
-                    {{-- <source src="https://stamping.newarmada.co.id/assets/temp/Company Profile_Stamping & Tools Division.mp4" type="video/mp4"> --}}
+                    <source src="https://newarmada.co.id/assets/stamping/Company Profile_Stamping & Tools Division.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
