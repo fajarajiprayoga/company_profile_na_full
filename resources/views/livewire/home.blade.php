@@ -186,6 +186,59 @@
     </div>
 
     <livewire:gallery />
+    {{-- Stamping Web --}}
+    <div style="background: #f3f4f5" class="py-12">
+        <div class="text-center">
+            <span class="font-bold text-xl lg:text-3xl tracking-widest text-primary-800">Bisnis Unit</span>
+            <br>
+            <span class="text-base lg:text-lg">Company specializing in the Bodywork field since 1974.</span>
+        </div>
+        <div class="lg:mx-48 mt-5 rounded-lg lg:grid lg:grid-cols-2 lg:gap-5">
+            <div class="text-center lg:text-right my-0 lg:flex lg:items-center" data-aos="fade-right" data-aos-duration="1000">
+                <div>
+                    <div class="my-2 lg:my-5">
+                        <span class="font-bold text-xl lg:text-3xl">{{!empty($about_stamping) ? $about_stamping['about_title'] : ''}}</span>
+                    </div>
+                    <div class="font-medium text-sm lg:text-base mx-3 lg:mx-0">
+                        {{!empty($about_stamping) ? $about_stamping['about_description'] : ''}}
+                    </div>
+                    <div class="flex justify-center items-center lg:justify-end mt-2 lg:mt-5 mb-3 lg:mb-0 bg-red-yellow">
+                        <a href="https://stamping.newarmada.co.id" target="_blank" class="focus:outline-none text-white bg-primary-700 hover:bg-primary-600 focus:ring-4 focus:ring-primary-300 flex font-medium rounded-lg w-26 text-sm px-3 py-2 lg:px-5 lg:py-2.5 me-2 text-center">
+                            Visit Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <video class="w-full h-auto" playsinline autoplay muted loop controls>
+                    <source src="https://stamping.newarmada.co.id/assets/temp/Company Profile_Stamping & Tools Division.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="lg:mx-48 mx-3">
+            <div class="text-center mt-8 mb-3 lg:mb-5">
+                <span class="font-bold text-lg lg:text-2xl tracking-widest text-primary-800">Product and Services</span>
+                <br>
+                <span class="text-base lg:text-lg">{{!empty($about_stamping) ? $about_stamping['about_title'] : ""}}</span>
+            </div>
+            <div class="md:grid md:grid-cols-3 md:gap-5">
+                @foreach ($stampingProductTypes as $type)
+                @if (count($type['products']) > 0)
+                    <a target="_blank" href="https://stamping.newarmada.co.id/product/{{$type['slug'] .'/'. $type['products'][0]['slug']."#product-tab"}}">
+                        <figure class="relative max-w-sm mb-3 transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+                            <img class="rounded-lg" src="https://stamping.newarmada.co.id/storage/{{$type['image']}}" alt="{{$type['name']}}" styly="">
+                            <figcaption class="absolute px-3 py-1 text-lg lg:text-xl font-bold text-white bg-slate-00 bottom-6 rounded-r-lg">
+                                <p class="uppercase">{{$type['name']}}</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+    {{-- Stamping Web --}}
 
     {{-- News --}}
 <div class="lg:mx-48 mx-3">

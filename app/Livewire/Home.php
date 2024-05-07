@@ -39,8 +39,63 @@ class Home extends Component
         return redirect()->to(route('product', ['model' => $slug]) . "#tab-product");
     }
 
+    public function getAboutStamping(){
+        $apiUrl = "https://stamping.newarmada.co.id/api/about";
+        $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiUrl);
+
+        $headers = [
+            "x-api-key: $apiKey",
+            "Content-Type: application/json",
+        ];
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        if(curl_errno($ch)){
+            $responseData = [];
+        }else {
+            $responseData = json_decode($response, true);
+        }
+
+        return $responseData;
+    }
+
+    public function getProductTypeStamping(){
+        $apiUrl = "https://stamping.newarmada.co.id/api/product-type";
+        $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiUrl);
+
+        $headers = [
+            "x-api-key: $apiKey",
+            "Content-Type: application/json",
+        ];
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        if(curl_errno($ch)){
+            $responseData = [];
+        }else {
+            $responseData = json_decode($response, true);
+        }
+
+        return $responseData;
+    }
+
     public function render()
     {
+        $about_stamping = $this->getAboutStamping();
+        $stampingProductTypes = $this->getProductTypeStamping();
+        // dd($stampingProductTypes);
         $sliders = Slider::all();
         $arr_sliders = [];
         foreach ($sliders as $key => $slider){
@@ -68,7 +123,9 @@ class Home extends Component
             'types' => $types,
             'galleries' => $galleries,
             'maps' => $maps,
-            'latest_news' => $latest_news
+            'latest_news' => $latest_news,
+            'about_stamping' => $about_stamping,
+            'stampingProductTypes' => $stampingProductTypes
         ]);
     }
 }
