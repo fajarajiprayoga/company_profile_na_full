@@ -82,6 +82,8 @@ class Home extends Component
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+
         $response = curl_exec($ch);
 
         if(curl_errno($ch)){
@@ -96,8 +98,7 @@ class Home extends Component
     public function render()
     {
         $about_stamping = $this->getAboutStamping();
-        // $stampingProductTypes = $this->getProductTypeStamping();
-        // dd($stampingProductTypes);
+        $stampingProductTypes = $this->getProductTypeStamping();
         $sliders = Slider::all();
         $arr_sliders = [];
         foreach ($sliders as $key => $slider){
@@ -127,7 +128,7 @@ class Home extends Component
             'maps' => $maps,
             'latest_news' => $latest_news,
             'about_stamping' => $about_stamping,
-            // 'stampingProductTypes' => $stampingProductTypes
+            'stampingProductTypes' => $stampingProductTypes
         ]);
     }
 }
