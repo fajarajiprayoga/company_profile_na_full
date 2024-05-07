@@ -93,8 +93,8 @@ class Home extends Component
 
     public function render()
     {
-        $about_stamping = $this->getAboutStamping();
-        $stampingProductTypes = $this->getProductTypeStamping();
+        // $about_stamping = $this->getAboutStamping();
+        // $stampingProductTypes = $this->getProductTypeStamping();
         // dd($stampingProductTypes);
         $sliders = Slider::all();
         $arr_sliders = [];
@@ -124,8 +124,8 @@ class Home extends Component
             'galleries' => $galleries,
             'maps' => $maps,
             'latest_news' => $latest_news,
-            'about_stamping' => $about_stamping,
-            'stampingProductTypes' => $stampingProductTypes
+            // 'about_stamping' => $about_stamping,
+            // 'stampingProductTypes' => $stampingProductTypes
         ]);
     }
 }
