@@ -187,7 +187,7 @@
 
     <livewire:gallery />
     {{-- Stamping Web --}}
-    <div style="background: #f3f4f5" class="py-12">
+    {{-- <div style="background: #f3f4f5" class="py-12">
         <div class="text-center">
             <span class="font-bold text-xl lg:text-3xl tracking-widest text-primary-800">Bisnis Unit</span>
             <br>
@@ -211,7 +211,7 @@
             </div>
             <div class="flex items-center">
                 <video class="w-full h-auto" playsinline autoplay muted loop controls>
-                    {{-- <source src="https://stamping.newarmada.co.id/assets/temp/Company Profile_Stamping & Tools Division.mp4" type="video/mp4"> --}}
+                    <source src="https://stamping.newarmada.co.id/assets/temp/Company Profile_Stamping & Tools Division.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -237,7 +237,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- Stamping Web --}}
 
     {{-- News --}}
