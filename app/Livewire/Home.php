@@ -41,27 +41,28 @@ class Home extends Component
     }
 
     public function getAboutStamping(){
-        $apiUrl = "https://stamping.newarmada.co.id/api/about";
+        // $ip = '10.30.20.120';
+        $ip = '36.91.11.21';
+        $apiUrl = "http://$ip/service-api-php7/public/api/get-about";
         $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
 
-        $contextOptions = [
-            'http' => [
-                'method' => 'GET',
-                'header' => "x-api-key: $apiKey\r\n"
-            ]
-        ];
-
-        $context = stream_context_create($contextOptions);
-
-        $response = file_get_contents($apiUrl, false, $context);
-
-        $data = json_decode($response, true);
+        $response = Http::accept('application/json')->withHeaders([
+            "x-api-key" => $apiKey
+        ])->get($apiUrl);
         
+        if($response->ok()){
+            $data = $response->json();
+        }else{
+            $data = [];
+        }
+
         return $data;
     }
 
     public function getProductTypeStamping(){
-        $apiUrl = "https://stamping.newarmada.co.id/api/product-type";
+        // $ip = '10.30.20.120';
+        $ip = '36.91.11.21';
+        $apiUrl = "http://$ip/service-api-php7/public/api/get-product-type";
         $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
 
         $response = Http::accept('application/json')->withHeaders([
@@ -79,10 +80,8 @@ class Home extends Component
 
     public function render()
     {
-        $about_stamping = $this->getAboutStamping();
-        // $stampingProductTypes = $this->getProductTypeStamping();
-        // $about_stamping = [];
-        $stampingProductTypes = [];
+        $about_stamping = $this->getAboutStamping();    
+        $stampingProductTypes = $this->getProductTypeStamping();
         $sliders = Slider::all();
         $arr_sliders = [];
         foreach ($sliders as $key => $slider){
