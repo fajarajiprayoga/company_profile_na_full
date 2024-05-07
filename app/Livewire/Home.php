@@ -76,9 +76,9 @@ class Home extends Component
 
     public function render()
     {
-        // $about_stamping = $this->getAboutStamping();
+        $about_stamping = $this->getAboutStamping();
         // $stampingProductTypes = $this->getProductTypeStamping();
-        $about_stamping = [];
+        // $about_stamping = [];
         $stampingProductTypes = [];
         $sliders = Slider::all();
         $arr_sliders = [];
