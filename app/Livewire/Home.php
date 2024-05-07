@@ -44,16 +44,19 @@ class Home extends Component
         $apiUrl = "https://stamping.newarmada.co.id/api/about";
         $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
 
-        $response = Http::accept('application/json')->withHeaders([
-            "x-api-key" => $apiKey
-        ])->get($apiUrl);
-        
-        if($response->ok()){
-            $data = $response->json();
-        }else{
-            $data = [];
-        }
+        $contextOptions = [
+            'http' => [
+                'method' => 'GET',
+                'header' => "x-api-key: $apiKey\r\n"
+            ]
+        ];
 
+        $context = stream_context_create($contextOptions);
+
+        $response = file_get_contents($apiUrl, false, $context);
+
+        $data = json_decode($response, true);
+        
         return $data;
     }
 
