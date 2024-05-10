@@ -38,15 +38,15 @@ Route::get('/privacy-policy', function(){
 Route::get('/terms-conditions', function(){
     return view('terms-conditions');
 })->name('terms-conditions');
-Route::get('/construction', Home::class)->name('home');
-Route::get('/construction/product', Product::class)->name('product');
-Route::get('/construction/product/{slug}', ProductDetail::class)->name('product-detail');
-Route::get('/construction/contact', Contact::class)->name('contact');
-Route::get('/construction/career', Career::class)->name('career');
-Route::get('/construction/career/{title}', CareerDetail::class)->name('career_detail');
+Route::get('/', Home::class)->name('home');
+Route::get('/product', Product::class)->name('product');
+Route::get('/product/{slug}', ProductDetail::class)->name('product-detail');
+Route::get('/contact', Contact::class)->name('contact');
+Route::get('/career', Career::class)->name('career');
+Route::get('/career/{title}', CareerDetail::class)->name('career_detail');
 // Route::get('/download-center', DownloadCenter::class)->name('download-center');
-Route::get('/construction/news', News::class)->name('news');
-Route::get('/construction/news/{slug}', NewsDetail::class)->name('news-detail');
+Route::get('/news', News::class)->name('news');
+Route::get('/news/{slug}', NewsDetail::class)->name('news-detail');
 
 Route::prefix('maj')->group(function() {
     Route::get('/login', Login::class)->name('login');
