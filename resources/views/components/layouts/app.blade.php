@@ -7,9 +7,15 @@ use Illuminate\Support\Facades\Route;
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="PT Mekar Armada Jaya is an international manufacturer of high-quality bodywork, vehicle components, and equipment. Creating safe, comfortable, and high-quality vehicles to achieve customer satisfaction. Producing high-quality global components, parts, and tools.">
+        <meta name="keywords" content="New Armada, PT Mekar Armada Jaya, New Armada Karoseri, Skylander">
+        <meta name="robots" content="index">
+        <meta name="author" content="Fajar Aji Prayoga">
+
         <link rel="icon" href="{{ asset('assets/logo/logona.png') }}" type="image/x-icon"/>
 
         <title>{{ $title ?? 'New Armada' }}</title>
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
