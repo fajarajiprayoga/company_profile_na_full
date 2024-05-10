@@ -25,7 +25,7 @@ class News extends Component
 
             $this->category_title = ucwords(str_replace('-', ' ', $this->category));
 
-            $this->category_data = NewsCategory::where('slug', $_GET['category'])->first();
+            $this->category_data = NewsCategory::where('slug', $_GET['category'])->where('is_show', true)->first();
         }
     }
 
@@ -37,15 +37,15 @@ class News extends Component
 
         if (!empty($this->category_data)) {
             if($this->search_year == 'semua'){
-                $news = \App\Models\News::where('title', 'LIKE', '%' . $this->search . '%')->where('news_categories_id', $this->category_data->id)->orderBy('created_at', $this->search_time)->simplePaginate(6);
+                $news = \App\Models\News::where('is_show', true)->where('title', 'LIKE', '%' . $this->search . '%')->where('news_categories_id', $this->category_data->id)->orderBy('created_at', $this->search_time)->simplePaginate(6);
             }else{
-                $news = \App\Models\News::where('title', 'LIKE', '%' . $this->search . '%')->where('news_categories_id', $this->category_data->id)->whereYear('created_at', $this->search_year)->orderBy('created_at', $this->search_time)->simplePaginate(6);
+                $news = \App\Models\News::where('is_show', true)->where('title', 'LIKE', '%' . $this->search . '%')->where('news_categories_id', $this->category_data->id)->whereYear('created_at', $this->search_year)->orderBy('created_at', $this->search_time)->simplePaginate(6);
             }
         } else {
             if($this->search_year == 'semua'){
-                $news = \App\Models\News::where('title', 'LIKE', '%' . $this->search . '%')->orderBy('created_at', $this->search_time)->simplePaginate(6);
+                $news = \App\Models\News::where('is_show', true)->where('title', 'LIKE', '%' . $this->search . '%')->orderBy('created_at', $this->search_time)->simplePaginate(6);
             }else{
-                $news = \App\Models\News::where('title', 'LIKE', '%' . $this->search . '%')->whereYear('created_at', $this->search_year)->orderBy('created_at', $this->search_time)->simplePaginate(6);
+                $news = \App\Models\News::where('is_show', true)->where('title', 'LIKE', '%' . $this->search . '%')->whereYear('created_at', $this->search_year)->orderBy('created_at', $this->search_time)->simplePaginate(6);
             }
         }
 

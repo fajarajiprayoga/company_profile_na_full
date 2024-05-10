@@ -14,7 +14,8 @@ class News extends Model
         'slug',
         'thumbnail',
         'content',
-        'news_categories_id'
+        'news_categories_id',
+        'is_show'
     ];
 
     public function category(): BelongsTo

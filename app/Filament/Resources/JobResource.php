@@ -7,6 +7,8 @@ use App\Filament\Resources\JobResource\RelationManagers;
 use App\Models\Job;
 use App\Models\Plant;
 use Filament\Forms;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -26,76 +28,84 @@ class JobResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('plant_id')
-                    ->label('Plant')
-                    ->options(Plant::all()->pluck('name', 'id'))
-                    ->searchable()
-                    ->required(),
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\RichEditor::make('description')
-                    ->toolbarButtons([
-                        'bold',
-                        'bulletList',
-                        'h2',
-                        'h3',
-                        'italic',
-                        'link',
-                        'orderedList',
-                        'redo',
-                        'strike',
-                        'underline',
-                        'undo',
-                    ])
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\RichEditor::make('qualification')
-                    ->toolbarButtons([
-                        'bold',
-                        'bulletList',
-                        'h2',
-                        'h3',
-                        'italic',
-                        'link',
-                        'orderedList',
-                        'redo',
-                        'strike',
-                        'underline',
-                        'undo',
-                    ])
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\RichEditor::make('other_info')
-                    ->toolbarButtons([
-                        'bold',
-                        'bulletList',
-                        'h2',
-                        'h3',
-                        'italic',
-                        'link',
-                        'orderedList',
-                        'redo',
-                        'strike',
-                        'underline',
-                        'undo',
-                    ])
-                    ->required()
-                    ->columnSpanFull(),
-                    Forms\Components\Select::make('type')
-                    ->options([
-                        'support' => 'Support',
-                        'staff' => 'Staff',
-                        'leader' => 'Leader',
-                        'supervisor' => 'Supervisor',
-                        'manager' => 'Manager',
-                    ])
-                    ->required(),
-                Forms\Components\Toggle::make('available')
-                    ->required(),
-                Forms\Components\TextInput::make('link')
-                    ->required()
-                    ->maxLength(255),
+                Section::make()->schema([
+                    Grid::make()->schema([
+                        Forms\Components\Select::make('plant_id')
+                        ->label('Plant')
+                        ->options(Plant::all()->pluck('name', 'id'))
+                        ->searchable()
+                        ->required(),
+                        Forms\Components\TextInput::make('title')
+                        ->required()
+                        ->maxLength(255),
+                    ])->columns(2),
+                    Forms\Components\RichEditor::make('description')
+                        ->toolbarButtons([
+                            'bold',
+                            'bulletList',
+                            'h2',
+                            'h3',
+                            'italic',
+                            'link',
+                            'orderedList',
+                            'redo',
+                            'strike',
+                            'underline',
+                            'undo',
+                        ])
+                        ->required()
+                        ->columnSpanFull(),
+                    Forms\Components\RichEditor::make('qualification')
+                        ->toolbarButtons([
+                            'bold',
+                            'bulletList',
+                            'h2',
+                            'h3',
+                            'italic',
+                            'link',
+                            'orderedList',
+                            'redo',
+                            'strike',
+                            'underline',
+                            'undo',
+                        ])
+                        ->required()
+                        ->columnSpanFull(),
+                    Forms\Components\RichEditor::make('other_info')
+                        ->toolbarButtons([
+                            'bold',
+                            'bulletList',
+                            'h2',
+                            'h3',
+                            'italic',
+                            'link',
+                            'orderedList',
+                            'redo',
+                            'strike',
+                            'underline',
+                            'undo',
+                        ])
+                        ->required()
+                        ->columnSpanFull(),
+                    Grid::make()->schema([
+                        Forms\Components\Select::make('type')
+                        ->options([
+                            'support' => 'Support',
+                            'staff' => 'Staff',
+                            'leader' => 'Leader',
+                            'supervisor' => 'Supervisor',
+                            'manager' => 'Manager',
+                        ])
+                        ->required(),
+                        Forms\Components\TextInput::make('link')
+                        ->required()
+                        ->maxLength(255),
+                    ])->columns(2),
+                    Grid::make()->schema([
+                        Forms\Components\Toggle::make('available')
+                        ->required(),
+                    ])->columns(2)
+                ])
             ]);
     }
 

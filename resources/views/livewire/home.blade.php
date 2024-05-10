@@ -95,14 +95,14 @@
         </div>
     </div>
 
-    <div class="mx-o lg:mx-12">
+    {{-- <div class="mx-o lg:mx-12">
         <div class="text-center mt-8 lg:my-12 mb-3 lg:mb-5">
             <span class="font-bold text-xl lg:text-3xl tracking-widest text-primary-800">Product</span>
             <br>
             <span class="text-base lg:text-lg">Customer satisfaction is our commitment.</span>
-        </div>
+        </div> --}}
         {{-- Product Dekstop --}}
-        <div class="glide_product_dekstop hidden lg:block">
+        {{-- <div class="glide_product_dekstop hidden lg:block">
             <div class="glide">
                 <div class="glide__track" data-glide-el="track">
                     <div class="glide__slides" style="height: 80vh">
@@ -139,10 +139,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         {{-- Product Dekstop --}}
         {{-- Product Mobile --}}
-        <div class="glide_product_mobile block lg:hidden">
+        {{-- <div class="glide_product_mobile block lg:hidden">
             <div class="glide">
                 <div class="glide__track" data-glide-el="track">
                     <div class="glide__slides" style="height: 80vh">
@@ -181,9 +181,9 @@
                 </div>
                 @endif
             </div>
-        </div>
+        </div> --}}
         {{-- Product Mobile --}}
-    </div>
+    {{-- </div> --}}
 
     <livewire:gallery />
     {{-- Stamping Web --}}
@@ -241,8 +241,8 @@
     {{-- Stamping Web --}}
 
     {{-- News --}}
+    @if(count($latest_news) > 0)
 <div class="lg:mx-48 mx-3">
-    @if(!empty($latest_news))
     <div class="text-center mt-8 mb-5 flex justify-between justify-center items-center">
         <span class="font-bold text-xl lg:text-2xl tracking-widest text-primary-800">Latest News</span>
         <br>
@@ -352,7 +352,7 @@
     @endif
     
     <div>
-        <div class="section-title mb-12 text-2xl" style="color: black;">
+        <div class="section-title my-12 text-2xl" style="color: black;">
             Plant
         </div>
         <div id="map" style="height: 500px"></div>

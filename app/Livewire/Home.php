@@ -101,7 +101,7 @@ class Home extends Component
 
         $types = Type::all();
 
-        $latest_news = News::latest()->take(3)->get();
+        $latest_news = News::where('is_show', true)->latest()->take(3)->get();
 
         return view('livewire.home', [
             'sliders' => $arr_sliders,

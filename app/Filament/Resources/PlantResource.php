@@ -19,7 +19,7 @@ class PlantResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-home';
     protected static ?int $navigationSort = 1;
-    protected static ?string $navigationGroup = 'careers';
+    protected static ?string $navigationGroup = 'Careers';
 
     public static function form(Form $form): Form
     {

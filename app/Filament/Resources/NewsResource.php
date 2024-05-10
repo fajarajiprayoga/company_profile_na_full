@@ -9,6 +9,7 @@ use App\Models\NewsCategory;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -58,6 +59,7 @@ class NewsResource extends Resource
                         ->required()
                         // ->columnSpanFull()
                         ->fileAttachmentsDirectory('news/content'),
+                        Toggle::make('is_show')->inline(false)->helperText('Jika OFF maka news akan tidak tertampil'),
                 ])->columns(2)
             ]);
     }
@@ -75,6 +77,8 @@ class NewsResource extends Resource
                 Tables\Columns\ImageColumn::make('thumbnail'),
                 Tables\Columns\TextColumn::make('tags')
                     ->searchable(),
+                Tables\Columns\IconColumn::make('is_show')->label("Show")
+                ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
