@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
         <meta name="keywords" content="New Armada, PT Mekar Armada Jaya, New Armada Karoseri, Skylander">
         <meta name="robots" content="index">
         <meta name="author" content="Fajar Aji Prayoga">
+        <meta name="google-site-verification" content="SqqhEoMn1V-HGrHKWQ-T3aSX4iEgco2bEDbkAv-iByA" />
 
         <link rel="icon" href="{{ asset('assets/logo/logona.png') }}" type="image/x-icon"/>
 
