@@ -388,9 +388,12 @@
                 autoplay: 3000|true
             }).mount()
 
-            var glide_news = new Glide('.glide_news .glide', {
-                type: 'slider',
-            }).mount()
+            var glide_news_parent = document.querySelector(".glide_news");
+            if(glide_news_parent != null){
+                var glide_news = new Glide('.glide_news .glide', {
+                    type: 'slider',
+                }).mount()
+            }
 
             // var glide_product_dekstop = new Glide('.glide_product_dekstop .glide', {
             //     type: 'slider',
