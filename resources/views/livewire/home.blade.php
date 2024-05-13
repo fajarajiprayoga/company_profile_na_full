@@ -392,13 +392,13 @@
                 type: 'slider',
             }).mount()
 
-            var glide_news = new Glide('.glide_product_dekstop .glide', {
-                type: 'slider',
-            }).mount()
+            // var glide_product_dekstop = new Glide('.glide_product_dekstop .glide', {
+            //     type: 'slider',
+            // }).mount()
 
-            var glide_news = new Glide('.glide_product_mobile .glide', {
-                type: 'slider',
-            }).mount()
+            // var glide_product_mobile = new Glide('.glide_product_mobile .glide', {
+            //     type: 'slider',
+            // }).mount()
 
 
         </script>
