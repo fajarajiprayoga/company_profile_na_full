@@ -7,7 +7,7 @@ element.style.width = '14rem';
 });
 
 //Bug Height of modal form has class => .min-height-full (Membuat height modal terlalu besar)
-var modal_container = document.querySelector('[x-ref="modalContainer"]');
+var modal_container = document.querySelectorAll('[x-ref="modalContainer"]');
 var array_modal_container = Array.from(modal_container);
 array_modal_container.forEach(element => {
     element.classList.remove('min-h-full');
