@@ -7,6 +7,8 @@ use App\Observers\TypeObserver;
 use Illuminate\Support\ServiceProvider;
 use Filament\Facades\Filament;
 use Filament\Navigation\UserMenuItem;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +34,10 @@ class AppServiceProvider extends ServiceProvider
                 // ...
             ]);
         });
+
+        FilamentAsset::register([
+            Js::make('custom-script', asset('assets/filament/custom.js')),
+        ]);
 
         /**
          * Register observer when default laravel not work
