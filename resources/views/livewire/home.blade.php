@@ -5,7 +5,8 @@
             @foreach($sliders as $slider)
             @if($slider['ext'] == 'mp4')
             <div class="item">
-                <video class="carousel-video" autoplay muted loop style="object-fit: cover;">
+                {{-- <video class="carousel-video" autoplay muted loop style="object-fit: cover;"> --}}
+                <video class="carousel-video" playsinline autoplay muted loop style="object-fit: cover;">
                     <source src="{{asset('storage/'.$slider['file_name'])}}" type="video/mp4">
                 </video>
                 @if(!empty($slider['title']))
