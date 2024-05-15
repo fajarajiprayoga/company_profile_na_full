@@ -16,7 +16,9 @@ h4 {
 
 @layer base {
   ul, ol {
-    list-style: revert;
+    list-style-type: disc; 
+    list-style-position: outside; 
+    /* margin-left: 2.5rem; */
   }
 }
 
@@ -288,9 +290,20 @@ h4 {
     }
   }
 
-  #news-content-list * {
-    font-size: 14px;
-    line-height: 1.5;
+  #job-qualification ul {
+    margin-left: 2.5rem;
+  }
+
+  #job-description ul {
+    margin-left: 2.5rem;
+  }
+
+  #job-other-info ul {
+    margin-left: 2.5rem;
+  }
+
+  #news-content ul {
+    margin-left: 2.5rem;
   }
 
   .modal {

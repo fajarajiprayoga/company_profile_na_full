@@ -43,7 +43,7 @@ Route::get('/product', Product::class)->name('product');
 Route::get('/product/{slug}', ProductDetail::class)->name('product-detail');
 Route::get('/contact', Contact::class)->name('contact');
 Route::get('/career', Career::class)->name('career');
-Route::get('/career/{title}', CareerDetail::class)->name('career_detail');
+Route::get('/career/{title}/{plant}', CareerDetail::class)->name('career_detail');
 // Route::get('/download-center', DownloadCenter::class)->name('download-center');
 Route::get('/news', News::class)->name('news');
 Route::get('/news/{slug}', NewsDetail::class)->name('news-detail');

@@ -20,7 +20,7 @@
                 <div id="job-detail-header" class="border-b">
                     <div class="flex justify-between">
                         <div>
-                            <span class="text-3xl">{{$job->title}}</span>
+                            <span class="text-2xl lg:text-3xl">{{$job->title}}</span>
                         </div>
                         <div class="hidden lg:block">
                             <a target="_blank" href="{{$job->link}}" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 pointer">Apply</a>
@@ -32,25 +32,33 @@
                                 {{$job->plant->name}}
                             </div>
                             <div>
-                                <i class="fa fa-clock text-xs" aria-hidden="true"></i>
+                                <i class="fa fa-id-card text-xs" aria-hidden="true"></i>
                                 {{Str::ucfirst($job->type)}}
+                            </div>
+                            <div>
+                                <i class="fa fa-clock text-xs" aria-hidden="true"></i>
+                                @if ($job->updated_at == "")
+                                    Posted {{\Carbon\Carbon::parse($job->created_at)->diffForHumans()}}
+                                @else
+                                    Updated {{\Carbon\Carbon::parse($job->updated_at)->diffForHumans()}}
+                                @endif
                             </div>
                     </div>
                 </div>
                 <div class="my-5" style="font-size: 15px; line-height: 22px;">
-                    <div class="text-md">
+                    <div id="job-description" class="text-md">
                         {!! $job->description !!}
                     </div>
                     <div class="mt-5">
                         <div class="text-xl mb-2">
                             Qualification :
                         </div>
-                        <div>
+                        <div id="job-qualification">
                             {!! $job->qualification !!}
                         </div>
                     </div>
                     <div class="mt-5">
-                        <div>
+                        <div id="job-other-info">
                             {!! $job->other_info !!}
                         </div>
                     </div>

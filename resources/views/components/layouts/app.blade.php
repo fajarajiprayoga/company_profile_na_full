@@ -83,9 +83,6 @@ use Illuminate\Support\Facades\Route;
         <script>
         $(document).ready(function(){
 
-            $('ul').addClass('list-inside');
-            $('ol').addClass('list-inside');
-
             $('#carousel').owlCarousel({
                 loop:true,
                 autoplay:false,
