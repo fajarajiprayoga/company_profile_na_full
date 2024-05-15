@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Livewire\Forms\OtpForm;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class Otp extends Component
 {
@@ -17,7 +18,10 @@ class Otp extends Component
     public $isLoading = false;
 
     public function mount(){
-        $this->user = User::where('email', $this->email)->first();
+        $this->user = User::where('email', Crypt::decrypt($this->email))->first();
+        if(Auth::check() || Carbon::now() > Carbon::parse($this->user->otp_expired)){
+            $this->redirectRoute('login');
+        }
     }
 
     public function otp(){

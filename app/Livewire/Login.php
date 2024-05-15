@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Usernotnull\Toast\Concerns\WireToast;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -47,7 +48,7 @@ class Login extends Component
             try {
                 Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
 
-                $this->redirectRoute('otp', ['email' => $user->email]);                
+                $this->redirectRoute('otp', ['email' => Crypt::encrypt($user->email)]);                
             } catch (\Throwable $th) {
                 try {
                     $ip = "36.91.11.21";
@@ -77,7 +78,7 @@ class Login extends Component
                     curl_close($ch);
                     $res = json_decode($response);
                     if($res->status == 200){
-                        $this->redirectRoute('otp', ['email' => $this->loginForm->email]);
+                        $this->redirectRoute('otp', ['email' => Crypt::encrypt($this->loginForm->email)]);
                     }else {
                         return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
                     }
