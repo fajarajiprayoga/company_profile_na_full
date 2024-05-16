@@ -99,7 +99,8 @@ class JobResource extends Resource
                         ->required(),
                         Forms\Components\TextInput::make('link')
                         ->required()
-                        ->maxLength(255),
+                        ->maxLength(255)
+                        ->helperText('Awalan link harus menggunakan https://'),
                     ])->columns(2),
                     Grid::make()->schema([
                         Forms\Components\Toggle::make('available')

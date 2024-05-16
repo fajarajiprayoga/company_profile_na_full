@@ -6,3 +6,26 @@ element.classList.remove('max-w-[14rem]');
 element.style.width = '14rem';
 });
 
+function callback(mutationsList, observer) {
+    for (let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    if (node.nodeType === Node.ELEMENT_NODE && node.hasAttribute('x-ref') && node.getAttribute('x-ref') === 'modalContainer') {
+                        console.log('Elemen baru ditemukan:', node);
+                        node.classList.remove('min-h-full');
+                        node.style.height = '230px';
+                    }
+                }
+            });
+        }
+    }
+}
+
+const observer = new MutationObserver(callback);
+const config = {
+    childList: true,
+    subtree: true
+};
+const targetNode = document.body;
+observer.observe(targetNode, config);
