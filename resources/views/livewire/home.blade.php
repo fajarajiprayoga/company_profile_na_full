@@ -187,6 +187,7 @@
 
     <livewire:gallery />
     {{-- Stamping Web --}}
+    @if (!empty($about_stamping) && !empty($stampingProductTypes))
     <div style="background: #f3f4f5" class="py-12">
         <div class="text-center">
             <span class="font-bold text-xl lg:text-3xl tracking-widest text-primary-800">Bisnis Unit</span>
@@ -238,6 +239,7 @@
             </div>
         </div>
     </div>
+    @endif
     {{-- Stamping Web --}}
 
     {{-- News --}}

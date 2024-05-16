@@ -80,8 +80,14 @@ class Home extends Component
 
     public function render()
     {
-        $about_stamping = $this->getAboutStamping();    
-        $stampingProductTypes = $this->getProductTypeStamping();
+        try {
+            $about_stamping = $this->getAboutStamping();
+            $stampingProductTypes = $this->getProductTypeStamping();
+        } catch (\Throwable $th) {
+            $about_stamping = [];
+            $stampingProductTypes = [];
+        }
+        
         $sliders = Slider::all();
         $arr_sliders = [];
         foreach ($sliders as $key => $slider){
