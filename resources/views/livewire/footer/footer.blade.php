@@ -4,7 +4,7 @@
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="https://newarmada.co.id" class="flex items-center">
-                    <img src="{{asset('assets/logo/logona2.png')}}" class="mr-3 h-8" alt="FlowBite Logo" />
+                    <img src="{{asset('assets/logo/logona2.png')}}" class="mr-3 h-8" alt="https://newarmada.co.id" />
                 </a>
                 <div class="text-white font-medium mt-3" style="max-width: 600px; font-size: 14px;">
                     @if(!empty($footer->address))
@@ -22,8 +22,14 @@
                         <li class="mb-4">
                             <a target="_blank" href="{{!empty($footer->instagram_url) ? $footer->instagram_url : '#'}}" class="hover:underline font-medium" style="font-size: 15px;">Instagram</a>
                         </li>
-                        <li>
+                        <li class="mb-4">
                             <a target="_blank" href="{{!empty($footer->facebook_url) ? $footer->facebook_url : '#'}}" class="hover:underline font-medium" style="font-size: 15px;">Facebook</a>
+                        </li>
+                        <li class="mb-4">
+                            <a target="_blank" href="https://newarmada.co.id/privacy-policy" class="hover:underline font-medium" style="font-size: 15px;">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://newarmada.co.id/terms-conditions" class="hover:underline font-medium" style="font-size: 15px;">Terms and Conditions</a>
                         </li>
                     </ul>
                 </div>
