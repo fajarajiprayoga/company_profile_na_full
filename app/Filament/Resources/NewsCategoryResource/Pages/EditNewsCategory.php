@@ -4,16 +4,16 @@ namespace App\Filament\Resources\NewsCategoryResource\Pages;
 
 use App\Filament\Resources\NewsCategoryResource;
 use Filament\Actions;
-use Filament\Resources\Pages\ManageRecords;
+use Filament\Resources\Pages\EditRecord;
 
-class ManageNewsCategories extends ManageRecords
+class EditNewsCategory extends EditRecord
 {
     protected static string $resource = NewsCategoryResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\DeleteAction::make(),
         ];
     }
 }

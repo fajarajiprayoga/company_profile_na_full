@@ -7,14 +7,13 @@ use App\Filament\Resources\SliderResource\RelationManagers;
 use App\Models\Slider;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Actions\Action;
-use Illuminate\Support\Facades\Storage;
 
 class SliderResource extends Resource
 {
@@ -28,9 +27,11 @@ class SliderResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Section::make()->schema([
+                    Forms\Components\TextInput::make('title')
                     ->maxLength(100),
-                FileUpload::make('file_name')->label('File Photo/Video (16:9)')->required()->directory('sliders')->acceptedFileTypes(['image/*', 'video/mp4'])->preserveFilenames()
+                    FileUpload::make('file_name')->label('File Photo/Video (16:9)')->required()->directory('sliders')->acceptedFileTypes(['image/*', 'video/mp4'])->preserveFilenames()
+                ])->columns(2)
             ]);
     }
 
@@ -40,9 +41,6 @@ class SliderResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('file_name')
-                    ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -57,11 +55,7 @@ class SliderResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make()->after(function (Slider $record){
-                    if($record->file_name){
-                        Storage::disk('public')->delete($record->file_name);
-                    }
-                }),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -70,10 +64,19 @@ class SliderResource extends Resource
             ]);
     }
 
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageSliders::route('/'),
+            'index' => Pages\ListSliders::route('/'),
+            'create' => Pages\CreateSlider::route('/create'),
+            'edit' => Pages\EditSlider::route('/{record}/edit'),
         ];
     }
 }

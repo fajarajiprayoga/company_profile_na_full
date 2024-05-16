@@ -4,9 +4,9 @@ namespace App\Filament\Resources\MapsResource\Pages;
 
 use App\Filament\Resources\MapsResource;
 use Filament\Actions;
-use Filament\Resources\Pages\ManageRecords;
+use Filament\Resources\Pages\ListRecords;
 
-class ManageMaps extends ManageRecords
+class ListMaps extends ListRecords
 {
     protected static string $resource = MapsResource::class;
 

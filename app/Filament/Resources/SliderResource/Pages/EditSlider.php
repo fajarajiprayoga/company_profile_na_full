@@ -4,16 +4,16 @@ namespace App\Filament\Resources\SliderResource\Pages;
 
 use App\Filament\Resources\SliderResource;
 use Filament\Actions;
-use Filament\Resources\Pages\ManageRecords;
+use Filament\Resources\Pages\EditRecord;
 
-class ManageSliders extends ManageRecords
+class EditSlider extends EditRecord
 {
     protected static string $resource = SliderResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\DeleteAction::make(),
         ];
     }
 }

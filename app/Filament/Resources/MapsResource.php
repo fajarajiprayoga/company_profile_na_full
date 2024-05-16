@@ -6,6 +6,7 @@ use App\Filament\Resources\MapsResource\Pages;
 use App\Filament\Resources\MapsResource\RelationManagers;
 use App\Models\Maps;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -25,18 +26,20 @@ class MapsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Section::make()->schema([
+                    Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('gmaps_url')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('longitude')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('latitude')
-                    ->required()
-                    ->maxLength(255),
+                    Forms\Components\TextInput::make('gmaps_url')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('longitude')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('latitude')
+                        ->required()
+                        ->maxLength(255),
+                ])->columns(2)
             ]);
     }
 
@@ -75,10 +78,19 @@ class MapsResource extends Resource
             ]);
     }
 
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageMaps::route('/'),
+            'index' => Pages\ListMaps::route('/'),
+            'create' => Pages\CreateMaps::route('/create'),
+            'edit' => Pages\EditMaps::route('/{record}/edit'),
         ];
     }
 }
