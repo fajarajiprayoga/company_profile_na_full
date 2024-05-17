@@ -13,7 +13,7 @@ class FooterPolicy
      */
     public function viewAny(User $user): bool
     {
-         return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-footer');
+         return $user->hasRole(['super-admin', 'marketing', 'hr']) && $user->can('view-footer');
     }
 
     /**
@@ -21,7 +21,7 @@ class FooterPolicy
      */
     public function view(User $user, Footer $footer): bool
     {
-         return $user->hasRole(['super-admin', 'marketing']) && $user->can('view-footer');
+         return $user->hasRole(['super-admin', 'marketing', 'hr']) && $user->can('view-footer');
     }
 
     /**
@@ -31,7 +31,7 @@ class FooterPolicy
     {
           $footer = Footer::count();
           if($footer < 1){
-               return $user->hasRole(['super-admin', 'marketing']) && $user->can('create-footer');
+               return $user->hasRole(['super-admin', 'marketing', 'hr']) && $user->can('create-footer');
           }else {
                return false;
           }
@@ -42,7 +42,7 @@ class FooterPolicy
      */
     public function update(User $user, Footer $footer): bool
     {
-         return $user->hasRole(['super-admin', 'marketing']) && $user->can('update-footer');
+         return $user->hasRole(['super-admin', 'marketing', 'hr']) && $user->can('update-footer');
     }
 
     /**
@@ -58,7 +58,7 @@ class FooterPolicy
      */
     public function restore(User $user, Footer $footer): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -66,6 +66,6 @@ class FooterPolicy
      */
     public function forceDelete(User $user, Footer $footer): bool
     {
-        //
+        return false;
     }
 }
