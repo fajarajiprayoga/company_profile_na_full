@@ -31,7 +31,7 @@
                             <div class="flex-grow border-b border-gray-400"></div>
                             <span class="mx-4 text-gray-600">or</span>
                             <div class="flex-grow border-b border-gray-400"></div>
-                          </div>
+                        </div>
                         <a href="{{route('auth-google-redirect')}}" class="">
                             <div class="flex gap-2 items-center justify-center text-sm border border-white-4 rounded-lg px-5 py-2.5 bg-gray-100 hover:bg-gray-200">
                                 <svg class="w-5 h-5" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,6 +40,9 @@
                                 Login with Google
                             </div>
                         </a>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-sm">By continuing you accept pur <a class="text-primary-800" href="http://newarmada.co.id/privacy-policy">Privacy Policy</a> and <a class="text-primary-800" href="http://newarmada.co.id/terms-conditions">Terms and Conditions</a></span>
                     </div>
               </form>
           </div>
