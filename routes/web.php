@@ -15,6 +15,7 @@ use App\Livewire\Career;
 use App\Mail\OtpMail;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -122,7 +123,7 @@ Route::get('/auth/google/callback', function () {
             curl_close($ch);
             $res = json_decode($response);
             if($res->status == 200){
-                return redirect()->route('otp', ['email' => $user->email]);
+                return redirect()->route('otp', ['email' => Crypt::encrypt($user->email)]);
             }else {
                 return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
             }
