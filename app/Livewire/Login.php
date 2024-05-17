@@ -45,11 +45,6 @@ class Login extends Component
             $user->otp_expired = $exp_otp_code;
             $user->update();            
 
-            try {
-                Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
-
-                $this->redirectRoute('otp', ['email' => Crypt::encrypt($user->email)]);                
-            } catch (\Throwable $th) {
                 try {
                     $ip = "36.91.11.21";
                     // $ip = "10.30.20.120";
@@ -83,9 +78,14 @@ class Login extends Component
                         return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
                     }
                 } catch (\Throwable $th) {
-                    return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [01]');
+                    try {
+                        Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
+
+                        $this->redirectRoute('otp', ['email' => Crypt::encrypt($user->email)]);                
+                    } catch (\Throwable $th) {
+                        return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [01]');
+                    }
                 }
-            }
         }else {
             return redirect()->route('login')->with('failed', 'Login failed, pleas try again');
         }

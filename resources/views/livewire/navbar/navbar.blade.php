@@ -6,7 +6,7 @@
                 <a style="margin-left: 8px;" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
             @else
             <div class="flex gap-2">
-                @if (Auth::user()->hasRole(['marketing', 'super-admin']))
+                @if (Auth::user()->hasRole(['marketing', 'super-admin', 'hr']))
                     <a style="margin-left: 8px;" href="{{route('filament.admin.pages.dashboard')}}"><i class="fa fa-lock" aria-hidden="true"></i> Dashboard</a>
                 @endif
                     <button wire:click="logout" type="submit"><i class="fa fa-user" aria-hidden="true"></i> Logout</button>                
