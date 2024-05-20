@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Footer;
 use App\Models\NewsCategory;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -18,6 +19,9 @@ class News extends Component
     public $category_title = '';
     public $category_data;
 
+    public $metadescription = "Stay updated with the latest news of PT Mekar Armada Jaya (New Armada). Read breaking news, press release, top stories, and events";
+    public $metakeyword = "New Armada News, PT Mekar Armada News, Berita New Armada, Berita PT Mekar Armada";
+
     public function mount()
     {
         if (isset($_GET['category'])) {
@@ -29,6 +33,7 @@ class News extends Component
         }
     }
 
+    #[Title("New Armada News")]
     public function render()
     {
         $uniqueYears = \App\Models\News::selectRaw('YEAR(created_at) as year')
@@ -49,12 +54,14 @@ class News extends Component
             }
         }
 
-
         return view('livewire.news', [
             'footer' => Footer::first(),
             'categories' => NewsCategory::all(),
             'news' => $news,
             'years' => $uniqueYears
+        ])->layout('components.layouts.app', [
+            'metadescription' => $this->metadescription,
+            'metakeyword' => $this->metakeyword,
         ]);
     }
 }

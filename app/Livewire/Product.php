@@ -9,6 +9,7 @@ use App\Models\Type;
 use Illuminate\Support\Facades\Request;
 use App\Models\Visit;
 use Illuminate\Support\Carbon;
+use Livewire\Attributes\Title;
 
 class Product extends Component
 {
@@ -19,6 +20,9 @@ class Product extends Component
     //Search Feature
     public $keywoard;
     protected $queryString = ['keywoard'];
+
+    public $metadescription = "High-quality PT Mekar Armada Jaya (New Armada) products with the luxury of interior and exterior. Experience top-of-the-line features, advanced technology, and unparalleled comfort.";
+    public $metakeyword = "New Armada Product, PT Mekar Armada Jaya Product, New Armada Produk, PT Mekar Armada Jaya Produk";
 
     public function mount(){
         $type = Type::first();
@@ -47,6 +51,7 @@ class Product extends Component
         // }
     }
 
+    #[Title("New Armada Product")]
     public function type($id){
         $type = Type::where('id', $id)->first();
 
@@ -64,6 +69,9 @@ class Product extends Component
             'products' => $products,
             'footer' => $footer,
             'searched' => $this->searched
+        ])->layout('components.layouts.app', [
+            'metadescription' => $this->metadescription,
+            'metakeyword' => $this->metakeyword,
         ]);
     }
 }
