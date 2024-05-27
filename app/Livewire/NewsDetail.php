@@ -28,7 +28,7 @@ class NewsDetail extends Component
         return view('livewire.news-detail', [
             'footer' => Footer::first(),
             'categories' => NewsCategory::all(),
-            'news_recomendations' => News::where('slug', '!=' , $this->news->slug)->latest()->take(3)->get()
+            'news_recomendations' => News::where('slug', '!=' , $this->news->slug)->where('is_show', true)->latest()->take(3)->get()
         ])->layout('components.layouts.app', [
             'metadescription' => $this->metadescription,
             'metakeyword' => $this->metakeyword,

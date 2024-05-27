@@ -56,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <div class="lg:sticky lg:top-3 {{count($news_recomendations) > 1 ? '' : 'w-96'}}" style="height: 800px;">
+            <div class="lg:sticky lg:top-3 {{count($news_recomendations) > 1 ? '' : 'w-[500px]'}}" style="height: 800px;">
                 <div class="block mb-3 p-6 bg-white border border-gray-200 rounded-lg">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Category</h5>
                     <a href="{{ route('news', ['category' => 'all'])  . '#news' }}">
@@ -90,3 +90,22 @@
     <livewire:gallery />
     <livewire:footer.footer />
 </div>
+
+    <script>
+        const images = document.getElementsByTagName('img');
+
+        for (let i = 0; i < images.length; i++) {
+            const img = images[i];
+            let p = img.parentElement;
+            while (p && p.tagName !== 'P') {
+                p = p.parentElement;
+            }
+            if (p) {
+                p.style.display = 'flex';
+                p.style.flexWrap = 'wrap';
+                p.style.gap = '8px';
+                p.style.justifyContent = 'center';
+            }
+        }
+
+    </script>

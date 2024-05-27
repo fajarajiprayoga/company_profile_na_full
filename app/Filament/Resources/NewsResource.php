@@ -18,6 +18,7 @@ use Filament\Forms\Set;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class NewsResource extends Resource
 {
@@ -55,12 +56,15 @@ class NewsResource extends Resource
                         ->imageEditorAspectRatios([
                             '16:9',
                         ])->required(),
-                    Forms\Components\RichEditor::make('content')
-                        ->required()
-                        // ->columnSpanFull()
-                        ->fileAttachmentsDirectory('news/content'),
-                        Toggle::make('is_show')->inline(false)->helperText('Jika OFF maka news akan tidak tertampil'),
-                ])->columns(2)
+                    // Forms\Components\RichEditor::make('content')
+                    //     ->required()
+                    //     // ->columnSpanFull()
+                    //     ->fileAttachmentsDirectory('news/content'),
+                    TinyEditor::make('content')
+                        ->fileAttachmentsDirectory('news/content')
+                        ->required()->columnSpanFull(),
+                    Toggle::make('is_show')->inline(false)->helperText('Jika OFF maka news akan tidak tertampil'),
+                ])->columns(2),
             ]);
     }
 
