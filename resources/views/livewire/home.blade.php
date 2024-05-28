@@ -295,7 +295,7 @@
                 <ul class="glide__slides">
                     @foreach($latest_news as $data)
                         <li class="glide__slide">
-                            <div class="relative bg-white border border-gray-200 rounded-lg shadow mb-3 lg:mb-0"  style="min-height: 370px;">
+                            <div class="relative bg-white border border-gray-200 rounded-lg shadow mb-3 lg:mb-0"  style="min-height: 400px;">
                                 <div class="relative overflow-hidden">
                                     <a href="{{ route('news-detail', $data->slug) }}">
                                         <img class="rounded-t-lg transition-transform transform hover:scale-110" src="{{asset('storage/'.$data['thumbnail'])}}" alt="" />
