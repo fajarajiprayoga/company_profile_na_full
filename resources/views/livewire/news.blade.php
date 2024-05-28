@@ -49,7 +49,7 @@
             <div class="col-span-2">
                 <div wire:loading.class.delay="opacity-75" class="lg:grid lg:grid-cols-2 lg:gap-3 mb-0 sm:mb-5">
                     @forelse($news as $data)
-                    <div class="relative bg-white border border-gray-200 rounded-lg shadow"  style="min-height: 460px;">
+                    <div class="relative bg-white border border-gray-200 rounded-lg shadow"  style="min-height: 400px;">
                         <div class="relative overflow-hidden">
                             <a href="{{ route('news-detail', $data->slug) }}">
                                 <img class="rounded-t-lg transition-transform transform hover:scale-110 duration-500" src="{{asset('storage/'.$data['thumbnail'])}}" alt="" />
@@ -66,9 +66,6 @@
                             <a href="{{ route('news-detail', $data->slug) }}">
                                 <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{ Str::limit($data->title, 63, "...") }}</h5>
                             </a>
-                            <div id="news-content-list" class="mb-3 font-normal text-gray-700">
-                                {!! Str::limit("$data->content", 135, "...") !!}
-                            </div>
                             <div class="absolute bottom-3 left-3">
                                 <a href="{{ route('news-detail', $data->slug) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-center text-blue-600 hover:underline">
                                     Read more

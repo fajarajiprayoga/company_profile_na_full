@@ -62,7 +62,9 @@ class NewsResource extends Resource
                     //     ->fileAttachmentsDirectory('news/content'),
                     TinyEditor::make('content')
                         ->fileAttachmentsDirectory('news/content')
-                        ->required()->columnSpanFull(),
+                        ->required()
+                        ->columnSpanFull()
+                        ->fileAttachmentsVisibility('public'),
                     Toggle::make('is_show')->inline(false)->helperText('Jika OFF maka news akan tidak tertampil'),
                 ])->columns(2),
             ]);
@@ -76,11 +78,7 @@ class NewsResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
                 Tables\Columns\ImageColumn::make('thumbnail'),
-                Tables\Columns\TextColumn::make('tags')
-                    ->searchable(),
                 Tables\Columns\IconColumn::make('is_show')->label("Show")
                 ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
