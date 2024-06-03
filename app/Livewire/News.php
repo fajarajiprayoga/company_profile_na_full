@@ -29,14 +29,14 @@ class News extends Component
 
             $this->category_title = ucwords(str_replace('-', ' ', $this->category));
 
-            $this->category_data = NewsCategory::where('slug', $_GET['category'])->where('is_show', true)->first();
+            $this->category_data = NewsCategory::where('slug', $_GET['category'])->first();
         }
     }
 
     #[Title("New Armada News")]
     public function render()
     {
-        $uniqueYears = \App\Models\News::selectRaw('YEAR(created_at) as year')
+        $uniqueYears = \App\Models\News::where('is_show', true)->selectRaw('YEAR(created_at) as year')
             ->distinct()
             ->pluck('year');
 

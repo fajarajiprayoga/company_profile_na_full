@@ -8,6 +8,7 @@ use App\Models\News;
 use App\Models\NewsCategory;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -65,6 +66,7 @@ class NewsResource extends Resource
                         ->required()
                         ->columnSpanFull()
                         ->fileAttachmentsVisibility('public'),
+                    DatePicker::make('news_date')->required(),
                     Toggle::make('is_show')->inline(false)->helperText('Jika OFF maka news akan tidak tertampil'),
                 ])->columns(2),
             ]);

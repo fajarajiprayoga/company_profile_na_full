@@ -20,7 +20,7 @@
                     <div class="flex justify-between align-center items-center text-sm mt-1 text-gray-500">
                         <div>
                             <span>
-                                {{ strftime('%a, %e %b %Y', strtotime($news->created_at)) }}
+                                {{ strftime('%a, %e %b %Y', strtotime($news->news_date)) }}
                             </span>
                         </div>
                         <div class="flex gap-1 align-center items-center">
