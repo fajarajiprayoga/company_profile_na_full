@@ -266,7 +266,7 @@
             <div class="p-5">
                 <div>
                     <span class="text-sm text-gray-500">
-                        {{ strftime('%a, %e %b %Y', strtotime($data->created_at)) }}
+                        {{ strftime('%a, %e %b %Y', strtotime($data->news_date)) }}
                     </span>
                     <span class="text-sm text-gray-500">|</span>
                     <span class="text-sm text-gray-500">{{$data->category->title}}</span>
@@ -304,7 +304,7 @@
                                 <div class="p-5">
                                     <div>
                                         <span class="text-sm text-gray-500">
-                                            {{ strftime('%a, %e %b %Y', strtotime($data->created_at)) }}
+                                            {{ strftime('%a, %e %b %Y', strtotime($data->news_date)) }}
                                         </span>
                                         <span class="text-sm text-gray-500">|</span>
                                         <span class="text-sm text-gray-500">{{$data->category->title}}</span>
