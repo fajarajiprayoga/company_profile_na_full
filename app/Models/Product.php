@@ -35,7 +35,8 @@ class Product extends Model
         'show_in_home',
         'home_photo',
         'catalog',
-        'is_show'
+        'is_show',
+        'display_order'
     ];
     protected $casts = [
         'gallery' => 'array',

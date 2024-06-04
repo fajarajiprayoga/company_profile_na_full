@@ -14,10 +14,13 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -55,8 +58,9 @@ class ProductResource extends Resource
                         ->maxLength(50),
                     Grid::make()->schema([
                         Toggle::make('show_in_home')->inline(false)->helperText('Jika ON maka produk akan tertampil di Home page'),
+                        TextInput::make('display_order')->nullable()->integer()->minValue(1)->helperText('Urutan tampil di home Page'),
                         Toggle::make('is_show')->inline(false)->helperText('Jika OFF maka produk akan tidak tertampil di laman product'),
-                    ]),
+                    ])->columns(4),
                     FileUpload::make('images')->label('Main Photo (1:1)')->directory('product/product_images')->image()->imageEditor()->imageEditorAspectRatios([
                         '1:1',
                     ])->helperText('Image akan di tampilkan di list produk dengan ukuran 250px x 250px')->required()->columnSpan(2),
@@ -201,17 +205,8 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('slug')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('brand')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('height')
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('width')
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('length')
-                    ->sortable()
-                    ->searchable(),
+                ToggleColumn::make('is_show'),
+                ToggleColumn::make('show_in_home'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -222,7 +217,10 @@ class ProductResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Filter::make('is_show')->toggle()
+                    ->query(fn (Builder $query): Builder => $query->where('is_show', true)),
+                Filter::make('show_in_home')->toggle()
+                    ->query(fn (Builder $query): Builder => $query->where('show_in_home', true))
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

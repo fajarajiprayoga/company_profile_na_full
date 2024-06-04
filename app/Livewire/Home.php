@@ -99,7 +99,7 @@ class Home extends Component
             }
         }
 
-        $show_in_home_products = Product::where('show_in_home', 1)->get();
+        $show_in_home_products = Product::where('show_in_home', 1)->orderBy('display_order', 'asc')->get();
 
         $galleries = Gallery::where('show', 1)->get();
 
