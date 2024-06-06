@@ -43,7 +43,7 @@
                 </div>
                 <div wire:loading.class.delay="opacity-75">
                     @forelse($jobs as $job)
-                    <a href="{{ route('career_detail', ['title' => Str::slug($job->title), 'plant' => Str::slug($job->plant->name)]) }}">
+                    <a href="{{ route('career_detail', ['title' => $job->slug, 'plant' => Str::slug($job->plant->name)]) }}">
                         <div class="p-3 border-x border-b {{ $loop->index == 0 ? 'border-t' : '' }} {{ $loop->index % 2 != 0 ? 'bg-gray-50 hover:bg-gray-100' : 'hover:bg-gray-100' }}">
                             <div class="text-blue-900 font-bold">
                                 {{$job->title}}

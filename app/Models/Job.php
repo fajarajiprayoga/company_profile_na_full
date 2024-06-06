@@ -18,7 +18,8 @@ class Job extends Model
         'type',
         'plant_id',
         'available',
-        'link'
+        'link',
+        'slug'
     ];
 
     public function plant(): BelongsTo

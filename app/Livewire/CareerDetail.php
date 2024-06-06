@@ -16,7 +16,7 @@ class CareerDetail extends Component
     public $metadescription, $metakeyword;
 
     public function mount($title, $plant){
-        $this->title = str_replace('-', ' ', $title);
+        $this->title = $title;
         $this->plant = Plant::where('name', str_replace('-', ' ', $plant))->first();
     }
 
@@ -24,7 +24,7 @@ class CareerDetail extends Component
     public function render()
     {
         $footer = Footer::first();
-        $job = Job::where('title', $this->title)->where('available', 1)->where('plant_id', $this->plant->id)->first();
+        $job = Job::where('slug', $this->title)->where('available', 1)->where('plant_id', $this->plant->id)->first();
 
         $this->metadescription = "Join our dynamic team as a $job->title at PT Mekar Armada Jaya (New Armada). Explore exciting career opportunities, competitive salaries, and growth potential. Apply Today!";
         $this->metakeyword = "$job->title New Armada, $job->title PT Mekar Armada Jaya, New Armada $job->title Career, PT Mekar Armada $job->title Career, New Armada $job->title Job, PT Mekar Armada $job->title Job, Loker $job->title New Armada, Loker $job->title PT Mekar Armada Jaya";

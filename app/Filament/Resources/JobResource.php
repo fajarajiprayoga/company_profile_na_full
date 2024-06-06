@@ -16,6 +16,8 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Set;
+use Illuminate\Support\Str;
 
 class JobResource extends Resource
 {
@@ -38,7 +40,14 @@ class JobResource extends Resource
                         ->required(),
                         Forms\Components\TextInput::make('title')
                         ->required()
-                        ->maxLength(255),
+                        ->maxLength(255)
+                        ->live(debounce: 500)
+                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                        Forms\Components\TextInput::make('slug')
+                        ->required()
+                        ->readOnly()
+                        ->maxLength(255)
+                        ->helperText("Tunggu beberapa saat, akan otomatis ter generate setelah mengisi Title"),
                     ])->columns(2),
                     Forms\Components\RichEditor::make('description')
                         ->toolbarButtons([
