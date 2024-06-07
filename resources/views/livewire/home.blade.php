@@ -387,7 +387,7 @@
 
             var glide_home_model = new Glide('.glide_home_model .glide', {
                 type: 'slider',
-                autoplay: 3000|true
+                autoplay: 5000|true
             }).mount()
 
             var glide_news_parent = document.querySelector(".glide_news");
