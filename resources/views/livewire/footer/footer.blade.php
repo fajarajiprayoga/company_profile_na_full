@@ -37,10 +37,10 @@
                     <h2 class="mb-6 text-sm font-semibold uppercase text-white">Online Services</h2>
                     <ul class="text-gray-400 list-none">
                         <li class="mb-4">
-                            <a target="_blank" href="{{!empty($footer->shopee_url) ? $footer->shopee_url : '#'}}" class="hover:underline font-medium" style="font-size: 15px;">Shopee</a>
+                            <a target="_blank" href="{{!empty($footer->shopee_url) ? '#' : '#'}}" class="hover:underline font-medium" style="font-size: 15px;">Shopee</a>
                         </li>
                         <li>
-                            <a target="_blank" href="{{!empty($footer->tokopedia_url) ? $footer->tokopedia_url : '#'}}" class="hover:underline font-medium" style="font-size: 15px;">Tokopedia</a>
+                            <a target="_blank" href="{{!empty($footer->tokopedia_url) ? '#' : '#'}}" class="hover:underline font-medium" style="font-size: 15px;">Tokopedia</a>
                         </li>
                     </ul>
                 </div>
