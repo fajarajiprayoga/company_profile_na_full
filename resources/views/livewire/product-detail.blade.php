@@ -85,7 +85,7 @@
             <button id="btn-couches" class="tabs-item-specification text-sm lg:text-base">Couches</button>
             @endif
             @if($product->lighting)
-            <button id="btn-lighting" class="tabs-item-specification text-sm lg:text-base">Lighting</button>
+            <button id="btn-lighting" class="tabs-item-specification text-sm lg:text-base">Headlamp</button>
             @endif
             @if($product->driver_station)
             <button id="btn-driver_station" class="tabs-item-specification text-sm lg:text-base">Driver's Seat</button>
