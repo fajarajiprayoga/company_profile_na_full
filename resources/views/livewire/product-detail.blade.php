@@ -93,7 +93,7 @@
         </div>
         <div class="bg-zinc-800">
             @if($product->interior)
-            <div id="tab-interior" class="transition-opacity grid grid-cols-1 lg:grid-cols-2 mx-1 p-3 lg:mx-20 lg:p-12 gap-4">
+            <div id="tab-interior" class="transition-opacity grid grid-cols-1 lg:grid-cols-2 mx-1 p-3 lg:mx-20 lg:p-12 ">
                 <div class="text-white text-sm flex items-center">
                     <div class="text-manipulation">
                         {!! $product->interior !!}
@@ -101,7 +101,7 @@
                 </div>
                 <div class="glide_interior">
                     <div class="overflow-hidden	glide">
-                        <div class="glide__track" data-glide-el="track">
+                        <div class="glide__track mx-20" data-glide-el="track">
                             <div class="glide__slides">
                                 @foreach($product->interior_images as $data)
                                 <div class="glide__slide">
@@ -114,6 +114,10 @@
                             @foreach($product->interior_images as $key => $data)
                                 <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
                             @endforeach
+                        </div>
+                        <div class="" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
                         </div>
                     </div>  
                 </div>
@@ -128,7 +132,7 @@
                 </div>
                 <div class="glide_exterior">
                     <div class="overflow-hidden	glide">
-                        <div class="glide__track" data-glide-el="track">
+                        <div class="glide__track mx-20" data-glide-el="track">
                             <div class="glide__slides">
                                 @foreach($product->exterior_images as $data)
                                 <div class="glide__slide">
@@ -141,6 +145,10 @@
                             @foreach($product->exterior_images as $key => $data)
                                 <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
                             @endforeach
+                        </div>
+                        <div class="" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
                         </div>
                     </div>  
                 </div>
@@ -155,7 +163,7 @@
                 </div>
                 <div class="glide_couches">
                     <div class="overflow-hidden	glide">
-                        <div class="glide__track" data-glide-el="track">
+                        <div class="glide__track mx-20" data-glide-el="track">
                             <div class="glide__slides">
                                 @foreach($product->couches_images as $data)
                                 <div class="glide__slide">
@@ -168,6 +176,10 @@
                             @foreach($product->couches_images as $key => $data)
                                 <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
                             @endforeach
+                        </div>
+                        <div class="" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
                         </div>
                     </div>  
                 </div>
@@ -182,7 +194,7 @@
                 </div>
                 <div class="glide_lighting">
                     <div class="overflow-hidden	glide">
-                        <div class="glide__track" data-glide-el="track">
+                        <div class="glide__track mx-20" data-glide-el="track">
                             <div class="glide__slides">
                                 @foreach($product->lighting_images as $data)
                                 <div class="glide__slide">
@@ -195,6 +207,10 @@
                             @foreach($product->lighting_images as $key => $data)
                                 <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
                             @endforeach
+                        </div>
+                        <div class="" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
                         </div>
                     </div>  
                 </div>
@@ -209,7 +225,7 @@
                 </div>
                 <div class="glide_driver_station">
                     <div class="overflow-hidden	glide">
-                        <div class="glide__track" data-glide-el="track">
+                        <div class="glide__track mx-20" data-glide-el="track">
                             <div class="glide__slides">
                                 @foreach($product->driver_station_images as $data)
                                 <div class="glide__slide">
@@ -222,6 +238,10 @@
                             @foreach($product->driver_station_images as $key => $data)
                                 <button class="glide__bullet" data-glide-dir="={{$key}}"></button>
                             @endforeach
+                        </div>
+                        <div class="" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
                         </div>
                     </div>  
                 </div>
