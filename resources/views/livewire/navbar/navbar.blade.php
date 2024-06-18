@@ -19,9 +19,14 @@
         <div class="hidden lg:block">
             <div class="max-w-screen-xl flex justify-between items-center md:p-4 mx-auto">
                 <div class="mx-0 md:block hidden">
-                    <a href="https://newarmada.co.id">
-                        <img src="{{asset('assets/logo/logona2.png')}}" class="w-64" alt="New Armada Logo" />
-                    </a>
+                    <div class="flex gap-3 items-center">
+                        <a href="https://newarmada.co.id">
+                            <img src="{{asset('assets/logo/logona2.png')}}" class="w-96" alt="New Armada Logo" />
+                        </a>
+                        <a href="https://newarmada.co.id">
+                            <img src="{{asset('assets/logo/logo 50 th gradasi.png')}}" class="w-[5.5rem]" alt="New Armada Logo 50th" />
+                        </a>
+                    </div>
                 </div>
                 <div class="items-center justify-center items-center hidden w-full md:flex" id="navbar-sarch">                
                     <!-- nav Menu -->
@@ -79,7 +84,7 @@
                     </ul>
                     <!-- nav Menu -->
                 </div>            
-                <div class="flex justify-end items-center w-64">
+                <div class="flex justify-end items-center w-[26rem]">
                     <!-- Search saat dekstop -->
                     <div class="relative hidden md:block">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -102,9 +107,12 @@
         </div>
         <!-- Hamburger menu saat mobile -->
         <div class="flex justify-between items-center lg:hidden w-full p-2">
-            <div class="">
+            <div class="flex gap-3 items-center">
                 <a href="https://newarmada.co.id">
                     <img src="{{asset('assets/logo/logona2.png')}}" class="w-44" alt="New Armada Logo" />
+                </a>
+                <a href="https://newarmada.co.id">
+                    <img src="{{asset('assets/logo/logo 50 th gradasi.png')}}" class="w-10" alt="New Armada Logo 50th" />
                 </a>
             </div>
             <div class="">
