@@ -306,6 +306,20 @@ h4 {
     margin-left: 2.5rem;
   }
 
+  #news-content ol {
+    margin-left: 2.5rem;
+  }
+
+  #news-content table {
+    border-collapse: collapse;
+  }
+  
+  #news-content th, #news-content td {
+    border: 2px solid black;
+    padding: 5px;
+    /* text-align: left; */
+  }
+
   .modal {
     display: none; /* Modal tidak terlihat secara default */
     position: fixed;
