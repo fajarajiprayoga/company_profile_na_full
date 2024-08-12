@@ -22,17 +22,17 @@
                     <div class="w-full p-0 lg:p-1">
                         <input wire:model.live="search" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 mb-3 lg:mb-6" placeholder="Search jobs">
                     </div>
-                    <div class="w-full lg:w-96 p-0 lg:p-1">
+                    <div class="w-full lg:w-80 p-0 lg:p-1">
                         <select wire:model.live="search_plant" id="default" class="bg-gray-50 border border-gray-300 text-gray-900 mb-3 lg:mb-6 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5">
-                            <option value="">Select Plant</option>
+                            <option value="">Select Job Plant</option>
                             @foreach($plants as $plant)
                                 <option value="{{$plant->id}}">{{$plant->name}}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="w-full lg:w-72 p-0 lg:p-1">
+                    <div class="w-full lg:w-80 p-0 lg:p-1">
                         <select wire:model.live="search_type" id="default" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5">
-                            <option value="">Select Type</option>
+                            <option value="">Select Job Type</option>
                             <option value="support">Support</option>
                             <option value="staff">Staff</option>
                             <option value="leader">Leader</option>
