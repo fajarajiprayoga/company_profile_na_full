@@ -14,7 +14,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
     @if ($paginator->hasPages())
         <nav role="navigation" aria-label="Pagination Navigation" class="">
 
-            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+            <div class="sm:flex-1 sm:flex sm:items-center sm:justify-between">
                 <div>
                     <p class="text-sm text-gray-700 leading-5">
                         <span>{!! __('Showing') !!}</span>

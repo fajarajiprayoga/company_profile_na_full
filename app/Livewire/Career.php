@@ -28,7 +28,7 @@ class Career extends Component
         ->where('type', 'LIKE' ,'%'.$this->search_type.'%')
         ->where('plant_id', 'LIKE', '%'.$this->search_plant.'%')
         ->orderByRaw("FIELD(type, 'staff', 'supervisor', 'manager', 'leader', 'support')")
-        ->paginate(10);
+        ->paginate(1);
         $plants = Plant::all();
         $footer = Footer::first();
         return view('livewire.career',[
