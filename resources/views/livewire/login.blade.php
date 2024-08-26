@@ -27,7 +27,7 @@
                                 Login
                             </span>
                         </button>
-                        <div class="flex items-center my-2">
+                        {{-- <div class="flex items-center my-2">
                             <div class="flex-grow border-b border-gray-400"></div>
                             <span class="mx-4 text-gray-600">or</span>
                             <div class="flex-grow border-b border-gray-400"></div>
@@ -39,7 +39,7 @@
                                 </svg>                            
                                 Login with Google
                             </div>
-                        </a>
+                        </a> --}}
                     </div>
                     <div class="text-center">
                         <span class="text-sm">By continuing you accept pur <a class="text-primary-800" href="http://newarmada.co.id/privacy-policy">Privacy Policy</a> and <a class="text-primary-800" href="http://newarmada.co.id/terms-conditions">Terms and Conditions</a></span>
