@@ -80,7 +80,8 @@ class Login extends Component
                             'response' => $response
                         ]);
 
-                        return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
+                        // return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
+                        throw new \Exception('Send email OTP from internal server is error');
                     }
                 } catch (\Throwable $th) {
                     try {
