@@ -13,6 +13,7 @@ use Usernotnull\Toast\Concerns\WireToast;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Log;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -75,6 +76,10 @@ class Login extends Component
                     if($res->status == 200){
                         $this->redirectRoute('otp', ['email' => Crypt::encrypt($this->loginForm->email)]);
                     }else {
+                        Log::error('Send email otp from internal server is error', [
+                            'response' => $response
+                        ]);
+
                         return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
                     }
                 } catch (\Throwable $th) {
@@ -83,6 +88,9 @@ class Login extends Component
 
                         $this->redirectRoute('otp', ['email' => Crypt::encrypt($user->email)]);                
                     } catch (\Throwable $th) {
+                        Log::error('Send email otp from this server is error', [
+                            'response' => $th
+                        ]);
                         return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [01]');
                     }
                 }
