@@ -44,8 +44,8 @@ class Login extends Component
             $user = User::where('email', $this->loginForm->email)->first();
             $user->otp = $otp_code;
             $user->otp_expired = $exp_otp_code;
-            $user->update();            
-
+            $user->update(); 
+            
             try {
                 Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
 
@@ -56,55 +56,6 @@ class Login extends Component
                 ]);
                 return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [01]');
             }
-                // try {
-                //     $ip = "36.91.11.21";
-                //     // $ip = "10.30.20.120";
-                //     $url = "http://$ip/~wipapps/notifikasi_pembayaran_surat/frontend/web/index.php?r=otp/otp";
-
-                //     $data = array(
-                //         'email' => $user->email,
-                //         'username' => $user->name,
-                //         'otp' => $otp_code,
-                //         'key' => 'madajaya',
-                //         'app_name' => 'New Armada'
-                //     );
-
-                //     $ch = curl_init();
-
-                //     curl_setopt($ch, CURLOPT_URL, $url);
-                //     curl_setopt($ch, CURLOPT_POST, 1);
-                //     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-                //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-                //     $response = curl_exec($ch);
-                //     if(curl_errno($ch)){
-                //         return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division. Err Code [02]');
-                //     }
-
-                //     curl_close($ch);
-                //     $res = json_decode($response);
-                //     if($res->status == 200){
-                //         $this->redirectRoute('otp', ['email' => Crypt::encrypt($this->loginForm->email)]);
-                //     }else {
-                //         Log::error('Send email otp from internal server is error', [
-                //             'response' => $response
-                //         ]);
-
-                //         // return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [03]');
-                //         throw new \Exception('Send email OTP from internal server is error');
-                //     }
-                // } catch (\Throwable $th) {
-                //     try {
-                //         Mail::to($user->email)->send(new OtpMail($otp_code, $user->name));
-
-                //         $this->redirectRoute('otp', ['email' => Crypt::encrypt($user->email)]);                
-                //     } catch (\Throwable $th) {
-                //         Log::error('Send email otp from this server is error', [
-                //             'response' => $th
-                //         ]);
-                //         return redirect()->route('login')->with('failed', 'Login failed, email server error. Please contact IT Division . Err Code [01]');
-                //     }
-                // }
         }else {
             return redirect()->route('login')->with('failed', 'Login failed, pleas try again');
         }

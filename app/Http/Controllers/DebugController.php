@@ -42,7 +42,22 @@ class DebugController extends Controller
         $senderEmail = 'official1_admin@newarmada.co.id';
         $senderName = 'Debug SMTP Mail';
         $mail->setFrom($senderEmail, $senderName);
-        $mail->addAddress('fajar.prayoga@students.amikom.ac.id', 'Faja Aji Prayoga');
+        
+        $recipients = [
+            [
+                'email' => 'fajar.aji.prayoga@newarmada.co.id',
+                'name' => 'Fajar Aji Prayoga'
+            ],
+            [
+                'email' => 'itmekararmadajaya@gmail.com',
+                'name' => 'Fajar Aji Prayoga'
+            ],
+        ];
+        
+        foreach($recipients as $recipient){
+            $mail->addAddress($recipient['email'], $recipient['name']);
+        }
+        
         //Content
 		$mail->isHTML(true);
 		$mail->Subject = 'Debug SMPT Mail';

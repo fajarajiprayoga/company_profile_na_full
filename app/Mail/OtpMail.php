@@ -28,7 +28,7 @@ class OtpMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('admin@gmail.com', 'Admin New Armada'),
+            from: new Address('official1_admin@newarmada.co.id', 'Admin New Armada'),
             subject: 'Otp Mail',
         );
     }
