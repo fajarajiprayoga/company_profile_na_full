@@ -184,7 +184,8 @@
         </div> --}}
         {{-- Product Mobile --}}
     {{-- </div> --}}
-
+    <livewire:instagram-post />
+    
     <livewire:gallery />
     {{-- Stamping Web --}}
     @if (!empty($about_stamping) && !empty($stampingProductTypes))
@@ -404,7 +405,6 @@
             // var glide_product_mobile = new Glide('.glide_product_mobile .glide', {
             //     type: 'slider',
             // }).mount()
-
 
         </script>
     @endpush

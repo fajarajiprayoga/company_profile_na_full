@@ -53,7 +53,7 @@ class MapsPolicy
      */
     public function restore(User $user, Maps $maps): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -61,6 +61,6 @@ class MapsPolicy
      */
     public function forceDelete(User $user, Maps $maps): bool
     {
-        //
+        return false;
     }
 }
