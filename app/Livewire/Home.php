@@ -41,9 +41,7 @@ class Home extends Component
     }
 
     public function getAboutStamping(){
-        // $ip = '10.30.20.120';
-        $ip = '36.91.11.21';
-        $apiUrl = "http://$ip/service-api-php7/public/api/get-about";
+        $apiUrl = "https://stamping.newarmada.co.id/api/about";
         $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
 
         $response = Http::accept('application/json')->withHeaders([
@@ -62,7 +60,7 @@ class Home extends Component
     public function getProductTypeStamping(){
         // $ip = '10.30.20.120';
         $ip = '36.91.11.21';
-        $apiUrl = "http://$ip/service-api-php7/public/api/get-product-type";
+        $apiUrl = "https://stamping.newarmada.co.id/api/product-type";
         $apiKey = "PtZaSobjwoxSxd3pTgIpxJ9jiiHRy2PWEWocHqWbVjOOB2oRcQuVG9YwsI0uDOZthAOxCJezKNbqrnWTx1V4yAsEOjt7LcSfefYapmFsQa7zfK0Eu38snYJb1BqzrH41JvRGcvs584f8xvsNibu2dcU0yyTgFb4r";
 
         $response = Http::accept('application/json')->withHeaders([
