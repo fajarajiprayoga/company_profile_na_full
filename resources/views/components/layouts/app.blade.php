@@ -65,6 +65,16 @@ use Illuminate\Support\Facades\Route;
                 font-family: 'Poppins', sans-serif;
             }
         </style>
+
+        <!-- Google tag (gtag.js) For Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEK482DDGR"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FEK482DDGR');
+        </script>
     </head>
     <body>
         {{ $slot }}
