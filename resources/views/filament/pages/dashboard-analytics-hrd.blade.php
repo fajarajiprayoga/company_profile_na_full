@@ -147,7 +147,11 @@
                                         </th>
                                         <th scope="col" class="px-3 py-2">
                                             <div class="text-center">
-                                                {{round(($careerDatas->sum('clickApplyButton') / $careerDatas->sum('screenPageViews')) * 100,2)}}
+                                                @if ($careerDatas->sum('clickApplyButton') != 0)
+                                                    {{round(($careerDatas->sum('clickApplyButton') / $careerDatas->sum('screenPageViews')) * 100,2)}}
+                                                @else
+                                                    0
+                                                @endif
                                             </div>
                                         </th>
                                         <th scope="col" class="px-3 py-2">

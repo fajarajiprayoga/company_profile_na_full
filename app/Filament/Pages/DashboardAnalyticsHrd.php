@@ -142,7 +142,7 @@ class DashboardAnalyticsHrd extends Page implements HasForms
                 'pagePath' => $path,
                 'screenPageViews' => $dataGroup->sum('screenPageViews'),
                 'clickApplyButton' => $dataClick ?? 0,
-                'percent_by_views_vs_click' => round((($dataClick ?? 0) / $dataGroup->sum('screenPageViews')) * 100, 2)
+                'percent_by_views_vs_click' => $dataClick != 0 ? round(($dataClick / $dataGroup->sum('screenPageViews')) * 100, 2) : 0
             ];
         })->values();
 
@@ -340,7 +340,7 @@ class DashboardAnalyticsHrd extends Page implements HasForms
                 return Excel::download(new VisitorsByRegionExport($this->viewerByRegion), "Report Visitors By Region $start_date to $end_date.xlsx");
                 break;
             default:
-                dd("Default");
+                break;
         }
     }
 }
