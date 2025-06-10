@@ -23,7 +23,7 @@
                             <span class="text-2xl lg:text-3xl">{{$job->title}}</span>
                         </div>
                         <div class="hidden lg:block">
-                            <a target="_blank" href="{{$job->link}}" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 pointer">Apply</a>
+                            <a id="btn-apply-desktop" target="_blank" href="{{$job->link}}" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 pointer">Apply</a>
                         </div>
                     </div>
                     <div class="flex gap-3 my-2 text-sm">
@@ -64,7 +64,9 @@
                     </div>
                 </div>
                 <div class="my-5 flex lg:hidden">
-                    <a target="_blank" href="{{$job->link}}" class="w-full text-center text-white bg-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 ">Apply</a>
+                    <a id="btn-apply-mobile" target="_blank" href="{{$job->link}}" class="w-full text-center text-white bg-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 ">
+                        Apply
+                    </a>
                 </div>
                 @else
                 <span>Vacancy not found, please search on the </span> <a href="{{route('career')}}" class="italic text-blue-800">career</a> <span> page.</span>
@@ -74,3 +76,49 @@
     </div>
     <livewire:footer.footer />
 </div>
+
+
+@push('scripts')
+        <script>
+            window.onload = function() {
+                var label = "/career/{{ $job->slug }}/{{ strtolower($job->plant->name) }}";
+                
+
+                var btnDesktop = document.getElementById('btn-apply-desktop');
+                if (btnDesktop) {
+                    btnDesktop.addEventListener('click', function() {
+                        event.preventDefault();
+                        
+                        // Kirim event Google Analytics
+                        gtag('event', 'click_apply_button', {
+                            event_category: 'Career',
+                            event_label: label,
+                            value: 1
+                        });
+
+                        setTimeout(function() {
+                            window.open(btnDesktop.href, '_blank');
+                        }, 300);
+                    });
+                }
+
+                var btnMobile = document.getElementById('btn-apply-mobile');
+                if (btnMobile) {
+                    btnMobile.addEventListener('click', function() {
+                        event.preventDefault();
+                        
+                        // Kirim event Google Analytics
+                        gtag('event', 'click_apply_button', {
+                            event_category: 'Career',
+                            event_label: label,
+                            value: 1
+                        });
+
+                        setTimeout(function() {
+                            window.open(btnMobile.href, '_blank');
+                        }, 300);
+                    });
+                }
+            };
+        </script>
+@endpush

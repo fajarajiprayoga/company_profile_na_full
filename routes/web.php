@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Mail;
+use Spatie\Analytics\Facades\Analytics;
+use Spatie\Analytics\Period;
 
 /*
 |--------------------------------------------------------------------------
@@ -134,3 +136,11 @@ Route::get('/auth/google/callback', function () {
         return redirect()->route('login')->with('failed', 'Login failed, pleas try again');
     }
 })->name('auth-google-callback');
+
+/**
+ * Google Analytics
+ */
+Route::get('/analytics', function() {
+    $visitors = Analytics::fetchTotalVisitorsAndPageViews(Period::days(7));
+    dd($visitors);
+});

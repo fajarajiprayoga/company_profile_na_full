@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "bezhansalleh/filament-google-analytics": "^2.1",
         "filament/filament": "^3.1",
         "flowframe/laravel-trend": "^0.1.5",
         "guzzlehttp/guzzle": "^7.2",
@@ -17,9 +18,11 @@
         "laravel/socialite": "^5.13",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.3",
+        "maatwebsite/excel": "^3.1",
         "mohamedsabil83/filament-forms-tinyeditor": "^2.3",
         "phpmailer/phpmailer": "^6.9",
         "pxlrbt/filament-excel": "^2.3",
+        "spatie/laravel-analytics": "5.4",
         "spatie/laravel-permission": "^6.3",
         "usernotnull/tall-toasts": "^2.0"
     },

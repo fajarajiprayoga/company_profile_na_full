@@ -1,7 +1,7 @@
 <div>
 <footer class="p-4 sm:p-6" style="background-color: #031843">
     <div class="mx-auto max-w-screen-xl">
-        <div class="md:flex md:justify-between">
+        <div class="md:flex md:gap-24">
             <div class="mb-6 md:mb-0">
                 <a href="https://newarmada.co.id" class="flex items-center">
                     <img src="{{asset('assets/logo/logona2.png')}}" class="mr-3 h-8" alt="https://newarmada.co.id" />
@@ -12,7 +12,7 @@
                     @endif
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-1 sm:gap-1 sm:grid-cols-3 text-sm lg:text-base">
+            <div class="grid grid-cols-2 gap-1 sm:gap-1 sm:grid-cols-2 text-sm lg:text-base">
                 <div>
                     <h2 class="mb-6 text-sm font-semibold uppercase text-white">Follow Us</h2>
                     <ul class="text-gray-400 list-none">
@@ -33,7 +33,7 @@
                         </li>
                     </ul>
                 </div>
-                <div>
+                {{-- <div>
                     <h2 class="mb-6 text-sm font-semibold uppercase text-white">Online Services</h2>
                     <ul class="text-gray-400 list-none">
                         <li class="mb-4">
@@ -43,7 +43,7 @@
                             <a href="{{!empty($footer->tokopedia_url) ? '#' : '#'}}" class="hover:underline font-medium" style="font-size: 15px;">Tokopedia</a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
                 <div class="pt-5 sm:pt-0">
                     <h2 class="mb-6 text-sm font-semibold uppercase text-white">Contact</h2>
                     <ul class="text-gray-400 list-none">
