@@ -186,14 +186,18 @@
                         <div style="margin-right: 10px;">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500" style="table-layout: fixed;">
                                 <colgroup>
-                                    <col style="width: 60%;">
-                                    <col style="width: 20%;">
-                                    <col style="width: 20%;">
+                                    <col style="width: 40%;">
+                                    <col style="width: 30%;">
+                                    <col style="width: 15%;">
+                                    <col style="width: 15%;">
                                 </colgroup>
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                     <tr>
                                         <th scope="col" class="px-3 py-2">
                                             Region
+                                        </th>
+                                        <th scope="col" class="px-3 py-2">
+                                            Country
                                         </th>
                                         <th scope="col" class="px-3 py-2">
                                             <div class="text-center">
@@ -212,15 +216,19 @@
                         <div style="max-height: 270px;" class="overflow-y-auto">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500" style="table-layout: fixed;">
                                 <colgroup>
-                                    <col style="width: 60%;">
-                                    <col style="width: 20%;">
-                                    <col style="width: 20%;">
+                                    <col style="width: 40%;">
+                                    <col style="width: 30%;">
+                                    <col style="width: 15%;">
+                                    <col style="width: 15%;">
                                 </colgroup>
                                 <tbody>
                                     @foreach ($viewerByRegion as $region)
                                         <tr class="bg-white border-b border-gray-200">
                                             <th scope="row" class="px-3 py-2 font-medium text-gray-900">
                                                 {{$region['region']}}
+                                            </th>
+                                            <th scope="row" class="px-3 py-2 font-medium text-gray-900">
+                                                {{$region['country']}}
                                             </th>
                                             <td class="px-3 py-2">
                                                 <x-filament::badge class="tabular-nums shrink-0" size="xs">
@@ -240,14 +248,18 @@
                         <div style="margin-right: 10px;">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500" style="table-layout: fixed;">
                                 <colgroup>
-                                    <col style="width: 60%;">
-                                    <col style="width: 20%;">
-                                    <col style="width: 20%;">
+                                    <col style="width: 40%;">
+                                    <col style="width: 30%;">
+                                    <col style="width: 15%;">
+                                    <col style="width: 15%;">
                                 </colgroup>
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                     <tr>
                                         <th scope="col" class="px-3 py-2">
                                             Summary
+                                        </th>
+                                        <th scope="col" class="px-3 py-2">
+                                            
                                         </th>
                                         <th scope="col" class="px-3 py-2">
                                             <div class="text-center">

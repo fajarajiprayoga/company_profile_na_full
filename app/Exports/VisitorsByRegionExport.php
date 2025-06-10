@@ -25,6 +25,7 @@ class VisitorsByRegionExport implements FromCollection, WithMapping, WithHeading
     public function map($data): array {
         return [
             $data['region'],
+            $data['country'],
             $data['screenPageViews'],
             gmdate('i:s', (int) $data['averageSessionDuration'])
         ];
@@ -34,6 +35,7 @@ class VisitorsByRegionExport implements FromCollection, WithMapping, WithHeading
     {
         return [
             'Region',
+            'Country',
             'screenPageViews',
             'averageSessionDuration'
         ];

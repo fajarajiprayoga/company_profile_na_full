@@ -237,15 +237,15 @@ class DashboardAnalyticsHrd extends Page implements HasForms
                                 ]),
                             ]),
                         ]),
-                        new FilterExpression([
-                            'filter' => new Filter([
-                                'field_name' => 'country',
-                                'string_filter' => new StringFilter([
-                                    'match_type' => StringFilter\MatchType::CONTAINS,
-                                    'value' => 'Indonesia',
-                                ]),
-                            ]),
-                        ]),
+                        // new FilterExpression([
+                        //     'filter' => new Filter([
+                        //         'field_name' => 'country',
+                        //         'string_filter' => new StringFilter([
+                        //             'match_type' => StringFilter\MatchType::CONTAINS,
+                        //             'value' => 'Indonesia',
+                        //         ]),
+                        //     ]),
+                        // ]),
                     ],
                 ]),
             ]),
