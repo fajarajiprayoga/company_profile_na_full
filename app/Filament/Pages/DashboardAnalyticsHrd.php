@@ -324,6 +324,7 @@ class DashboardAnalyticsHrd extends Page implements HasForms
      */
     public function generate(){
         $this->careerDatas = $this->getDataCareerView($this->start_date,$this->end_date);
+        $this->viewerByRegion = $this->getDataByCity($this->start_date,$this->end_date);
     }
 
     /**
